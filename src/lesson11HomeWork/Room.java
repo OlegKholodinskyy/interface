@@ -50,4 +50,16 @@ public class Room {
     public void setDateAviableFrom(Date dateAviableFrom) {
         this.dateAviableFrom = dateAviableFrom;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", price=" + price +
+                ", persons=" + persons +
+                ", dateAviableFrom=" + dateAviableFrom +
+                ", hotelName='" + hotelName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                '}';
+    }
 }
