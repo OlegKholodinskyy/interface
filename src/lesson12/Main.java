@@ -43,7 +43,7 @@ public class Main {
         main.transferMoney(user2, user5,1_000, bankSystem);
         main.transferMoney(user3, user1,108_000, bankSystem);
         main.transferMoney(user4, user2,1, bankSystem);
-        main.transferMoney(user5, user5,25, bankSystem);
+        main.transferMoney(user5, user1,25, bankSystem);
         main.transferMoney(user6, user4,10, bankSystem);
         main.sleep(300);
         System.out.println("+++++++++++++Salary+++++++++++++++++");
