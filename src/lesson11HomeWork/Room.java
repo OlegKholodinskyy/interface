@@ -7,15 +7,15 @@ public class Room {
     private long id;
     private int price;
     private int persons;
-    private Date dateAviableFrom;
+    private Date dateAvailableFrom;
     private String hotelName;
     private String cityName;
 
-    public Room(long id, int price, int persons, Date dateAviableFrom, String hotelName, String cityName) {
+    public Room(long id, int price, int persons, Date dateAvailableFrom, String hotelName, String cityName) {
         this.id = id;
         this.price = price;
         this.persons = persons;
-        this.dateAviableFrom = dateAviableFrom;
+        this.dateAvailableFrom = dateAvailableFrom;
         this.hotelName = hotelName;
         this.cityName = cityName;
     }
@@ -33,7 +33,7 @@ public class Room {
     }
 
     public Date getDateAvailableFrom() {
-        return dateAviableFrom;
+        return dateAvailableFrom;
     }
 
     public String getHotelName() {
@@ -49,7 +49,7 @@ public class Room {
     }
 
     public void setDateAvailableFrom(Date dateAviableFrom) {
-        this.dateAviableFrom = dateAviableFrom;
+        this.dateAvailableFrom = dateAviableFrom;
     }
 
     @Override
@@ -73,9 +73,9 @@ public class Room {
     public String toString() {
         return "Room{" +
                 "id=" + id +
-                ", price=" + price +
-                ", persons=" + persons +
-                ", dateAviableFrom=" + dateAviableFrom +
+                ", price= " + price +
+                ", persons= " + persons +
+                ", dateAvailableFrom= " + dateAvailableFrom +
                 ", hotelName='" + hotelName + '\'' +
                 ", cityName='" + cityName + '\'' +
                 '}';
