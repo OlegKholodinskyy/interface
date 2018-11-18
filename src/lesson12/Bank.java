@@ -22,7 +22,7 @@ public abstract class Bank {
     public abstract int getLimitOfWithdrawal();
     public abstract int getLimitOfFunding();
     public abstract double getMonthlyRate();
-    public abstract double getCommision(int amount);
+    public abstract double getCommission(int amount);
     public double moneyPaidMonthlyForSalary() {
         return numberOfEmployees*avrSalaryOfEmployee;
     }

@@ -30,7 +30,7 @@ public class USBank extends Bank {
     }
 
     @Override
-    public double getCommision(int amount) {
+    public double getCommission(int amount) {
         if (getCurrency() == Currency.USD) {
             if (amount <= 1000)
                 return 0.05;
