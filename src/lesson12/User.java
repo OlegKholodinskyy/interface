@@ -50,6 +50,26 @@ public class User {
         this.bank = bank;
     }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setMonthOfEmpoyment(int monthOfEmpoyment) {
+        this.monthOfEmpoyment = monthOfEmpoyment;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
     @Override
     public String toString() {
         return "User{" +
