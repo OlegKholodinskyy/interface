@@ -23,7 +23,7 @@ public class Demo {
 
         System.out.println("+++++++++ controller.requestRooms +++++++++++++++++");
         System.out.println();
-        Room[] requestRooms = controller.requestRooms(300, 3, "Ternopil","Ukraina");
+        Room[] requestRooms = controller.requestRooms(600, 5, "Dnipro","Ukraina");
 
         for (Room room : requestRooms) {
             System.out.println(room);
