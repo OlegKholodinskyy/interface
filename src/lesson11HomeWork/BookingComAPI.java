@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class BookingComAPI implements API {
     Room[] rooms;
 
+    public BookingComAPI() {
+    }
+
     public BookingComAPI(Room[] rooms) {
         this.rooms = rooms;
     }

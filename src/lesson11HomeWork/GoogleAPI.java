@@ -6,8 +6,12 @@ public class GoogleAPI implements API {
 
     Room[] rooms;
 
+    public GoogleAPI() {
+    }
+
     public GoogleAPI(Room[] rooms) {
         this.rooms = rooms;
+
     }
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {

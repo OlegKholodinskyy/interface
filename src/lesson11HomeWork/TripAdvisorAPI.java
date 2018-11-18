@@ -5,7 +5,11 @@ import java.util.ArrayList;
 public class TripAdvisorAPI implements API{
     Room[] rooms;
 
+    public TripAdvisorAPI() {
+    }
+
     public TripAdvisorAPI(Room[] rooms) {
+
         this.rooms = rooms;
     }
 

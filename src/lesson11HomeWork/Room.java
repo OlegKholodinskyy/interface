@@ -32,7 +32,7 @@ public class Room {
         return persons;
     }
 
-    public Date getDateAviableFrom() {
+    public Date getDateAvailableFrom() {
         return dateAviableFrom;
     }
 
@@ -48,7 +48,7 @@ public class Room {
         this.price = price;
     }
 
-    public void setDateAviableFrom(Date dateAviableFrom) {
+    public void setDateAvailableFrom(Date dateAviableFrom) {
         this.dateAviableFrom = dateAviableFrom;
     }
 
