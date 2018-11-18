@@ -13,15 +13,15 @@ public class Controller {
 
     public Room[] requestRooms(int price, int persons, String city, String hotel) {
 
-        Set<Room> setRooms = new HashSet();
+        ArrayList<Room> listRooms = new ArrayList<>();
         for (API api : apis) {
             Room[] rooms = api.findRooms(price, persons, city, hotel);
             for (Room room : rooms) {
-                setRooms.add(room);
+                listRooms.add(room);
             }
         }
-        Room[] rooms = new Room[setRooms.size()];
-        return setRooms.toArray(rooms);
+        Room[] rooms = new Room[listRooms.size()];
+        return listRooms.toArray(rooms);
     }
 
     public Room[] check(API api1, API api2) {
