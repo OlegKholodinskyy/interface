@@ -13,8 +13,8 @@ public class Demo {
 
         Room[] rooms = new Room[]{room1, room2, room3, room4, room5, room6};
 
-        API apiBookingComAPI = new BookingComAPI(rooms);
-        API apiTripAdvisorAPI = new TripAdvisorAPI(rooms);
+        API apiBookingComAPI = new BookingComAPI(new Room[]{room1, room2, room3, room4});
+        API apiTripAdvisorAPI = new TripAdvisorAPI(new Room[]{room1, room5, room6});
         API apiGoogleAPI = new GoogleAPI(rooms);
 
         API[] apis = new API[]{apiBookingComAPI, apiGoogleAPI, apiTripAdvisorAPI};
@@ -23,7 +23,7 @@ public class Demo {
 
         System.out.println("+++++++++ controller.requestRooms +++++++++++++++++");
         System.out.println();
-        Room[] requestRooms = controller.requestRooms(300, 2, "Ternopil","Ukraina");
+        Room[] requestRooms = controller.requestRooms(300, 3, "Ternopil","Ukraina");
 
         for (Room room : requestRooms) {
             System.out.println(room);

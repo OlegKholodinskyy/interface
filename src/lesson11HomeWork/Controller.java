@@ -30,10 +30,10 @@ public class Controller {
         Room[] resRoomAPI2 = api2.getAll();
 
         int index= 0;
-        for (int i = 0; i<resRoomAPI1.length; i++){
-            for (int j =0; j<resRoomAPI2.length; j++){
-                if (resRoomAPI1[j].equals(resRoomAPI2[i]) &&  !resultRoomList.contains(resRoomAPI1[j])){
-                    resultRoomList.add(resRoomAPI1[j]);
+        for (Room room1 : resRoomAPI1){
+            for (Room room2 : resRoomAPI2){
+                if (room1.equals(room2) &&  !resultRoomList.contains(room1)){
+                    resultRoomList.add(room1);
                 }
             }
         }
