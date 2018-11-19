@@ -7,8 +7,8 @@ public class Solution {
         String str2 = " Hello ";
         String str3 = "";
 
-//        System.out.println(countWords(str1));
-//        System.out.println(countWords(str2));
+        System.out.println(countWords(str1));
+        System.out.println(countWords(str2));
         System.out.println(countWords(str3));
 
 
@@ -20,15 +20,17 @@ public class Solution {
         String[] arraySeparatedWords;
         int res = 0;
 
-        if (!(countingSpaces(chars) == -1)) {
+        if (input.isEmpty()){
+            return 0;
+        }
+
+        if (!(countingSpaces(chars) == 0)) {
             arraySeparatedWords = new String[countingSpaces(chars) + 1];
             makeArrayWords(chars, arraySeparatedWords);
             res = countingSeparatedWords(arraySeparatedWords);
             return res;
-        } else {
-            System.out.println(" empty ");
         }
-        return 0;
+        return 1;
     }
 
     private static void makeArrayWords(char[] chars, String[] arraySeparatedWords) {
@@ -60,7 +62,7 @@ public class Solution {
     }
 
     public static int countingSpaces(char[] chars) {
-        if (!chars.equals(null)) {
+
             int countOfSpace = 0;
             for (char i : chars) {
                 if (i == ' ') {
@@ -68,7 +70,6 @@ public class Solution {
                 }
             }
             return countOfSpace;
-        }
-        return -1;
+
     }
 }
