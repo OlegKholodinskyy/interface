@@ -3,17 +3,11 @@ package lesson12;
 public class UkrainianBankSystem implements BankSystem {
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        if (!checkWithdraw(fromUser, amount) || !checkFund(toUser, amount)) {
+        if (!checkWithdraw(fromUser, amount) || !checkFund(toUser, amount) || !fromUser.getBank().getCurrency().equals(toUser.getBank().getCurrency())) {
             return;
         }
-        if (fromUser.getBank().getCurrency().equals(toUser.getBank().getCurrency())) {
             fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
             toUser.setBalance(toUser.getBalance() + amount);
-        } else
-        {
-            System.out.println("Users has different type of curencies");
-            return;
-        }
     }
 
 
