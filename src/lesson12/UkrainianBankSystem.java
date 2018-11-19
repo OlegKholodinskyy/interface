@@ -1,6 +1,29 @@
 package lesson12;
 
 public class UkrainianBankSystem implements BankSystem {
+    @Override
+    public void transferMoney(User fromUser, User toUser, int amount) {
+        if (!checkWithdraw(fromUser, amount) || !checkFund(toUser, amount)) {
+            return;
+        }
+        if (fromUser.getBank().getCurrency().equals(toUser.getBank().getCurrency())) {
+            fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+            toUser.setBalance(toUser.getBalance() + amount);
+        } else
+        {
+            System.out.println("Users has different type of curencies");
+            return;
+        }
+    }
+
+
+    private boolean checkWithdrawLimits(User user, int amount, double limit) {
+        if (amount + user.getBank().getCommission(amount) > limit) {
+            printWithdrawalErrorMsg(amount, user);
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public void fund(User user, int amount) {
@@ -16,15 +39,6 @@ public class UkrainianBankSystem implements BankSystem {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public void transferMoney(User fromUser, User toUser, int amount) {
-        if (!checkWithdraw(fromUser, amount) || !checkFund(toUser, amount)){
-            return;
-        }
-        fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
-        toUser.setBalance(toUser.getBalance() + amount);
     }
 
     @Override
@@ -47,14 +61,6 @@ public class UkrainianBankSystem implements BankSystem {
     private boolean checkWithdraw(User user, int amount) {
         return checkWithdrawLimits(user, amount, user.getBank().getLimitOfWithdrawal()) &&
                 checkWithdrawLimits(user, amount, user.getBalance());
-    }
-
-    private boolean checkWithdrawLimits(User user, int amount, double limit) {
-        if (amount + user.getBank().getCommission(amount) > limit) {
-            printWithdrawalErrorMsg(amount, user);
-            return false;
-        }
-        return true;
     }
 
     private void printWithdrawalErrorMsg(int amount, User user) {
