@@ -3,40 +3,47 @@ package lesson17;
 public class Solution {
 
     public static void main(String[] args) {
-        String str1 = "He rf ";
-        String str2 = "     ";
-        String str3 = " f  ";
-        String str4 = null;
+        String[] str = new String[]{
+                "fefge",
+                "  j  ",
+                "   dscs csd  c423r e   ",
+                "e e e r   ",
+                "fff           d   ",
+                null};
 
-
-        System.out.println(countWords(str1));
-        System.out.println(countWords(str2));
-        System.out.println(countWords(str3));
-        System.out.println(countWords(str4));
+        for (String test : str)
+            System.out.printf("%-30s contain %d word(s) %n", test, countWords(test) );
     }
 
     public static int countWords(String input) {
 
+        int result;
+
         if (input == null || input.trim().isEmpty()) {
             return 0;
+        } else {
+            char[] chars = input.toCharArray();
+            int first = firstNotSpaceCharIndex(chars);
+            result = conutingWords(first, chars);
+            return result;
         }
+    }
 
-        char[] chars = input.toCharArray();
-        int res = 1;
-        int first = 0;
-        int end = 0;
-
-        while (chars[first] == ' ') {
-            first++;
+    private static int firstNotSpaceCharIndex(char[] chars) {
+        int i = 0;
+        while (chars[i] == ' ') {
+            i++;
         }
-//        System.out.println("first = " + first);
+        return i;
+    }
 
+    private static int conutingWords(int first, char[] chars) {
+        int count = 1;
         for (int i = first + 1; i < chars.length; i++) {
             if (chars[i - 1] == ' ' && chars[i] != ' ') {
-                res++;
+                count++;
             }
         }
-
-        return res;
+        return count;
     }
 }
