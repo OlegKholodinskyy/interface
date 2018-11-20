@@ -21,7 +21,7 @@ public class Main {
         User user6 = new User(1006, "Mun", 0, 0, "HVN", 300, chinaBank);
 
         BankSystem bankSystem = new UkrainianBankSystem();
-
+/**
         System.out.println("++++++++++++++ Withdraw ++++++++++++++");
         main.withdraw(user1, 150, bankSystem);
         main.withdraw(user2, 10_000, bankSystem);
@@ -41,7 +41,9 @@ public class Main {
         System.out.println("++++++++++++++ Transfer +++++++++++++++++++");
         main.transferMoney(user1, user6, 102_500, bankSystem);
         main.transferMoney(user2, user5,1_000, bankSystem);
-        main.transferMoney(user3, user1,108_000, bankSystem);
+ */
+        main.transferMoney(user3, user5,10, bankSystem);
+        /**
         main.transferMoney(user4, user2,1, bankSystem);
         main.transferMoney(user5, user1,25, bankSystem);
         main.transferMoney(user6, user4,10, bankSystem);
@@ -53,6 +55,7 @@ public class Main {
         main.paySalary(user4,bankSystem);
         main.paySalary(user5,bankSystem);
         main.paySalary(user6,bankSystem);
+*/
     }
 
     private void paySalary(User user, BankSystem bankSystem){
