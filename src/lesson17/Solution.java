@@ -4,9 +4,10 @@ public class Solution {
 
     public static void main(String[] args) {
         String str1 = "Hello 3 word";
-        String str2 = " Hello dfgdfh ff f ";
+        String str2 = "     ";
         String str3 = "  f";
         String str4 = null;
+
 
         System.out.println(countWords(str1));
         System.out.println(countWords(str2));
