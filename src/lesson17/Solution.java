@@ -17,7 +17,7 @@ public class Solution {
 
     public static int countWords(String input) {
 
-        if (input==null || input.isEmpty()) {
+        if (input==null || input.trim().isEmpty()) {
             return 0;
         }
 
@@ -52,7 +52,7 @@ public class Solution {
     }
 
 
-    public static int countingSeparatedWords(String[] arraySeparatedWords) {
+    private static int countingSeparatedWords(String[] arraySeparatedWords) {
         int res = 0;
         for (String word : arraySeparatedWords) {
             if (!word.isEmpty())
@@ -61,7 +61,7 @@ public class Solution {
         return res;
     }
 
-    public static int countingSpaces(char[] chars) {
+    private static int countingSpaces(char[] chars) {
 
         int countOfSpace = 0;
         for (char i : chars) {
