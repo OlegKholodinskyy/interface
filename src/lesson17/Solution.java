@@ -3,9 +3,9 @@ package lesson17;
 public class Solution {
 
     public static void main(String[] args) {
-        String str1 = "Hello 3 word";
+        String str1 = "He rf ";
         String str2 = "     ";
-        String str3 = "  f";
+        String str3 = " f  ";
         String str4 = null;
 
 
@@ -17,58 +17,26 @@ public class Solution {
 
     public static int countWords(String input) {
 
-        if (input==null || input.trim().isEmpty()) {
+        if (input == null || input.trim().isEmpty()) {
             return 0;
         }
 
         char[] chars = input.toCharArray();
-        String[] arraySeparatedWords;
-        int res = 0;
+        int res = 1;
+        int first = 0;
+        int end = 0;
 
-
-        if (!(countingSpaces(chars) == 0)) {
-            arraySeparatedWords = new String[countingSpaces(chars) + 1];
-            makeArrayWords(chars, arraySeparatedWords);
-            res = countingSeparatedWords(arraySeparatedWords);
-            return res;
+        while (chars[first] == ' ') {
+            first++;
         }
-        return 1;
-    }
+//        System.out.println("first = " + first);
 
-    private static void makeArrayWords(char[] chars, String[] arraySeparatedWords) {
-        String tmp = "";
-        //  System.out.println(arraySeparatedWords.length);
-        int count = 0;
-        for (int i = 0; i < chars.length; i++) {
-            if (!(chars[i] == ' ')) {
-                tmp += chars[i];
-            } else {
-                arraySeparatedWords[count] = tmp;
-                count++;
-                tmp = "";
-            }
-        }
-        arraySeparatedWords[count] = tmp;
-    }
-
-
-    private static int countingSeparatedWords(String[] arraySeparatedWords) {
-        int res = 0;
-        for (String word : arraySeparatedWords) {
-            if (!word.isEmpty())
+        for (int i = first + 1; i < chars.length; i++) {
+            if (chars[i - 1] == ' ' && chars[i] != ' ') {
                 res++;
-        }
-        return res;
-    }
-
-    private static int countingSpaces(char[] chars) {
-
-        int countOfSpace = 0;
-        for (char i : chars) {
-            if (i == ' ') {
-                countOfSpace++;
             }
         }
-        return countOfSpace;
+
+        return res;
     }
 }
