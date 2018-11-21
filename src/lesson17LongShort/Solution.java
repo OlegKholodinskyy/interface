@@ -8,7 +8,7 @@ public class Solution {
      */
 
     private static String minWord(String input) {
-        if (checkNullOREmpty(input)) {
+        if (!checkNullOREmpty(input)) {
             String[] arrString = input.split(" ");
             int minSize = arrString[0].length();
             int index = 0;
@@ -28,7 +28,7 @@ public class Solution {
 
 
     private static String maxWord(String input) {
-        if (checkNullOREmpty(input)) {
+        if (!checkNullOREmpty(input)) {
             String[] arrString = input.split(" ");
             int maxSize = arrString[0].length();
             int index = 0;
@@ -59,7 +59,7 @@ public class Solution {
     }
 
     private static boolean checkNullOREmpty(String input) {
-        return !(input == null || input.equals(null) || input.trim().isEmpty() || input.length() == 0);
+        return (input == null || input.equals(null) || input.trim().isEmpty() || input.length() == 0);
     }
 
     public static void main(String[] args) {
