@@ -22,7 +22,7 @@ public class Solution {
             }
             return arrString[index];
         } else {
-            return "empty";
+            return null;
         }
     }
 
@@ -45,7 +45,7 @@ public class Solution {
             }
             return arrString[index];
         } else {
-            return "empty";
+            return null;
         }
     }
 
@@ -68,7 +68,7 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        String str = "The word is beauti435ful o";
+        String str = "The word is beauti435ful 6";
         String str2 = null;
         String str3 = "";
         System.out.printf("in %-20s the longest word is : %s %n", str, maxWord(str));
