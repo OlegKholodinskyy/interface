@@ -4,15 +4,14 @@ public class Solution {
 
     public static void main(String[] args) {
         String[] str = new String[]{
-                "fefge",
-                "  j  ",
-                "   dscs csd  c423r e   ",
-                "e e e r   ",
-                "fff           d   ",
+                "one1",
+                "one two",
+                "one t22wo2 three",
+                "",
                 null};
 
         for (String test : str)
-            System.out.printf("%-30s contain %d word(s) %n", test, countWords(test) );
+            System.out.printf("%-30s contain %d word(s) %n", test, countWords(test));
     }
 
     public static int countWords(String input) {
@@ -22,28 +21,32 @@ public class Solution {
         if (input == null || input.trim().isEmpty()) {
             return 0;
         } else {
-            char[] chars = input.toCharArray();
-            int first = firstNotSpaceCharIndex(chars);
-            result = conutingWords(first, chars);
+            result = conutingWords(input);
             return result;
         }
     }
 
-    private static int firstNotSpaceCharIndex(char[] chars) {
-        int i = 0;
-        while (chars[i] == ' ') {
-            i++;
-        }
-        return i;
-    }
+    public static int conutingWords(String s){
 
-    private static int conutingWords(int first, char[] chars) {
-        int count = 1;
-        for (int i = first + 1; i < chars.length; i++) {
-            if (chars[i - 1] == ' ' && chars[i] != ' ') {
-                count++;
+        int counter = 0;
+
+        for(int i=0; i<=s.length()-1; i++) {
+
+            if(Character.isLetter(s.charAt(i))){
+                counter++;
+
+                for(;i<=s.length()-1; i++){
+                    if(s.charAt(i)==' '){
+                        counter++;
+                    }
+                    else if (!Character.isLetter(s.charAt(i))){
+                        counter--;
+                        break;
+                    }
+                }
             }
         }
-        return count;
+
+        return counter;
     }
 }
