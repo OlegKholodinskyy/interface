@@ -1,4 +1,4 @@
-package lesson17;
+package lesson17_homework;
 
 public class Solution {
 
