@@ -8,24 +8,34 @@ public class Solution {
      */
 
     private static String minWord(String input) {
-        if (check(input)) {
-            String[] arrString = input.split(" ");
-            int minSize = arrString[0].length();
-            int index = 0;
-            for (int i = 1; i < arrString.length; i++) {
-                if (arrString[i].length() < minSize) {
-                    minSize = arrString[i].length();
-                    index = i;
+        if (checkNull(input)) {
+            if (checkEmpty(input)) {
+                String[] arrString = input.split(" ");
+                int minSize = arrString[0].length();
+                int index = 0;
+                for (int i = 1; i < arrString.length; i++) {
+                    if (arrString[i].length() < minSize) {
+                        minSize = arrString[i].length();
+                        index = i;
+                    }
                 }
+                return arrString[index];
+            } else {
+                return "empty";
             }
-            return arrString[index];
         } else {
-            return "empty or null";
+            return null;
         }
+
+    }
+
+    private static boolean checkEmpty(String input) {
+        return !(input.trim().isEmpty() || input.length() == 0);
     }
 
     private static String maxWord(String input) {
-        if (check(input)) {
+        if (checkNull(input)) {
+            if (checkEmpty(input)) {
             String[] arrString = input.split(" ");
             int maxSize = arrString[0].length();
             int index = 0;
@@ -37,12 +47,15 @@ public class Solution {
             }
             return arrString[index];
         } else {
-            return "empty or null";
+            return "empty";
+        }
+        } else {
+            return null;
         }
     }
 
-    private static boolean check(String input) {
-        return  !(input == null || input.equals(null) || input.trim().isEmpty() || input.length() ==0);
+    private static boolean checkNull(String input) {
+        return !(input == null || input.equals(null) );
     }
 
     public static void main(String[] args) {
