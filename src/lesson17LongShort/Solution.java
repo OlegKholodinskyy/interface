@@ -10,7 +10,7 @@ public class Solution {
     private static String minWord(String input) {
         if (checkNullOREmpty(input)) {
             String[] arrString = input.split(" ");
-            int minSize = 0;
+            int minSize = arrString[0].length();
             int index = 0;
             for (int i = 1; i < arrString.length; i++) {
                 if (checkLetter(arrString[i])&& arrString[i].length()!=0) {
@@ -30,7 +30,7 @@ public class Solution {
     private static String maxWord(String input) {
         if (checkNullOREmpty(input)) {
             String[] arrString = input.split(" ");
-            int maxSize = 0;
+            int maxSize = arrString[0].length();
             int index = 0;
             for (int i = 1; i < arrString.length; i++) {
                 if (checkLetter(arrString[i])&& arrString[i].length()!=0) {
