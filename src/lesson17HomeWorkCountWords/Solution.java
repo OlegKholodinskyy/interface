@@ -4,10 +4,10 @@ public class Solution {
 
     public static void main(String[] args) {
         String[] str = new String[]{
-                "one1",
-                "one two",
+          //      "one1",
+          //      "one two",
                 "one t22wo2 three",
-                "",
+          //      "",
                 null};
 
         for (String test : str)
