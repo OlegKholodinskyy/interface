@@ -6,13 +6,13 @@ public class Solution {
      */
     private static String mostCountedWord(String input) {
         if (check(input)) {
-            int count = 1;
+            int count = 0;
             int maxCount = 1;
             int index = 0;
             String[] arr = input.split(" ");
 
             for (int i = 0; i < arr.length; i++) {
-                for (int k = arr.length - 1; k > i; k--) {
+                for (int k = arr.length-1; k > 0; k--) {
                     if (arr[i].equals(arr[k])) {
                         count++;
                     }
