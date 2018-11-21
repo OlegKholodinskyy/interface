@@ -12,9 +12,10 @@ public class Solution {
             String[] arr = input.split(" ");
 
             for (int i = 0; i < arr.length; i++) {
-  //              if (checkLetter(arr[i]) && arr[i].length() != 0) {
-                    for (int k = arr.length - 1; k > 0; k--) {
-                        if (arr[k].equals(arr[i])) {
+                if (checkLetter(arr[i])) {
+count=0;
+                    for (int k = arr.length - 1; k >= 0; k--) {
+                        if (checkLetter(arr[k]) && arr[k].equals(arr[i])) {
                             count++;
                         }
                     }
@@ -22,14 +23,14 @@ public class Solution {
                         maxCount = count;
                         index = i;
                     }
-                    if (maxCount == 1) {
-                        return "555";
                     }
-    //            }
+                 else {
+                    continue;
+                }
             }
             return arr[index];
         } else {
-            return "4444";
+            return null;
         }
     }
 
@@ -39,10 +40,10 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        String str = "The history first is 5 that a the first first";
-        String str2 = "";
+        String str = "The history ";
+        String str2 = "@456hh jkll @456hh";
         String str3 = "The history is ";
-        String str4 = "one one";
+        String str4 = "one one first is 5 that a the first first";
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str, mostCountedWord(str));
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str2, mostCountedWord(str2));
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str3, mostCountedWord(str3));
