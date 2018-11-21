@@ -21,7 +21,12 @@ public class Solution {
         } else {
             startIndex = 7;
         }
+
         String str = address.substring(startIndex, endIndex);
+        String strWWW = str.substring(0,4);
+        if (strWWW.equals("www.")){ startIndex = startIndex + 4 ;}
+        str = address.substring(startIndex, endIndex);
+
         if (checkLetterOrDigit(str)) {
             return true;
         } else {
@@ -70,7 +75,7 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        String address = "http://gromco--de.com";
+        String address = "http://gromcode.com";
         if (validate(address)){
             System.out.println("true");
         }
