@@ -6,26 +6,27 @@ public class Solution {
      */
     private static String mostCountedWord(String input) {
         if (check(input)) {
-            int count = 0;
-            int maxCount=0;
+            int count = 1;
+            int maxCount = 1;
             int index = 0;
             String[] arr = input.split(" ");
 
             for (int i = 0; i < arr.length; i++) {
-                for (int k = arr.length-1 ; k >i; k--) {
-                     if (arr[i].equals(arr[k])){
-                         count++;
-                     }
-                     if (maxCount<count) {
-                         maxCount = count;
-                         index=i;
-                     }
+                for (int k = arr.length - 1; k > i; k--) {
+                    if (arr[i].equals(arr[k])) {
+                        count++;
+                    }
+                    if (maxCount < count) {
+                        maxCount = count;
+                        index = i;
+                    }
                 }
             }
-            if (maxCount==0){
+            if (maxCount == 1) {
                 return null;
-            }else {
-            return arr[index];}
+            } else {
+                return arr[index];
+            }
         } else {
             return null;
         }
