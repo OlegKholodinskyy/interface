@@ -40,8 +40,11 @@ public class Solution {
         String str = "The history first is that the first first";
         String str2 = "";
         String str3 = "The history is ";
+        String str4 = "one one";
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str, mostCountedWord(str));
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str2, mostCountedWord(str2));
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str3, mostCountedWord(str3));
+        System.out.printf("in \" %-30s \" the most counted word is : %s %n", str4, mostCountedWord(str4));
+
     }
 }
