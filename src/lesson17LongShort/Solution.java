@@ -20,7 +20,7 @@ public class Solution {
             }
             return arrString[index];
         } else {
-            return null;
+            return "empty or null";
         }
     }
 
