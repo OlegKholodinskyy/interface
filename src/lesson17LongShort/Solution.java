@@ -13,7 +13,7 @@ public class Solution {
             int minSize = arrString[0].length();
             int index = 0;
             for (int i = 1; i < arrString.length; i++) {
-                if (checkLetter(arrString[i])) {
+                if (checkLetter(arrString[i])&& arrString[i].length()!=0) {
                     if (arrString[i].length() < minSize) {
                         minSize = arrString[i].length();
                         index = i;
@@ -36,7 +36,7 @@ public class Solution {
             int maxSize = arrString[0].length();
             int index = 0;
             for (int i = 1; i < arrString.length; i++) {
-                if (checkLetter(arrString[i])) {
+                if (checkLetter(arrString[i])&&arrString[i].length()!=0) {
                     if (arrString[i].length() > maxSize) {
                         maxSize = arrString[i].length();
                         index = i;
