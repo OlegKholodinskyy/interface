@@ -1,4 +1,4 @@
-package lesson17_homework;
+package lesson17HomeWorkCountWords;
 
 public class Solution {
 
