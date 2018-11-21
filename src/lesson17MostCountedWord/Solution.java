@@ -12,7 +12,7 @@ public class Solution {
             String[] arr = input.split(" ");
 
             for (int i = 0; i < arr.length; i++) {
-                for (int k = arr.length-1 ; k >=i; k--) {
+                for (int k = arr.length-1 ; k >i; k--) {
                      if (arr[i].equals(arr[k])){
                          count++;
                      }
@@ -22,7 +22,10 @@ public class Solution {
                      }
                 }
             }
-            return arr[index];
+            if (maxCount==0){
+                return null;
+            }else {
+            return arr[index];}
         } else {
             return null;
         }
@@ -34,6 +37,10 @@ public class Solution {
 
     public static void main(String[] args) {
         String str = "The history first is that the first first";
+        String str2 = "";
+        String str3 = "The history is ";
         System.out.printf("in \" %-30s \" the most counted word is : %s %n", str, mostCountedWord(str));
+        System.out.printf("in \" %-30s \" the most counted word is : %s %n", str2, mostCountedWord(str2));
+        System.out.printf("in \" %-30s \" the most counted word is : %s %n", str3, mostCountedWord(str3));
     }
 }
