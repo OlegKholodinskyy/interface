@@ -1,7 +1,5 @@
 package lesson18.StorageTryCatch;
 
-import java.io.FileNotFoundException;
-
 public class Task {
     public void printer(Storage storage){
         try {
