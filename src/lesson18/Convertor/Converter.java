@@ -1,6 +1,6 @@
 package lesson18.Convertor;
 
-public class Convertor {
+public class Converter {
     public static void main(String[] args) {
         System.out.println(stringToInt("32"));
         System.out.println(stringToInt("33"));
