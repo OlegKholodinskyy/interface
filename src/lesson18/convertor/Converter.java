@@ -1,4 +1,4 @@
-package lesson18.Convertor;
+package lesson18.convertor;
 
 public class Converter {
     public static void main(String[] args) {

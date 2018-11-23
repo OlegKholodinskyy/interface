@@ -1,4 +1,4 @@
-package lesson18.StorageTryCatch;
+package lesson18.storageTryCatch;
 
 public class Main {
 
