@@ -37,32 +37,34 @@ public class Controller {
                     continue;
                 }
             }
+            return newArrayFiles;
+        } else {
+            return files;
         }
-        return newArrayFiles;
     }
 
     void transferAll(Storage storageFrom, Storage storageTo) {
-        for (File fileStorageSource : storageFrom.getFiles()){
+        for (File fileStorageSource : storageFrom.getFiles()) {
             put(storageTo, fileStorageSource);
-    }
-        for (File fileStorageSource : storageFrom.getFiles()){
-            delete(storageFrom,fileStorageSource);
+        }
+        for (File fileStorageSource : storageFrom.getFiles()) {
+            delete(storageFrom, fileStorageSource);
         }
     }
 
     void transferFile(Storage storageFrom, Storage storageTo, long id) {
         File founded = null;
-        for (File file : storageFrom.getFiles()){
-            if (file.getId()==id){
-                put (storageTo, file);
+        for (File file : storageFrom.getFiles()) {
+            if (file.getId() == id) {
+                put(storageTo, file);
                 founded = file;
             }
-    }
+        }
 
-    if (founded!=null){
-      delete(storageFrom, founded);
+        if (founded != null) {
+            delete(storageFrom, founded);
+        }
     }
-}
 
 
 }

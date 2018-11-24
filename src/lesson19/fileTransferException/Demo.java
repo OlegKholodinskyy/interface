@@ -26,8 +26,9 @@ public class Demo {
         controller.put(storagePictures, fileJpg1);
         controller.put(storagePictures, fileJpg2);
         controller.put(storagePictures, fileJpg3);
+       // controller.delete(storagePictures, fileXls1);
 
-        for (File f: storageDocuments.getFiles()){
+        for (File f: storagePictures.getFiles()){
             System.out.println(f.toString());
         }
     }
