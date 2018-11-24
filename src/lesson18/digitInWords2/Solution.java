@@ -20,7 +20,7 @@ public class Solution {
                     intArr[i] = Integer.valueOf(str);
                     System.out.println(intArr[i]);
                     i++;
-                } 
+                }
             }
             return intArr;
         } else {
