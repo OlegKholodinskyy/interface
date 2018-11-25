@@ -14,17 +14,17 @@ public class Controller {
                 storage.setFiles(addFileToArray(storage.getFiles(), file));
             }
         } catch (Exception e) {
-            System.out.println("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id);
+            System.out.println("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId());
         }
     }
 
 
     private boolean checkMaxSize(Storage storage, File file) throws Exception {
         boolean sizeIsGood = false;
-        if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.size) {
+        if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
             sizeIsGood = true;
         } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id + " превышен размер хранилища");
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
         }
         return sizeIsGood;
     }
@@ -42,7 +42,7 @@ public class Controller {
         if (!storage.getFormatsSupported().equals(file.getFormat())) {
             formatIsInOrder = true;
         } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id + "не подходит формат файла");
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + "не подходит формат файла");
         }
         return formatIsInOrder;
     }
@@ -71,7 +71,7 @@ public class Controller {
                 storage.setFiles(deleteFileFromArray(storage.getFiles(), file));
             }
         } catch (Exception e) {
-            System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.id );
+            System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId() );
         }
     }
 
