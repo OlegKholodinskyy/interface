@@ -9,26 +9,31 @@ public class Demo {
         File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
         File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 150);
         File fileXls1 = new File(7, "xls1", TypeOfFiles.XLS.name(), 40);
+        File fileResearch = new File(8, "research", TypeOfFiles.XLS.name(), 40);
 
         File[] files = new File[0];
         String[] formatsSupportedStorage1 = new String[]{TypeOfFiles.JPG.name()};
         String[] formatsSupportedStorage2 = new String[]{TypeOfFiles.DOC.name(), TypeOfFiles.XLS.name()};
 
-        Storage storagePictures = new Storage(1, files, formatsSupportedStorage1, "Ukraine", 400);
-        Storage storageDocuments = new Storage(2, files, formatsSupportedStorage2, "Ukraine", 400);
+
+        Storage storagePictures = new Storage(1, files, formatsSupportedStorage1, "Ukraine", 700);
+        Storage storageDocuments = new Storage(2, files, formatsSupportedStorage2, "Ukraine", 800);
 
         Controller controller = new Controller();
         controller.put(storageDocuments,fileDoc1 );
         controller.put(storageDocuments, fileDoc2);
         controller.put(storageDocuments, fileDoc3);
         controller.put(storageDocuments, fileXls1);
-        controller.delete(storageDocuments,fileXls1);
+        controller.put(storageDocuments, fileResearch);
+        controller.delete(storageDocuments,fileDoc2);
         controller.put(storagePictures, fileJpg1);
         controller.put(storagePictures, fileJpg2);
         controller.put(storagePictures, fileJpg3);
-       // controller.delete(storagePictures, fileXls1);
-
-        for (File f: storagePictures.getFiles()){
+        controller.put(storagePictures,fileXls1);
+        controller.delete(storagePictures, fileXls1);
+      //  controller.transferAll(storageDocuments,storagePictures);
+        controller.transferFile(storageDocuments,storagePictures,8);
+        for (File f: storageDocuments.getFiles()){
             System.out.println(f.toString());
         }
     }

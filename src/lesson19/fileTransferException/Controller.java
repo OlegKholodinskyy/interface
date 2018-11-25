@@ -2,7 +2,18 @@ package lesson19.fileTransferException;
 
 public class Controller {
     void put(Storage storage, File file) {
-        storage.setFiles(addFileToArray(storage.getFiles(), file));
+        if (!fileIsPresent(storage, file)) {
+            storage.setFiles(addFileToArray(storage.getFiles(), file));
+        }
+    }
+
+    private boolean fileIsPresent(Storage storage, File file) {
+        boolean isPresent = false;
+        for (File checkedFile : storage.getFiles()) {
+            if (file.equals(checkedFile))
+                isPresent = true;
+        }
+        return isPresent;
     }
 
     private File[] addFileToArray(File[] files, File file) {
@@ -30,10 +41,9 @@ public class Controller {
             int tmp = 0;
             for (int i = 0; i < files.length; i++) {
                 if (!files[i].equals(file)) {
-                    newArrayFiles[i] = files[tmp];
+                    newArrayFiles[tmp] = files[i];
                     tmp++;
                 } else {
-                    tmp = tmp + 2;
                     continue;
                 }
             }
@@ -45,26 +55,39 @@ public class Controller {
 
     void transferAll(Storage storageFrom, Storage storageTo) {
         for (File fileStorageSource : storageFrom.getFiles()) {
-            put(storageTo, fileStorageSource);
-        }
-        for (File fileStorageSource : storageFrom.getFiles()) {
-            delete(storageFrom, fileStorageSource);
+            if (!fileIsPresent(storageTo, fileStorageSource)) {
+                put(storageTo, fileStorageSource);
+                delete(storageFrom, fileStorageSource);
+            }
         }
     }
 
     void transferFile(Storage storageFrom, Storage storageTo, long id) {
-        File founded = null;
-        for (File file : storageFrom.getFiles()) {
-            if (file.getId() == id) {
-                put(storageTo, file);
-                founded = file;
-            }
+        if (fileIsPresentByID(storageFrom, id) && !fileIsPresentByID(storageTo, id)) {
+            File founded  = getFileByID(id, storageFrom);
+            put(storageTo, founded);
+            delete(storageFrom,founded);
         }
 
-        if (founded != null) {
-            delete(storageFrom, founded);
-        }
     }
 
+    private File getFileByID(long id, Storage storageFrom) {
+        for(File founded : storageFrom.getFiles()){
+            if (founded.getId() == id){
+                return founded;
+            }
+        }
+        return null;
+    }
+
+    private boolean fileIsPresentByID(Storage storageFrom, long id) {
+        boolean isPresent=false;
+        for (File checkedFile : storageFrom.getFiles()){
+            if (checkedFile.getId()==id)
+              isPresent = true;
+        }
+        return isPresent;
+    }
 
 }
+
