@@ -2,9 +2,49 @@ package lesson19.fileTransferException;
 
 public class Controller {
     void put(Storage storage, File file) {
-        if (!fileIsPresent(storage, file)) {
+
+      /*  if (!fileIsPresent(storage, file) && checkFormats(storage, file)&&  checkMaxSize(storage,file)) {
             storage.setFiles(addFileToArray(storage.getFiles(), file));
+        } else {
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id);
+        }*/
+
+        try {
+            if (!fileIsPresent(storage, file) && checkFormats(storage, file) && checkMaxSize(storage, file)) {
+                storage.setFiles(addFileToArray(storage.getFiles(), file));
+            }
+        } catch (Exception e) {
+            System.out.println("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id);
         }
+    }
+
+
+    private boolean checkMaxSize(Storage storage, File file) throws Exception {
+        boolean sizeIsGood = false;
+        if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.size) {
+            sizeIsGood = true;
+        } else {
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id + " превышен размер хранилища");
+        }
+        return sizeIsGood;
+    }
+
+    private long getCurrentSizeOfStorage(Storage storage) {
+        long size = 0;
+        for (File file : storage.getFiles()) {
+            size = size + file.getSize();
+        }
+        return size;
+    }
+
+    private boolean checkFormats(Storage storage, File file) throws Exception {
+        boolean formatIsInOrder = false;
+        if (!storage.getFormatsSupported().equals(file.getFormat())) {
+            formatIsInOrder = true;
+        } else {
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id + "не подходит формат файла");
+        }
+        return formatIsInOrder;
     }
 
     private boolean fileIsPresent(Storage storage, File file) {
@@ -26,7 +66,13 @@ public class Controller {
     }
 
     void delete(Storage storage, File file) {
-        storage.setFiles(deleteFileFromArray(storage.getFiles(), file));
+        try {
+            if (fileIsPresent(storage, file)) {
+                storage.setFiles(deleteFileFromArray(storage.getFiles(), file));
+            }
+        } catch (Exception e) {
+            System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.id );
+        }
     }
 
     private File[] deleteFileFromArray(File[] files, File file) {
@@ -55,25 +101,41 @@ public class Controller {
 
     void transferAll(Storage storageFrom, Storage storageTo) {
         for (File fileStorageSource : storageFrom.getFiles()) {
-            if (!fileIsPresent(storageTo, fileStorageSource)) {
-                put(storageTo, fileStorageSource);
-                delete(storageFrom, fileStorageSource);
+            try {
+                if (!fileIsPresent(storageTo, fileStorageSource) && checkFormats(storageTo, fileStorageSource)) {
+                    try {
+                        put(storageTo, fileStorageSource);
+                        delete(storageFrom, fileStorageSource);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Не удалсь переместить все файлы с хранилища "  + storageFrom.getId() + " в хранилище " + storageTo.getId());
             }
         }
     }
 
     void transferFile(Storage storageFrom, Storage storageTo, long id) {
-        if (fileIsPresentByID(storageFrom, id) && !fileIsPresentByID(storageTo, id)) {
-            File founded  = getFileByID(id, storageFrom);
-            put(storageTo, founded);
-            delete(storageFrom,founded);
+        File founded = getFileByID(id, storageFrom);
+        try {
+            if (fileIsPresentByID(storageFrom, id) && !fileIsPresentByID(storageTo, id) && checkFormats(storageTo, founded)) {
+                try {
+                    put(storageTo, founded);
+                    delete(storageFrom, founded);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
 
     private File getFileByID(long id, Storage storageFrom) {
-        for(File founded : storageFrom.getFiles()){
-            if (founded.getId() == id){
+        for (File founded : storageFrom.getFiles()) {
+            if (founded.getId() == id) {
                 return founded;
             }
         }
@@ -81,10 +143,10 @@ public class Controller {
     }
 
     private boolean fileIsPresentByID(Storage storageFrom, long id) {
-        boolean isPresent=false;
-        for (File checkedFile : storageFrom.getFiles()){
-            if (checkedFile.getId()==id)
-              isPresent = true;
+        boolean isPresent = false;
+        for (File checkedFile : storageFrom.getFiles()) {
+            if (checkedFile.getId() == id)
+                isPresent = true;
         }
         return isPresent;
     }
