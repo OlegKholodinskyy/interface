@@ -1,7 +1,7 @@
 package lesson19.fileTransferException;
 
 public class Controller {
-    void put(Storage storage, File file) {
+    private void put(Storage storage, File file) {
 
       /*  if (!fileIsPresent(storage, file) && checkFormats(storage, file)&&  checkMaxSize(storage,file)) {
             storage.setFiles(addFileToArray(storage.getFiles(), file));

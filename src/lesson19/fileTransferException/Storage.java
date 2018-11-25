@@ -1,10 +1,10 @@
 package lesson19.fileTransferException;
 
 public class Storage {
-    long id;
-    File[] files;
-    String[] formatsSupported;
-    String storageCountry;
+    private long id;
+    private File[] files;
+    private String[] formatsSupported;
+    private String storageCountry;
 
     public void setId(long id) {
         this.id = id;

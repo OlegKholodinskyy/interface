@@ -3,10 +3,10 @@ package lesson19.fileTransferException;
 import java.util.Objects;
 
 public class File {
-    long id;
-    String name;
-    String format;
-    long size;
+    private long id;
+    private String name;
+    private String format;
+    private long size;
 
     @Override
     public String toString() {
