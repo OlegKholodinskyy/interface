@@ -22,13 +22,22 @@ public class Controller {
 
     public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
         for (File fileStorageSource : storageFrom.getFiles()) {
-            if (fileIsPresent(storageTo, fileStorageSource) || !checkFormats(storageTo, fileStorageSource)) {
-                throw new Exception("Не удалсь переместить все файлы с хранилища " + storageFrom.getId() + " в хранилище " + storageTo.getId());
-            } else {
+
+            try {
                 put(storageTo, fileStorageSource);
                 delete(storageFrom, fileStorageSource);
             }
+            catch (Exception e){
+                System.out.println(" put all is failed ");
+            }
         }
+//            if (fileIsPresent(storageTo, fileStorageSource) || !checkFormats(storageTo, fileStorageSource)) {
+//                throw new Exception("Не удалсь переместить все файлы с хранилища " + storageFrom.getId() + " в хранилище " + storageTo.getId());
+//            } else {
+//                put(storageTo, fileStorageSource);
+//                delete(storageFrom, fileStorageSource);
+//            }
+//        }
     }
 
     void transferFile(Storage storageFrom, Storage storageTo, long id) {
