@@ -31,19 +31,12 @@ public class Controller {
                 System.out.println(" put all is failed ");
             }
         }
-//            if (fileIsPresent(storageTo, fileStorageSource) || !checkFormats(storageTo, fileStorageSource)) {
-//                throw new Exception("Не удалсь переместить все файлы с хранилища " + storageFrom.getId() + " в хранилище " + storageTo.getId());
-//            } else {
-//                put(storageTo, fileStorageSource);
-//                delete(storageFrom, fileStorageSource);
-//            }
-//        }
     }
 
     void transferFile(Storage storageFrom, Storage storageTo, long id) {
         try {
-            File founded = getFileByID(id, storageFrom);
-            if (!fileIsPresentByID(storageFrom, id)) {
+            File founded = getFileByID(id, storageFrom.getFiles());
+            if (fileIsPresentByID(storageFrom, id)) {
                 put(storageTo, founded);
                 delete(storageFrom, founded);
             }
@@ -133,8 +126,8 @@ public class Controller {
         }
     }
 
-    private File getFileByID(long id, Storage storageFrom) {
-        for (File founded : storageFrom.getFiles()) {
+    private File getFileByID(long id, File[] files) {
+        for (File founded : files) {
             if (founded.getId() == id) {
                 return founded;
             }

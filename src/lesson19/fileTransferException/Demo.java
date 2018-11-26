@@ -12,12 +12,12 @@ public class Demo {
         File fileResearch = new File(8, "research", TypeOfFiles.XLS.name(), 40);
 
         File[] files = new File[0];
-        String[] formatsSupportedStorage1 = new String[]{TypeOfFiles.JPG.name()};
+        String[] formatsSupportedStorage1 = new String[]{TypeOfFiles.JPG.name(),TypeOfFiles.XLS.name()};
         String[] formatsSupportedStorage2 = new String[]{TypeOfFiles.DOC.name(), TypeOfFiles.XLS.name()};
 
 
-        Storage storagePictures = new Storage(1, files, formatsSupportedStorage1, "Ukraine", 200);
-        Storage storageDocuments = new Storage(2, files, formatsSupportedStorage2, "Ukraine", 200);
+        Storage storagePictures = new Storage(1, files, formatsSupportedStorage1, "Ukraine", 1200);
+        Storage storageDocuments = new Storage(2, files, formatsSupportedStorage2, "Ukraine", 1200);
 
         Controller controller = new Controller();
         try {
@@ -33,7 +33,7 @@ public class Demo {
             controller.put(storagePictures, fileJpg3);
             controller.put(storagePictures, fileXls1);
             controller.delete(storagePictures, fileXls1);
-            controller.transferAll(storageDocuments, storagePictures);
+ //           controller.transferAll(storageDocuments, storagePictures);
             controller.transferFile(storageDocuments, storagePictures, 8);
         } catch (Exception e) {
             System.out.println(e);
