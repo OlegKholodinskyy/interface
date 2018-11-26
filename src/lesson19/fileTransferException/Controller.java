@@ -1,22 +1,44 @@
 package lesson19.fileTransferException;
 
 public class Controller {
-    public void put(Storage storage, File file) {
+    public File put(Storage storage, File file) throws Exception {
 
-      /*  if (!fileIsPresent(storage, file) && checkFormats(storage, file)&&  checkMaxSize(storage,file)) {
-            storage.setFiles(addFileToArray(storage.getFiles(), file));
-        } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.id);
-        }*/
+        if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
+            throw new Exception("Не удалось добавить файл с id : \" + file.getId() + \" в хранилеще id : \" + storage.getId()");
+        }
+        storage.setFiles(addFileToArray(storage.getFiles(), file));
+        return file;
+    }
 
-        try {
-            if (!fileIsPresent(storage, file) && checkFormats(storage, file) && checkMaxSize(storage, file)) {
-                storage.setFiles(addFileToArray(storage.getFiles(), file));
+    public File delete(Storage storage, File file) throws Exception {
+        if (!fileIsPresent(storage, file)) {
+            throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
+        }
+        storage.setFiles(deleteFileFromArray(storage.getFiles(), file));
+        return file;
+    }
+
+    public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
+        for (File fileStorageSource : storageFrom.getFiles()) {
+            if (fileIsPresent(storageTo, fileStorageSource) || !checkFormats(storageTo, fileStorageSource)) {
+                throw new Exception("Не удалсь переместить все файлы с хранилища " + storageFrom.getId() + " в хранилище " + storageTo.getId());
+            } else {
+                put(storageTo, fileStorageSource);
+                delete(storageFrom, fileStorageSource);
             }
-        } catch (Exception e) {
-            System.out.println("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId());
         }
     }
+
+    void transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
+        File founded = getFileByID(id, storageFrom);
+        if (!fileIsPresentByID(storageFrom, id) || fileIsPresentByID(storageTo, id) || !checkFormats(storageTo, founded)) {
+            throw new Exception("Не вдалося перенести файл");
+        } else {
+            put(storageTo, founded);
+            delete(storageFrom, founded);
+        }
+    }
+
 
 
     private boolean checkMaxSize(Storage storage, File file) throws Exception {
@@ -65,16 +87,6 @@ public class Controller {
         return newArrayFiles;
     }
 
-    void delete(Storage storage, File file) {
-        try {
-            if (fileIsPresent(storage, file)) {
-                storage.setFiles(deleteFileFromArray(storage.getFiles(), file));
-            }
-        } catch (Exception e) {
-            System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId() );
-        }
-    }
-
     private File[] deleteFileFromArray(File[] files, File file) {
         File[] newArrayFiles = new File[files.length - 1];
         int countMatches = 0;
@@ -97,40 +109,6 @@ public class Controller {
         } else {
             return files;
         }
-    }
-
-    void transferAll(Storage storageFrom, Storage storageTo) {
-        for (File fileStorageSource : storageFrom.getFiles()) {
-            try {
-                if (!fileIsPresent(storageTo, fileStorageSource) && checkFormats(storageTo, fileStorageSource)) {
-                    try {
-                        put(storageTo, fileStorageSource);
-                        delete(storageFrom, fileStorageSource);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Не удалсь переместить все файлы с хранилища "  + storageFrom.getId() + " в хранилище " + storageTo.getId());
-            }
-        }
-    }
-
-    void transferFile(Storage storageFrom, Storage storageTo, long id) {
-        File founded = getFileByID(id, storageFrom);
-        try {
-            if (fileIsPresentByID(storageFrom, id) && !fileIsPresentByID(storageTo, id) && checkFormats(storageTo, founded)) {
-                try {
-                    put(storageTo, founded);
-                    delete(storageFrom, founded);
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     private File getFileByID(long id, Storage storageFrom) {

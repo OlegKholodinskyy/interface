@@ -5,7 +5,7 @@ public class Demo {
         File fileJpg1 = new File(1, "photo1", TypeOfFiles.JPG.name(), 200);
         File fileJpg2 = new File(2, "photo2", TypeOfFiles.JPG.name(), 250);
         File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 20);
-        File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 220);
+        File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 120);
         File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
         File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
         File fileXls1 = new File(7, "xls1", TypeOfFiles.XLS.name(), 40);
@@ -20,22 +20,25 @@ public class Demo {
         Storage storageDocuments = new Storage(2, files, formatsSupportedStorage2, "Ukraine", 200);
 
         Controller controller = new Controller();
-
+        try {
             controller.put(storageDocuments, fileDoc1);
             controller.put(storageDocuments, fileDoc2);
             controller.put(storageDocuments, fileDoc2);
             controller.put(storageDocuments, fileDoc3);
             controller.put(storageDocuments, fileXls1);
             controller.put(storageDocuments, fileResearch);
-         controller.delete(storageDocuments, fileDoc2);
+            controller.delete(storageDocuments, fileDoc2);
             controller.put(storagePictures, fileJpg1);
             controller.put(storagePictures, fileJpg2);
             controller.put(storagePictures, fileJpg3);
             controller.put(storagePictures, fileXls1);
-           controller.delete(storagePictures, fileXls1);
+            controller.delete(storagePictures, fileXls1);
             controller.transferAll(storageDocuments, storagePictures);
             controller.transferFile(storageDocuments, storagePictures, 8);
-        for (File f: storagePictures.getFiles()){
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        for (File f : storagePictures.getFiles()) {
             System.out.println(f.toString());
         }
     }
