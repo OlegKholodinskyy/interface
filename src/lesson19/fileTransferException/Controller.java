@@ -6,8 +6,10 @@ public class Controller {
         try {
             storage.setFiles(addFileToArray(storage, file));
         } catch (Exception e) {
+            System.out.println(" put is failed ");
+        }finally {
+            return file;
         }
-        return file;
     }
 
     public File delete(Storage storage, File file) throws Exception {
@@ -37,17 +39,8 @@ public class Controller {
                 delete(storageFrom, founded);
             }
         } catch (Exception e) {
-
+            System.out.println(" transferFile is failed ");
         }
-
-
-//        File founded = getFileByID(id, storageFrom);
-//        if (!fileIsPresentByID(storageFrom, id) || fileIsPresentByID(storageTo, id) || !checkFormats(storageTo, founded)) {
-//            throw new Exception("Не вдалося перенести файл");
-//        } else {
-//            put(storageTo, founded);
-//            delete(storageFrom, founded);
-//        }
     }
 
 
