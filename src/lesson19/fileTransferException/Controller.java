@@ -3,10 +3,13 @@ package lesson19.fileTransferException;
 public class Controller {
     public File put(Storage storage, File file) throws Exception {
 
-        if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
-            throw new Exception("Не удалось добавить файл с id : \" + file.getId() + \" в хранилеще id : \" + storage.getId()");
+//        if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
+//                throw new Exception("Не удалось добавить файл с id : \" + file.getId() + \" в хранилеще id : \" + storage.getId()");
+//        }
+        try {
+            storage.setFiles(addFileToArray(storage, file));
+        } catch (Exception e) {
         }
-        storage.setFiles(addFileToArray(storage.getFiles(), file));
         return file;
     }
 
@@ -38,7 +41,6 @@ public class Controller {
             delete(storageFrom, founded);
         }
     }
-
 
 
     private boolean checkMaxSize(Storage storage, File file) throws Exception {
@@ -78,15 +80,19 @@ public class Controller {
         return isPresent;
     }
 
-    private File[] addFileToArray(File[] files, File file) {
-        File[] newArrayFiles = new File[files.length + 1];
-        for (int i = 0; i < files.length; i++) {
-            newArrayFiles[i] = files[i];
-        }
-        newArrayFiles[newArrayFiles.length - 1] = file;
-        return newArrayFiles;
-    }
+    private File[] addFileToArray(Storage storage, File file) throws Exception {
 
+        if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
+            throw new Exception("");
+        } else {
+            File[] newArrayFiles = new File[storage.getFiles().length + 1];
+            for (int i = 0; i < storage.getFiles().length; i++) {
+                newArrayFiles[i] = storage.getFiles()[i];
+            }
+            newArrayFiles[newArrayFiles.length - 1] = file;
+            return newArrayFiles;
+        }
+    }
     private File[] deleteFileFromArray(File[] files, File file) {
         File[] newArrayFiles = new File[files.length - 1];
         int countMatches = 0;
