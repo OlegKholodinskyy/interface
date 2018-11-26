@@ -85,7 +85,7 @@ public class Controller {
 
     private File[] addFileToArray(Storage storage, File file) throws Exception {
 
-        if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
+        if (file.equals(null) || fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
             throw new Exception("file not added");
         } else {
             File[] newArrayFiles = new File[storage.getFiles().length + 1];
