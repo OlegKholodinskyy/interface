@@ -1,11 +1,8 @@
 package lesson19.fileTransferException;
 
 public class Controller {
-    public File put(Storage storage, File file) throws Exception {
 
-//        if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
-//                throw new Exception("Не удалось добавить файл с id : \" + file.getId() + \" в хранилеще id : \" + storage.getId()");
-//        }
+    public File put(Storage storage, File file) throws Exception {
         try {
             storage.setFiles(addFileToArray(storage, file));
         } catch (Exception e) {
@@ -14,10 +11,10 @@ public class Controller {
     }
 
     public File delete(Storage storage, File file) throws Exception {
-        if (!fileIsPresent(storage, file)) {
-            throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
+        try {
+        storage.setFiles(deleteFileFromArray(storage, file));
+        } catch (Exception e) {
         }
-        storage.setFiles(deleteFileFromArray(storage.getFiles(), file));
         return file;
     }
 
@@ -83,7 +80,7 @@ public class Controller {
     private File[] addFileToArray(Storage storage, File file) throws Exception {
 
         if (fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
-            throw new Exception("");
+            throw new Exception("file not added");
         } else {
             File[] newArrayFiles = new File[storage.getFiles().length + 1];
             for (int i = 0; i < storage.getFiles().length; i++) {
@@ -93,30 +90,34 @@ public class Controller {
             return newArrayFiles;
         }
     }
-    private File[] deleteFileFromArray(File[] files, File file) {
-        File[] newArrayFiles = new File[files.length - 1];
-        int countMatches = 0;
-        for (int i = 0; i < files.length; i++) {
-            if (files[i].equals(file))
-                countMatches++;
-        }
-
-        if (countMatches != 0) {
-            int tmp = 0;
-            for (int i = 0; i < files.length; i++) {
-                if (!files[i].equals(file)) {
-                    newArrayFiles[tmp] = files[i];
-                    tmp++;
-                } else {
-                    continue;
-                }
-            }
-            return newArrayFiles;
+    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
+        if (!fileIsPresent(storage, file)) {
+            throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
         } else {
-            return files;
+
+            File[] newArrayFiles = new File[storage.getFiles().length - 1];
+            int countMatches = 0;
+            for (int i = 0; i < storage.getFiles().length; i++) {
+                if (storage.getFiles()[i].equals(file))
+                    countMatches++;
+            }
+
+            if (countMatches != 0) {
+                int tmp = 0;
+                for (int i = 0; i < storage.getFiles().length; i++) {
+                    if (!storage.getFiles()[i].equals(file)) {
+                        newArrayFiles[tmp] = storage.getFiles()[i];
+                        tmp++;
+                    } else {
+                        continue;
+                    }
+                }
+                return newArrayFiles;
+            } else {
+                return storage.getFiles();
+            }
         }
     }
-
     private File getFileByID(long id, Storage storageFrom) {
         for (File founded : storageFrom.getFiles()) {
             if (founded.getId() == id) {
