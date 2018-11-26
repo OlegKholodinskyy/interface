@@ -12,7 +12,7 @@ public class Controller {
 
     public File delete(Storage storage, File file) throws Exception {
         try {
-        storage.setFiles(deleteFileFromArray(storage, file));
+            storage.setFiles(deleteFileFromArray(storage, file));
         } catch (Exception e) {
         }
         return file;
@@ -29,14 +29,25 @@ public class Controller {
         }
     }
 
-    void transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
-        File founded = getFileByID(id, storageFrom);
-        if (!fileIsPresentByID(storageFrom, id) || fileIsPresentByID(storageTo, id) || !checkFormats(storageTo, founded)) {
-            throw new Exception("Не вдалося перенести файл");
-        } else {
-            put(storageTo, founded);
-            delete(storageFrom, founded);
+    void transferFile(Storage storageFrom, Storage storageTo, long id) {
+        try {
+            File founded = getFileByID(id, storageFrom);
+            if (!fileIsPresentByID(storageFrom, id)) {
+                put(storageTo, founded);
+                delete(storageFrom, founded);
+            }
+        } catch (Exception e) {
+
         }
+
+
+//        File founded = getFileByID(id, storageFrom);
+//        if (!fileIsPresentByID(storageFrom, id) || fileIsPresentByID(storageTo, id) || !checkFormats(storageTo, founded)) {
+//            throw new Exception("Не вдалося перенести файл");
+//        } else {
+//            put(storageTo, founded);
+//            delete(storageFrom, founded);
+//        }
     }
 
 
@@ -90,6 +101,7 @@ public class Controller {
             return newArrayFiles;
         }
     }
+
     private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
         if (!fileIsPresent(storage, file)) {
             throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
@@ -118,6 +130,7 @@ public class Controller {
             }
         }
     }
+
     private File getFileByID(long id, Storage storageFrom) {
         for (File founded : storageFrom.getFiles()) {
             if (founded.getId() == id) {
