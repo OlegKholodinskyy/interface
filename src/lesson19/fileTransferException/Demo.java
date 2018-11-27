@@ -3,8 +3,8 @@ package lesson19.fileTransferException;
 public class Demo {
     public static void main(String[] args) {
         File fileJpg1 = new File(1, "photo1", TypeOfFiles.JPG.name(), 200);
-        File fileJpg2 = new File(2, "photo2", TypeOfFiles.JPG.name(), 250);
-        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 20);
+        File fileJpg2 = new File(2, "photo2", TypeOfFiles.JPG.name(), 1250);
+        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 11120);
         File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 120);
         File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
         File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
@@ -33,7 +33,7 @@ public class Demo {
             controller.put(storagePictures, fileJpg3);
             controller.put(storagePictures, fileXls1);
             controller.delete(storagePictures, fileXls1);
- //           controller.transferAll(storageDocuments, storagePictures);
+            controller.transferAll(storageDocuments, storagePictures);
             controller.transferFile(storageDocuments, storagePictures, 8);
         } catch (Exception e) {
             System.out.println(e);

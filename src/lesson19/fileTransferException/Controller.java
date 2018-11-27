@@ -1,12 +1,14 @@
 package lesson19.fileTransferException;
 
 public class Controller {
+    Validate validate= new Validate();
 
     public File put(Storage storage, File file) throws Exception {
         try {
             storage.setFiles(addFileToArray(storage, file));
         } catch (Exception e) {
-            System.out.println(" put is failed ");
+            System.out.println("Файл id: " +file.getId() + " не додан до хранилища id : " + storage.getId() );
+            throw new RuntimeException("Файл id: " +file.getId() + " не додан до хранилища id : " + storage.getId());
         }finally {
             return file;
         }
@@ -16,6 +18,8 @@ public class Controller {
         try {
             storage.setFiles(deleteFileFromArray(storage, file));
         } catch (Exception e) {
+            System.out.println("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId() );
+            throw new RuntimeException("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId());
         }
         return file;
     }
@@ -28,64 +32,28 @@ public class Controller {
                 delete(storageFrom, fileStorageSource);
             }
             catch (Exception e){
-                System.out.println(" put all is failed ");
+                System.out.println("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId() );
+                throw new RuntimeException("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId() );
             }
         }
     }
 
-    void transferFile(Storage storageFrom, Storage storageTo, long id) {
+    void transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
         try {
-            File founded = getFileByID(id, storageFrom.getFiles());
-            if (fileIsPresentByID(storageFrom, id)) {
+            File founded = validate.getFileByID(id, storageFrom.getFiles());
+            if (validate.fileIsPresentByID(storageFrom, id)) {
                 put(storageTo, founded);
                 delete(storageFrom, founded);
             }
         } catch (Exception e) {
-            System.out.println(" transferFile is failed ");
+            System.out.println("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId() );
+            throw new RuntimeException("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId() );
         }
-    }
-
-
-    private boolean checkMaxSize(Storage storage, File file) throws Exception {
-        boolean sizeIsGood = false;
-        if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
-            sizeIsGood = true;
-        } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
-        }
-        return sizeIsGood;
-    }
-
-    private long getCurrentSizeOfStorage(Storage storage) {
-        long size = 0;
-        for (File file : storage.getFiles()) {
-            size = size + file.getSize();
-        }
-        return size;
-    }
-
-    private boolean checkFormats(Storage storage, File file) throws Exception {
-        boolean formatIsInOrder = false;
-        if (!storage.getFormatsSupported().equals(file.getFormat())) {
-            formatIsInOrder = true;
-        } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + "не подходит формат файла");
-        }
-        return formatIsInOrder;
-    }
-
-    private boolean fileIsPresent(Storage storage, File file) {
-        boolean isPresent = false;
-        for (File checkedFile : storage.getFiles()) {
-            if (file.equals(checkedFile))
-                isPresent = true;
-        }
-        return isPresent;
     }
 
     private File[] addFileToArray(Storage storage, File file) throws Exception {
 
-        if (file.equals(null) || storage.equals(null)|| fileIsPresent(storage, file) || !checkFormats(storage, file) || !checkMaxSize(storage, file)) {
+        if (file.equals(null) || storage.equals(null)|| validate.fileIsPresent(storage, file) || !validate.checkFormats(storage, file) || !validate.checkMaxSize(storage, file)) {
             throw new Exception("file not added");
         } else {
             File[] newArrayFiles = new File[storage.getFiles().length + 1];
@@ -98,7 +66,7 @@ public class Controller {
     }
 
     private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
-        if (!fileIsPresent(storage, file)) {
+        if (!validate.fileIsPresent(storage, file)) {
             throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
         } else {
 
@@ -126,23 +94,7 @@ public class Controller {
         }
     }
 
-    private File getFileByID(long id, File[] files) {
-        for (File founded : files) {
-            if (founded.getId() == id) {
-                return founded;
-            }
-        }
-        return null;
-    }
 
-    private boolean fileIsPresentByID(Storage storageFrom, long id) {
-        boolean isPresent = false;
-        for (File checkedFile : storageFrom.getFiles()) {
-            if (checkedFile.getId() == id)
-                isPresent = true;
-        }
-        return isPresent;
-    }
 
 }
 
