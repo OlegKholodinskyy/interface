@@ -19,7 +19,7 @@ public class Validate {
         return size;
     }
      boolean checkFormats(Storage storage, File file) throws Exception {
-        boolean formatIsInOrder = false;
+        boolean formatIsInOrder ;
         if (!storage.getFormatsSupported().equals(file.getFormat())) {
             formatIsInOrder = true;
         } else {

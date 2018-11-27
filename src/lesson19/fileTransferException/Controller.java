@@ -3,7 +3,7 @@ package lesson19.fileTransferException;
 public class Controller {
     Validate validate= new Validate();
 
-    public File put(Storage storage, File file) throws Exception {
+    public File put(Storage storage, File file) throws RuntimeException {
         try {
             storage.setFiles(addFileToArray(storage, file));
         } catch (Exception e) {
@@ -14,7 +14,7 @@ public class Controller {
         }
     }
 
-    public File delete(Storage storage, File file) throws Exception {
+    public File delete(Storage storage, File file) throws RuntimeException {
         try {
             storage.setFiles(deleteFileFromArray(storage, file));
         } catch (Exception e) {
@@ -24,7 +24,7 @@ public class Controller {
         return file;
     }
 
-    public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
+    public void transferAll(Storage storageFrom, Storage storageTo) throws RuntimeException {
         for (File fileStorageSource : storageFrom.getFiles()) {
 
             try {
@@ -38,7 +38,7 @@ public class Controller {
         }
     }
 
-    void transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
+    void transferFile(Storage storageFrom, Storage storageTo, long id) throws RuntimeException {
         try {
             File founded = validate.getFileByID(id, storageFrom.getFiles());
             if (validate.fileIsPresentByID(storageFrom, id)) {
@@ -51,7 +51,7 @@ public class Controller {
         }
     }
 
-    private File[] addFileToArray(Storage storage, File file) throws Exception {
+    private File[] addFileToArray(Storage storage, File file) throws Exception , RuntimeException {
 
         if (file.equals(null) || storage.equals(null)|| validate.fileIsPresent(storage, file) || !validate.checkFormats(storage, file) || !validate.checkMaxSize(storage, file)) {
             throw new Exception("file not added");
