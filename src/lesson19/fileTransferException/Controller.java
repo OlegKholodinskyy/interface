@@ -1,25 +1,24 @@
 package lesson19.fileTransferException;
 
 public class Controller {
-    Validate validate= new Validate();
+    Validate validate = new Validate();
 
     public File put(Storage storage, File file) throws RuntimeException {
         try {
             storage.setFiles(addFileToArray(storage, file));
-        } catch (Exception e) {
-            System.out.println("Файл id: " +file.getId() + " не додан до хранилища id : " + storage.getId() );
-            throw new RuntimeException("Файл id: " +file.getId() + " не додан до хранилища id : " + storage.getId());
-        }finally {
-            return file;
+        } catch (RuntimeException e) {
+            throw e;
         }
+        return file;
     }
 
     public File delete(Storage storage, File file) throws RuntimeException {
         try {
             storage.setFiles(deleteFileFromArray(storage, file));
-        } catch (Exception e) {
-            System.out.println("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId() );
-            throw new RuntimeException("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId());
+        } catch (RuntimeException e) {
+            System.out.println("Файл id: " + file.getId() + " не удалён с  хранилища id : " + storage.getId());
+            throw e;
+            //       throw new RuntimeException("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId());
         }
         return file;
     }
@@ -30,10 +29,9 @@ public class Controller {
             try {
                 put(storageTo, fileStorageSource);
                 delete(storageFrom, fileStorageSource);
-            }
-            catch (Exception e){
-                System.out.println("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId() );
-                throw new RuntimeException("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId() );
+            } catch (Exception e) {
+                System.out.println("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId());
+                throw new RuntimeException("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId());
             }
         }
     }
@@ -46,16 +44,15 @@ public class Controller {
                 delete(storageFrom, founded);
             }
         } catch (Exception e) {
-            System.out.println("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId() );
-            throw new RuntimeException("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId() );
+            System.out.println("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
+            throw new RuntimeException("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
         }
     }
 
-    private File[] addFileToArray(Storage storage, File file) throws Exception , RuntimeException {
+    private File[] addFileToArray(Storage storage, File file) {
 
-        if (file.equals(null) || storage.equals(null)|| validate.fileIsPresent(storage, file) || !validate.checkFormats(storage, file) || !validate.checkMaxSize(storage, file)) {
-            throw new Exception("file not added");
-        } else {
+        if (!file.equals(null) && !storage.equals(null) && !validate.fileIsPresent(storage, file) && validate.checkFormats(storage, file) && validate.checkMaxSize(storage, file)) {
+
             File[] newArrayFiles = new File[storage.getFiles().length + 1];
             for (int i = 0; i < storage.getFiles().length; i++) {
                 newArrayFiles[i] = storage.getFiles()[i];
@@ -63,11 +60,15 @@ public class Controller {
             newArrayFiles[newArrayFiles.length - 1] = file;
             return newArrayFiles;
         }
+        else {
+            return null;
+        }
     }
 
-    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
+    private File[] deleteFileFromArray(Storage storage, File file) throws RuntimeException {
         if (!validate.fileIsPresent(storage, file)) {
-            throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
+            System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
+            throw new RuntimeException("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
         } else {
 
             File[] newArrayFiles = new File[storage.getFiles().length - 1];
@@ -93,7 +94,6 @@ public class Controller {
             }
         }
     }
-
 
 
 }

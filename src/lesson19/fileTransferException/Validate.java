@@ -2,33 +2,40 @@ package lesson19.fileTransferException;
 
 public class Validate {
 
-    boolean checkMaxSize(Storage storage, File file) throws Exception {
-    boolean sizeIsGood = false;
-    if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
-        sizeIsGood = true;
-    } else {
-        throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
+    boolean checkMaxSize(Storage storage, File file) throws RuntimeException {
+        boolean sizeIsGood;
+        if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
+            sizeIsGood = true;
+        } else {
+            throw new RuntimeException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
+        }
+        return sizeIsGood;
     }
-    return sizeIsGood;
-}
-     long getCurrentSizeOfStorage(Storage storage) {
+
+    long getCurrentSizeOfStorage(Storage storage) {
         long size = 0;
         for (File file : storage.getFiles()) {
             size = size + file.getSize();
         }
         return size;
     }
-     boolean checkFormats(Storage storage, File file) throws Exception {
-        boolean formatIsInOrder ;
-        if (!storage.getFormatsSupported().equals(file.getFormat())) {
-            formatIsInOrder = true;
-        } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + "не подходит формат файла");
+
+    boolean checkFormats(Storage storage, File file) throws RuntimeException {
+        boolean formatIsInOrder = false;
+
+        for (String format : storage.getFormatsSupported()) {
+            if (format.equals(file.getFormat())) {
+                formatIsInOrder = true;
+            }
         }
-        return formatIsInOrder;
+        if (formatIsInOrder == true) {
+            return formatIsInOrder;
+        } else {
+            throw new RuntimeException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
+        }
     }
 
-     boolean fileIsPresent(Storage storage, File file) {
+    boolean fileIsPresent(Storage storage, File file) {
         boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
             if (file.equals(checkedFile))
@@ -36,7 +43,8 @@ public class Validate {
         }
         return isPresent;
     }
-     File getFileByID(long id, File[] files) {
+
+    File getFileByID(long id, File[] files) {
         for (File founded : files) {
             if (founded.getId() == id) {
                 return founded;
@@ -45,7 +53,7 @@ public class Validate {
         return null;
     }
 
-     boolean fileIsPresentByID(Storage storageFrom, long id) {
+    boolean fileIsPresentByID(Storage storageFrom, long id) {
         boolean isPresent = false;
         for (File checkedFile : storageFrom.getFiles()) {
             if (checkedFile.getId() == id)
