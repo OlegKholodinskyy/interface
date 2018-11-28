@@ -3,10 +3,10 @@ package lesson19.fileTransferException;
 public class Controller {
     Validate validate = new Validate();
 
-    public File put(Storage storage, File file) throws RuntimeException {
+    public File put(Storage storage, File file) throws Exception {
         try {
             storage.setFiles(addFileToArray(storage, file));
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
            throw e;
         }
             return file;
