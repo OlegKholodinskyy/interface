@@ -7,9 +7,10 @@ public class Controller {
         try {
             storage.setFiles(addFileToArray(storage, file));
         } catch (RuntimeException e) {
-            throw e;
+           throw e;
         }
-        return file;
+            return file;
+
     }
 
     public File delete(Storage storage, File file) throws RuntimeException {
