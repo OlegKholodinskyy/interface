@@ -22,10 +22,17 @@ public class Demo {
         Storage storageDocuments = new Storage(2, files, formatsSupportedStorage2, "Ukraine", 1200);
 
         Controller controller = new Controller();
-
-        controller.put(storagePictures, fileDoc1);
-
-        controller.put(storagePictures, fileXls1);
+        try {
+            controller.put(storagePictures, fileDoc1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            controller.put(storagePictures, fileXls1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        controller.delete(storagePictures, fileXls1);
 
         System.out.println("list");
         for (File f : storagePictures.getFiles()) {
