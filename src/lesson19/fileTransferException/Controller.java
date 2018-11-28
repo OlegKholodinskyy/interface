@@ -13,7 +13,7 @@ public class Controller {
 
     }
 
-    public File delete(Storage storage, File file) throws RuntimeException {
+    public File delete(Storage storage, File file) throws Exception {
         try {
             storage.setFiles(deleteFileFromArray(storage, file));
         } catch (RuntimeException e) {
@@ -50,7 +50,7 @@ public class Controller {
         }
     }
 
-    private File[] addFileToArray(Storage storage, File file) {
+    private File[] addFileToArray(Storage storage, File file) throws Exception{
 
         if (!file.equals(null) && !storage.equals(null) && !validate.fileIsPresent(storage, file) && validate.checkFormats(storage, file) && validate.checkMaxSize(storage, file)) {
 
@@ -62,11 +62,11 @@ public class Controller {
             return newArrayFiles;
         }
         else {
-            return null;
+            return storage.getFiles();
         }
     }
 
-    private File[] deleteFileFromArray(Storage storage, File file) throws RuntimeException {
+    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
         if (!validate.fileIsPresent(storage, file)) {
             System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
             throw new RuntimeException("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
