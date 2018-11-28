@@ -2,12 +2,12 @@ package lesson19.fileTransferException;
 
 public class Validate {
 
-    boolean checkMaxSize(Storage storage, File file) throws RuntimeException {
+    boolean checkMaxSize(Storage storage, File file) throws Exception {
         boolean sizeIsGood;
         if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
             sizeIsGood = true;
         } else {
-            throw new RuntimeException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
         }
         return sizeIsGood;
     }
@@ -20,7 +20,7 @@ public class Validate {
         return size;
     }
 
-    boolean checkFormats(Storage storage, File file) throws RuntimeException {
+    boolean checkFormats(Storage storage, File file) throws Exception {
         boolean formatIsInOrder = false;
 
         for (String format : storage.getFormatsSupported()) {
@@ -31,17 +31,21 @@ public class Validate {
         if (formatIsInOrder == true) {
             return formatIsInOrder;
         } else {
-            throw new RuntimeException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
         }
     }
 
-    boolean fileIsPresent(Storage storage, File file) {
+    boolean fileIsPresent(Storage storage, File file) throws Exception {
         boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
             if (file.equals(checkedFile))
                 isPresent = true;
         }
-        return isPresent;
+        if (isPresent == true) {
+            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл с таким ІД уже существует");
+        } else {
+            return isPresent;
+        }
     }
 
     File getFileByID(long id, File[] files) {
