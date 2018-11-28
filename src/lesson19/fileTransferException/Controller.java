@@ -7,6 +7,7 @@ public class Controller {
         try {
             storage.setFiles(addFileToArray(storage, file));
         } catch (Exception e) {
+            System.out.println(e.getMessage());
            throw e;
         }
             return file;
