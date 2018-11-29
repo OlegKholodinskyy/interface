@@ -1,12 +1,11 @@
 package lesson19.fileTransferException;
 
 public class Controller {
+
     Validate validate = new Validate();
 
     public File put(Storage storage, File file) throws IllegalArgumentException {
-
         if (validate.isValidArgumentsPuttMethod( storage, file )) {
-
             storage.setFiles(addFileToArray(storage, file));
             return file;
         }

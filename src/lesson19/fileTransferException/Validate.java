@@ -75,7 +75,7 @@ public class Validate {
         return true;
     }
 
-    boolean isValidArgumentsPuttMethod(Storage storage, File file){
+    boolean isValidArgumentsPuttMethod(Storage storage, File file)throws IllegalArgumentException{
        if (     !file.equals(null) && !storage.equals(null) &&
                 chechName(file) &&
                 !fileIsPresent(storage, file) &&
