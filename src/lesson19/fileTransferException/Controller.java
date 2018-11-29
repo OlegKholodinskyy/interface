@@ -3,10 +3,10 @@ package lesson19.fileTransferException;
 public class Controller {
     Validate validate = new Validate();
 
-    public File put(Storage storage, File file) throws Exception {
+    public File put(Storage storage, File file) throws IllegalArgumentException {
         try {
             storage.setFiles(addFileToArray(storage, file));
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
            throw e;
         }
@@ -14,10 +14,10 @@ public class Controller {
 
     }
 
-    public File delete(Storage storage, File file) throws Exception {
+    public File delete(Storage storage, File file) throws IllegalArgumentException {
         try {
             storage.setFiles(deleteFileFromArray(storage, file));
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Файл id: " + file.getId() + " не удалён с  хранилища id : " + storage.getId());
             throw e;
             //       throw new RuntimeException("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId());
@@ -25,7 +25,7 @@ public class Controller {
         return file;
     }
 
-    public void transferAll(Storage storageFrom, Storage storageTo) throws RuntimeException {
+    public void transferAll(Storage storageFrom, Storage storageTo) throws IllegalArgumentException {
         for (File fileStorageSource : storageFrom.getFiles()) {
 
             try {
@@ -38,7 +38,7 @@ public class Controller {
         }
     }
 
-    void transferFile(Storage storageFrom, Storage storageTo, long id) throws RuntimeException {
+    void transferFile(Storage storageFrom, Storage storageTo, long id) throws IllegalArgumentException {
         try {
             File founded = validate.getFileByID(id, storageFrom.getFiles());
             if (validate.fileIsPresentByID(storageFrom, id)) {
@@ -47,13 +47,17 @@ public class Controller {
             }
         } catch (Exception e) {
             System.out.println("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
-            throw new RuntimeException("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
+            throw new IllegalArgumentException("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
         }
     }
 
-    private File[] addFileToArray(Storage storage, File file) throws Exception{
+    private File[] addFileToArray(Storage storage, File file) throws IllegalArgumentException{
 
-        if (!file.equals(null) && !storage.equals(null) && !validate.fileIsPresent(storage, file) && validate.checkFormats(storage, file) && validate.checkMaxSize(storage, file)) {
+        if (!file.equals(null) && !storage.equals(null) &&
+                validate.chechName(file) &&
+                !validate.fileIsPresent(storage, file) &&
+                 validate.checkFormats(storage, file) &&
+                 validate.checkMaxSize(storage, file)) {
 
             File[] newArrayFiles = new File[storage.getFiles().length + 1];
             for (int i = 0; i < storage.getFiles().length; i++) {
@@ -67,10 +71,10 @@ public class Controller {
         }
     }
 
-    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
-        if (!validate.fileIsPresent(storage, file)) {
+    private File[] deleteFileFromArray(Storage storage, File file) throws IllegalArgumentException {
+        if (!validate.fileIsPresent(storage, file) && !validate.chechName(file)) {
             System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
-            throw new RuntimeException("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
+            throw new IllegalArgumentException("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
         } else {
 
             File[] newArrayFiles = new File[storage.getFiles().length - 1];

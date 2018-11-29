@@ -2,12 +2,12 @@ package lesson19.fileTransferException;
 
 public class Validate {
 
-    boolean checkMaxSize(Storage storage, File file) throws Exception {
+    boolean checkMaxSize(Storage storage, File file) throws IllegalArgumentException {
         boolean sizeIsGood;
         if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
             sizeIsGood = true;
         } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
+            throw new IllegalArgumentException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
         }
         return sizeIsGood;
     }
@@ -20,7 +20,7 @@ public class Validate {
         return size;
     }
 
-    boolean checkFormats(Storage storage, File file) throws Exception {
+    boolean checkFormats(Storage storage, File file) throws IllegalArgumentException {
         boolean formatIsInOrder = false;
 
         for (String format : storage.getFormatsSupported()) {
@@ -31,18 +31,18 @@ public class Validate {
         if (formatIsInOrder == true) {
             return formatIsInOrder;
         } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
+            throw new IllegalArgumentException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
         }
     }
 
-    boolean fileIsPresent(Storage storage, File file) throws Exception {
+    boolean fileIsPresent(Storage storage, File file) throws IllegalArgumentException {
         boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
             if (file.equals(checkedFile))
                 isPresent = true;
         }
         if (isPresent == true) {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл с таким ІД уже существует");
+            throw new IllegalArgumentException("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл с таким ІД уже существует");
         } else {
             return isPresent;
         }
@@ -65,4 +65,13 @@ public class Validate {
         }
         return isPresent;
     }
+
+
+    boolean chechName(File file) throws IllegalArgumentException {
+        if (file.getName().length()> 10){
+            throw new IllegalArgumentException("Название файла превышает допустимую длинну . id: " + file.getId());
+        }
+        return true;
+    }
+
 }

@@ -24,19 +24,19 @@ public class Demo {
         Controller controller = new Controller();
         try {
             controller.put(storagePictures, fileDoc1);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
         }
         try {
             controller.put(storagePictures, fileXls1);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
         }
         try {
-            controller.put(storagePictures, fileJpg2);
-        } catch (Exception e) {
+            controller.put(storagePictures, fileJpg3);
+        } catch (IllegalArgumentException e) {
         }
         try {
-            controller.put(storagePictures, fileJpg2);
-        } catch (Exception e) {
+            controller.transferFile(storagePictures, storageDocuments,3 );
+        } catch (IllegalArgumentException e) {
         }
 
         System.out.println("list");
