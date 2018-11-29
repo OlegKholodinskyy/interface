@@ -91,4 +91,31 @@ public class Validate {
             throw e;
         }
     }
+
+    boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
+        try {
+            if (file != null && storage != null &&
+                    equalsFileFound(storage, file) ) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    boolean equalsFileFound(Storage storage, File file) throws Exception {
+        boolean isPresent = false;
+        for (File checkedFile : storage.getFiles()) {
+            if (file.equals(checkedFile)) {
+                isPresent = true;
+            }
+        }
+        if (isPresent == false) {
+            throw new Exception("Не удалось удалить  файл с id : " + file.getId() + " с хранилеще id : " + storage.getId() + " не найдено файла");
+        } else {
+            return isPresent;
+        }
+    }
 }

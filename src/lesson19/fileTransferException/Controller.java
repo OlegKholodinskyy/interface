@@ -5,23 +5,19 @@ public class Controller {
     Validate validate = new Validate();
 
     public File put(Storage storage, File file) throws Exception {
-        if (validate.isValidArgumentsPuttMethod( storage, file )) {
+        if (validate.isValidArgumentsPuttMethod(storage, file)) {
             storage.setFiles(addFileToArray(storage, file));
             return file;
-        }
-        else
+        } else
             return null;
     }
 
     public File delete(Storage storage, File file) throws Exception {
-        try {
+        if (validate.isValidArgumentsDellMethod(storage, file)) {
             storage.setFiles(deleteFileFromArray(storage, file));
-        } catch (IllegalArgumentException e) {
-            System.out.println("Файл id: " + file.getId() + " не удалён с  хранилища id : " + storage.getId());
-            throw e;
-            //       throw new RuntimeException("Файл id: " +file.getId() + " не удалён с  хранилища id : " + storage.getId());
-        }
-        return file;
+            return file;
+        } else
+            return null;
     }
 
     public void transferAll(Storage storageFrom, Storage storageTo) throws IllegalArgumentException {
@@ -59,38 +55,34 @@ public class Controller {
         newArrayFiles[newArrayFiles.length - 1] = file;
         return newArrayFiles;
 
-}
-
-    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
-        if (!validate.fileIsPresent(storage, file) && !validate.chechName(file)) {
-            System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
-            throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
-        } else {
-
-            File[] newArrayFiles = new File[storage.getFiles().length - 1];
-            int countMatches = 0;
-            for (int i = 0; i < storage.getFiles().length; i++) {
-                if (storage.getFiles()[i].equals(file))
-                    countMatches++;
-            }
-
-            if (countMatches != 0) {
-                int tmp = 0;
-                for (int i = 0; i < storage.getFiles().length; i++) {
-                    if (!storage.getFiles()[i].equals(file)) {
-                        newArrayFiles[tmp] = storage.getFiles()[i];
-                        tmp++;
-                    } else {
-                        continue;
-                    }
-                }
-                return newArrayFiles;
-            } else {
-                return storage.getFiles();
-            }
-        }
     }
 
+    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
 
+        File[] newArrayFiles = new File[storage.getFiles().length - 1];
+        int countMatches = 0;
+        for (int i = 0; i < storage.getFiles().length; i++) {
+            if (storage.getFiles()[i].equals(file))
+                countMatches++;
+        }
+
+        if (countMatches != 0) {
+            int tmp = 0;
+            for (int i = 0; i < storage.getFiles().length; i++) {
+                if (!storage.getFiles()[i].equals(file)) {
+                    newArrayFiles[tmp] = storage.getFiles()[i];
+                    tmp++;
+                } else {
+                    continue;
+                }
+            }
+            return newArrayFiles;
+        } else {
+            return storage.getFiles();
+        }
+    }
 }
+
+
+
 

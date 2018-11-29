@@ -6,7 +6,7 @@ public class Demo {
     public static void main(String[] args) {
         File fileJpg1 = new File(1, "photo1", TypeOfFiles.JPG.name(), 100);
         File fileJpg2 = new File(2, "photo1", TypeOfFiles.JPG.name(), 110);
-        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 110);
+        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 10);
         File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 120);
         File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
         File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
@@ -34,7 +34,17 @@ public class Demo {
             System.out.println(e.getMessage());
         }
         try {
-            controller.put(storagePictures,fileDoc1);
+            controller.put(storagePictures,fileJpg3);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            controller.delete(storagePictures,fileJpg2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            controller.delete(storagePictures,fileJpg2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
