@@ -23,7 +23,8 @@ public class File {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         File file = (File) o;
-        return id == file.id;
+        return id == file.id &&
+                Objects.equals(name, file.name);
     }
 
     @Override

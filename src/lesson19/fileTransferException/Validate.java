@@ -38,7 +38,7 @@ public class Validate {
     boolean fileIsPresent(Storage storage, File file) throws Exception {
         boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
-            if (file.equals(checkedFile))
+            if (file.getId() == checkedFile.getId())
                 isPresent = true;
         }
         if (isPresent == true) {
