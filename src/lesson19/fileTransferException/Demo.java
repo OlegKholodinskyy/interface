@@ -24,7 +24,12 @@ public class Demo {
         Controller controller = new Controller();
 
         try {
-            controller.put(storagePictures,fileJpg1);
+            controller.put(null,fileJpg1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            controller.put(storagePictures,null);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -34,17 +39,12 @@ public class Demo {
             System.out.println(e.getMessage());
         }
         try {
-            controller.put(storagePictures,fileJpg3);
+      //      controller.delete(storagePictures,fileJpg2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
-            controller.delete(storagePictures,fileJpg2);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            controller.delete(storagePictures,fileJpg2);
+        //    controller.delete(storagePictures,fileJpg2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
