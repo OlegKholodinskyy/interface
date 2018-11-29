@@ -18,6 +18,7 @@ public class File {
                 '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,7 +31,7 @@ public class File {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id);
+        return Objects.hash(id, name);
     }
 
     public File(long id, String name, String format, long size) {
