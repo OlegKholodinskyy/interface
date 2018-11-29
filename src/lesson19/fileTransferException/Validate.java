@@ -38,8 +38,9 @@ public class Validate {
     boolean fileIsPresent(Storage storage, File file) throws Exception {
         boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
-            if (file.getId() == checkedFile.getId())
+            if (file.getId() == checkedFile.getId()) {
                 isPresent = true;
+            }
         }
         if (isPresent == true) {
             throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл с таким ІД уже существует");
@@ -76,7 +77,7 @@ public class Validate {
 
     boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
         try {
-            if (file!=null && storage!=null &&
+            if (file != null && storage != null &&
                     chechName(file) &&
                     !fileIsPresent(storage, file) &&
                     checkFormats(storage, file) &&
