@@ -6,7 +6,7 @@ public class Demo {
     public static void main(String[] args) {
         File fileJpg1 = new File(1, "photo1", TypeOfFiles.JPG.name(), 200);
         File fileJpg2 = new File(2, "photo2rrrrrrrr", TypeOfFiles.JPG.name(), 10);
-        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 11120);
+        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 110);
         File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 120);
         File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
         File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
@@ -25,21 +25,57 @@ public class Demo {
         try {
             controller.put(storagePictures, fileDoc1);
         } catch (IllegalArgumentException e) {
+            System.out.println("Файл не добавлен ");
         }
         try {
-            controller.put(storagePictures, fileXls1);
+            controller.put(storagePictures, fileJpg1);
         } catch (IllegalArgumentException e) {
+            System.out.println("Файл не добавлен ");
         }
+        try {
+            controller.put(storagePictures, fileResearch);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не добавлен ");
+        }
+        try {
+            controller.put(storagePictures, fileJpg2);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не добавлен ");
+        }
+
+        try {
+            controller.delete(storagePictures, fileJpg3);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не удалён ");
+        }
+        try {
+            controller.delete(storagePictures, fileJpg3);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не удалён ");
+        }
+
+        try {
+            controller.transferFile(storagePictures, storageDocuments,5 );
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не перемещён ");
+        }
+
         try {
             controller.put(storagePictures, fileJpg3);
         } catch (IllegalArgumentException e) {
-        }
-        try {
-            controller.transferFile(storagePictures, storageDocuments,3 );
-        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не добавлен ");
         }
 
-        System.out.println("list");
+        try {
+            controller.transferFile(storagePictures, storageDocuments,6 );
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не перемещён ");
+        } try {
+            controller.transferFile(storagePictures, storageDocuments,3 );
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл не перемещён ");
+        }
+
         for (File f : storagePictures.getFiles()) {
             System.out.println(f.toString());
         }
