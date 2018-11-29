@@ -4,14 +4,14 @@ public class Controller {
     Validate validate = new Validate();
 
     public File put(Storage storage, File file) throws IllegalArgumentException {
-        try {
-            storage.setFiles(addFileToArray(storage, file));
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-           throw e;
-        }
-            return file;
 
+        if (validate.isValidArgumentsPuttMethod( storage, file )) {
+
+            storage.setFiles(addFileToArray(storage, file));
+            return file;
+        }
+        else
+            return null;
     }
 
     public File delete(Storage storage, File file) throws IllegalArgumentException {
@@ -51,25 +51,16 @@ public class Controller {
         }
     }
 
-    private File[] addFileToArray(Storage storage, File file) throws IllegalArgumentException{
+    private File[] addFileToArray(Storage storage, File file) throws IllegalArgumentException {
 
-        if (!file.equals(null) && !storage.equals(null) &&
-                validate.chechName(file) &&
-                !validate.fileIsPresent(storage, file) &&
-                 validate.checkFormats(storage, file) &&
-                 validate.checkMaxSize(storage, file)) {
+        File[] newArrayFiles = new File[storage.getFiles().length + 1];
+        for (int i = 0; i < storage.getFiles().length; i++) {
+            newArrayFiles[i] = storage.getFiles()[i];
+        }
+        newArrayFiles[newArrayFiles.length - 1] = file;
+        return newArrayFiles;
 
-            File[] newArrayFiles = new File[storage.getFiles().length + 1];
-            for (int i = 0; i < storage.getFiles().length; i++) {
-                newArrayFiles[i] = storage.getFiles()[i];
-            }
-            newArrayFiles[newArrayFiles.length - 1] = file;
-            return newArrayFiles;
-        }
-        else {
-            return storage.getFiles();
-        }
-    }
+}
 
     private File[] deleteFileFromArray(Storage storage, File file) throws IllegalArgumentException {
         if (!validate.fileIsPresent(storage, file) && !validate.chechName(file)) {

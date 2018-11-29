@@ -67,11 +67,25 @@ public class Validate {
     }
 
 
+
     boolean chechName(File file) throws IllegalArgumentException {
         if (file.getName().length()> 10){
             throw new IllegalArgumentException("Название файла превышает допустимую длинну . id: " + file.getId());
         }
         return true;
+    }
+
+    boolean isValidArgumentsPuttMethod(Storage storage, File file){
+       if (     !file.equals(null) && !storage.equals(null) &&
+                chechName(file) &&
+                !fileIsPresent(storage, file) &&
+                checkFormats(storage, file) &&
+                checkMaxSize(storage, file)){
+           return true;
+       }
+       else{
+           return false;
+       }
     }
 
 }
