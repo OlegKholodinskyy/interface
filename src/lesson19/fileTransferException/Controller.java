@@ -4,7 +4,7 @@ public class Controller {
 
     Validate validate = new Validate();
 
-    public File put(Storage storage, File file) throws IllegalArgumentException {
+    public File put(Storage storage, File file) throws Exception {
         if (validate.isValidArgumentsPuttMethod( storage, file )) {
             storage.setFiles(addFileToArray(storage, file));
             return file;
@@ -13,7 +13,7 @@ public class Controller {
             return null;
     }
 
-    public File delete(Storage storage, File file) throws IllegalArgumentException {
+    public File delete(Storage storage, File file) throws Exception {
         try {
             storage.setFiles(deleteFileFromArray(storage, file));
         } catch (IllegalArgumentException e) {
@@ -61,10 +61,10 @@ public class Controller {
 
 }
 
-    private File[] deleteFileFromArray(Storage storage, File file) throws IllegalArgumentException {
+    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
         if (!validate.fileIsPresent(storage, file) && !validate.chechName(file)) {
             System.out.println("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
-            throw new IllegalArgumentException("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
+            throw new Exception("Не удалось удалить файл с id :" + file.getId() + " из хранилеща id : " + storage.getId());
         } else {
 
             File[] newArrayFiles = new File[storage.getFiles().length - 1];

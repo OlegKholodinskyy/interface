@@ -24,45 +24,45 @@ public class Demo {
         Controller controller = new Controller();
         try {
             controller.put(storagePictures, fileDoc1);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не добавлен ");
         }
         try {
             controller.put(storagePictures, fileJpg1);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не добавлен ");
         }
         try {
             controller.put(storagePictures, fileResearch);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не добавлен ");
         }
         try {
             controller.put(storagePictures, fileJpg2);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не добавлен ");
         }
 
         try {
             controller.delete(storagePictures, fileJpg3);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не удалён ");
         }
         try {
             controller.delete(storagePictures, fileJpg3);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не удалён ");
         }
 
         try {
             controller.transferFile(storagePictures, storageDocuments,5 );
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не перемещён ");
         }
 
         try {
             controller.put(storagePictures, fileJpg3);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Файл не добавлен ");
         }
 
