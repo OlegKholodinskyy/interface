@@ -15,39 +15,32 @@ public class Validate {
     long getCurrentSizeOfStorage(Storage storage) {
         long size = 0;
         for (File file : storage.getFiles()) {
-            size = size + file.getSize();
+            if (file != null) {
+                size = size + file.getSize();
+            }
         }
         return size;
     }
 
     boolean checkFormats(Storage storage, File file) throws Exception {
-        boolean formatIsInOrder = false;
-
         for (String format : storage.getFormatsSupported()) {
-            if (format.equals(file.getFormat())) {
-                formatIsInOrder = true;
+            if (format != null && format.equals(file.getFormat())) {
+                return true;
             }
         }
-        if (formatIsInOrder == true) {
-            return formatIsInOrder;
-        } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
-        }
+        throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
     }
+    
 
     boolean fileIsPresent(Storage storage, File file) throws Exception {
-        boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
-            if (file.getId() == checkedFile.getId()) {
-                isPresent = true;
+            if (checkedFile != null && file.getId() == checkedFile.getId()) {
+                return true;
             }
         }
-        if (isPresent == true) {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл с таким ІД уже существует");
-        } else {
-            return isPresent;
-        }
+        throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл " + file.getId());
     }
+
 
     File getFileByID(long id, File[] files) {
         for (File founded : files) {
@@ -95,7 +88,7 @@ public class Validate {
     boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
         try {
             if (file != null && storage != null &&
-                    equalsFileFound(storage, file) ) {
+                    equalsFileFound(storage, file)) {
                 return true;
             } else {
                 return false;
@@ -105,6 +98,7 @@ public class Validate {
             throw e;
         }
     }
+
     boolean equalsFileFound(Storage storage, File file) throws Exception {
         boolean isPresent = false;
         for (File checkedFile : storage.getFiles()) {
