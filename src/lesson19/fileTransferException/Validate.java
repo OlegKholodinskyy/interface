@@ -67,25 +67,27 @@ public class Validate {
     }
 
 
-
     boolean chechName(File file) throws Exception {
-        if (file.getName().length()> 10){
+        if (file.getName().length() > 10) {
             throw new Exception("Название файла превышает допустимую длинну . id: " + file.getId());
         }
         return true;
     }
 
-    boolean isValidArgumentsPuttMethod(Storage storage, File file)throws Exception{
-       if (     !file.equals(null) && !storage.equals(null) &&
-                chechName(file) &&
-                !fileIsPresent(storage, file) &&
-                checkFormats(storage, file) &&
-                checkMaxSize(storage, file)){
-           return true;
-       }
-       else{
-           return false;
-       }
-    }
+    boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
+        try {
+            if (file!=null && storage!=null &&
+                    chechName(file) &&
+                    !fileIsPresent(storage, file) &&
+                    checkFormats(storage, file) &&
+                    checkMaxSize(storage, file)) {
+                return true;
+            } else {
+                return false;
+            }
 
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

@@ -10,7 +10,7 @@ public class Controller {
             return file;
         }
         else
-            return file;
+            return null;
     }
 
     public File delete(Storage storage, File file) throws Exception {
