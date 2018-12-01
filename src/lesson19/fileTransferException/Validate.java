@@ -1,8 +1,5 @@
 package lesson19.fileTransferException;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Validate {
 
     boolean checkMaxSize(Storage storage, File file) throws Exception {
@@ -85,18 +82,17 @@ public class Validate {
     }
 
     boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
-        try {
-            if (file != null && storage != null &&
-                    equalsFileFound(storage, file)) {
-                return true;
-            } else {
-                return false;
-            }
 
-        } catch (Exception e) {
-            throw e;
-        }
+        if (file == null)
+            throw new Exception("File is null. Not deleted.");
+        if (storage == null)
+            throw new Exception("Storage is null. Not deleted.");
+        if (!equalsFileFound(storage, file))
+            throw new Exception("File not found. File id : " + file.getId() + " file name : " + file.getName());
+
+        return true;
     }
+
 
     boolean equalsFileFound(Storage storage, File file) throws Exception {
         boolean flag = false;

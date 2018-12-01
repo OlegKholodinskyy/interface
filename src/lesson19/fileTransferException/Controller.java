@@ -33,17 +33,15 @@ public class Controller {
         }
     }
 
-    void transferFile(Storage storageFrom, Storage storageTo, long id) throws IllegalArgumentException {
-        try {
+    File transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
+
             File founded = validate.getFileByID(id, storageFrom.getFiles());
             if (validate.fileIsPresentByID(storageFrom, id)) {
                 put(storageTo, founded);
                 delete(storageFrom, founded);
+                return founded;
             }
-        } catch (Exception e) {
-            System.out.println("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
-            throw new IllegalArgumentException("Файл id: " + id + " не перемещн в  хранилище id : " + storageTo.getId());
-        }
+            return null;
     }
 
     private File[] addFileToArray(Storage storage, File file) throws IllegalArgumentException {
