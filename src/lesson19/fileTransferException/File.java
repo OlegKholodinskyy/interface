@@ -8,6 +8,19 @@ public class File {
     private String format;
     private long size;
 
+    public File(long id, String name, String format, long size) throws Exception {
+        if (name.length() > 10){
+            throw new IllegalArgumentException("Название превышает 10 символов. id файла : " + id);
+        }
+        this.id = id;
+        this.name = name;
+        this.format = format;
+        this.size = size;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "File{" +
@@ -30,18 +43,7 @@ public class File {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name);
-    }
-
-    public File(long id, String name, String format, long size) {
-
-
-        this.id = id;
-        this.name = name;
-        this.format = format;
-        this.size = size;
-
     }
 
     public long getId() {

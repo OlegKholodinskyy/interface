@@ -4,14 +4,24 @@ import java.util.ArrayList;
 
 public class Demo {
     public static void main(String[] args) {
-        File fileJpg1 = new File(1, "photo1", TypeOfFiles.JPG.name(), 100);
-        File fileJpg2 = new File(2, "photo1", TypeOfFiles.JPG.name(), 110);
-        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 10);
-        File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 120);
-        File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
-        File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
-        File fileXls1 = new File(7, "xls1", TypeOfFiles.XLS.name(), 40);
-        File fileResearch = new File(8, "research", TypeOfFiles.XLS.name(), 40);
+        File fileJpg1 = null;
+        try {
+            fileJpg1 = new File(1, "photo1", TypeOfFiles.JPG.name(), 100);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        File fileJpg2 = null;
+        try {
+            fileJpg2 = new File(2, "photo1", TypeOfFiles.JPG.name(), 110);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+//        File fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 10);
+//        File fileDoc1 = new File(4, "doc1", TypeOfFiles.DOC.name(), 120);
+//        File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
+//        File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
+//        File fileXls1 = new File(7, "xls1", TypeOfFiles.XLS.name(), 40);
+//        File fileResearch = new File(8, "research", TypeOfFiles.XLS.name(), 40);
 
         File[] files = new File[0];
         String[] formatsSupportedStorage1 = new String[]{TypeOfFiles.JPG.name(), TypeOfFiles.XLS.name()};

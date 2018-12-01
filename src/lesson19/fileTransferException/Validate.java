@@ -30,7 +30,7 @@ public class Validate {
         }
         throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
     }
-    
+
 
     boolean fileIsPresent(Storage storage, File file) throws Exception {
         for (File checkedFile : storage.getFiles()) {
@@ -44,7 +44,7 @@ public class Validate {
 
     File getFileByID(long id, File[] files) {
         for (File founded : files) {
-            if (founded.getId() == id) {
+            if (founded != null && founded.getId() == id) {
                 return founded;
             }
         }
@@ -54,35 +54,22 @@ public class Validate {
     boolean fileIsPresentByID(Storage storageFrom, long id) {
         boolean isPresent = false;
         for (File checkedFile : storageFrom.getFiles()) {
-            if (checkedFile.getId() == id)
+            if (checkedFile != null && checkedFile.getId() == id)
                 isPresent = true;
         }
         return isPresent;
     }
 
-
-    boolean chechName(File file) throws Exception {
-        if (file.getName().length() > 10) {
-            throw new Exception("Название файла превышает допустимую длинну . id: " + file.getId());
-        }
-        return true;
-    }
-
     boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
-        try {
+
             if (file != null && storage != null &&
-                    chechName(file) &&
                     !fileIsPresent(storage, file) &&
                     checkFormats(storage, file) &&
                     checkMaxSize(storage, file)) {
                 return true;
             } else {
-                return false;
+                throw new Exception("Не прошла проверка аргументов : storade id :" + storage.getId() + " file.id  " + file.getId());
             }
-
-        } catch (Exception e) {
-            throw e;
-        }
     }
 
     boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
@@ -100,16 +87,12 @@ public class Validate {
     }
 
     boolean equalsFileFound(Storage storage, File file) throws Exception {
-        boolean isPresent = false;
+
         for (File checkedFile : storage.getFiles()) {
-            if (file.equals(checkedFile)) {
-                isPresent = true;
+            if (checkedFile != null && file.equals(checkedFile)) {
+                return true;
             }
         }
-        if (isPresent == false) {
-            throw new Exception("Не удалось удалить  файл с id : " + file.getId() + " с хранилеще id : " + storage.getId() + " не найдено файла");
-        } else {
-            return isPresent;
-        }
+        throw new Exception("Не удалось удалить  файл с id : " + file.getId() + " с хранилеще id : " + storage.getId() + " не найдено файла");
     }
 }
