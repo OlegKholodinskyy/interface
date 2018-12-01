@@ -68,16 +68,14 @@ public class Demo {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        try {
-            controller.transferFile(storagePictures,storageDocuments,8);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
+            controller.transferAll(storagePictures,storageDocuments);
+
 
 
         for (File f : storageDocuments.getFiles()) {
             System.out.println(f.toString());
         }
-        System.out.println(storagePictures.getFiles().length);
+        System.out.println(storageDocuments.getFiles().length);
     }
 }

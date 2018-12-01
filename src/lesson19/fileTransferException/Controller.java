@@ -20,9 +20,13 @@ public class Controller {
             return null;
     }
 
-    public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
+    public void transferAll(Storage storageFrom, Storage storageTo)  {
         for (File fileStorageSource : storageFrom.getFiles()) {
-                 transferFile(storageFrom,storageTo,fileStorageSource.getId() );
+                try{
+                    transferFile(storageFrom,storageTo,fileStorageSource.getId() );
+                }catch (Exception e){
+                    System.out.println("File id : " + fileStorageSource.getId() + " not transfered to Storage id : " + storageTo.getId());
+                }
         }
     }
 
