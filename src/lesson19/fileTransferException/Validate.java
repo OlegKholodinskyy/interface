@@ -36,12 +36,13 @@ public class Validate {
 
 
     boolean fileIsPresent(Storage storage, File file) throws Exception {
+        boolean flag= false;
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.getId() == checkedFile.getId()) {
-                throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " file is present");
+              flag = true;
             }
         }
-        return false;
+        return flag;
     }
 
 
@@ -65,11 +66,21 @@ public class Validate {
 
     boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
 
-        if (file == null || storage == null || fileIsPresent(storage, file) ||
-                !checkFormats(storage, file) ||
-                !checkMaxSize(storage, file)) {
-            throw new Exception("Не прошла проверка аргументов : storade id :" + storage.getId() + " file.id  " + file.getId());
-        }
+        if (file == null)
+            throw new Exception("File is null. Not added.");
+
+        if (storage == null)
+            throw new Exception("Storage is null. Not added");
+
+        if (fileIsPresent(storage, file))
+            throw new Exception("File id " + file.getId() + " is present in Storage id " + storage.getId());
+
+        if (!checkFormats(storage, file))
+            throw new Exception("Format file id " + file.getId() + " is not supported by Storage id " + storage.getId());
+
+        if (!checkMaxSize(storage, file))
+            throw new Exception("Size of Storage  id :" + storage.getId() + " is not enough to add file  " + file.getId());
+
         return true;
     }
 
