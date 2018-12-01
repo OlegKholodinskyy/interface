@@ -1,5 +1,8 @@
 package lesson19.fileTransferException;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Validate {
 
     boolean checkMaxSize(Storage storage, File file) throws Exception {

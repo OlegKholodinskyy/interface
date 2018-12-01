@@ -49,7 +49,7 @@ public class Demo {
             System.out.println(e.getMessage());
         }
         try {
-      //      controller.delete(storagePictures,fileJpg2);
+            controller.put(storagePictures,fileJpg2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
