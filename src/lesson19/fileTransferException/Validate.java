@@ -38,7 +38,7 @@ public class Validate {
     boolean fileIsPresent(Storage storage, File file) throws Exception {
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.getId() == checkedFile.getId()) {
-                return true;
+                throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " file is present");
             }
         }
         return false;
