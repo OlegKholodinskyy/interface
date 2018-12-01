@@ -8,7 +8,7 @@ public class Controller {
         if (validate.isValidArgumentsPuttMethod(storage, file)) {
             storage.setFiles(addFileToArray(storage, file));
             return file;
-        } else
+        }
             return null;
     }
 

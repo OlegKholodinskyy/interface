@@ -38,7 +38,7 @@ public class Validate {
                 return true;
             }
         }
-        throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " файл " + file.getId());
+        return false;
     }
 
 
@@ -62,14 +62,12 @@ public class Validate {
 
     boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
 
-            if (file != null && storage != null &&
-                    !fileIsPresent(storage, file) &&
-                    checkFormats(storage, file) &&
-                    checkMaxSize(storage, file)) {
-                return true;
-            } else {
-                throw new Exception("Не прошла проверка аргументов : storade id :" + storage.getId() + " file.id  " + file.getId());
-            }
+        if (file == null || storage == null || fileIsPresent(storage, file) ||
+                !checkFormats(storage, file) ||
+                !checkMaxSize(storage, file)) {
+            throw new Exception("Не прошла проверка аргументов : storade id :" + storage.getId() + " file.id  " + file.getId());
+        }
+        return true;
     }
 
     boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
