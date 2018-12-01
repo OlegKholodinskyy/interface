@@ -52,15 +52,6 @@ public class Validate {
         return null;
     }
 
-    boolean fileIsPresentByID(Storage storageFrom, long id) {
-        boolean isPresent = false;
-        for (File checkedFile : storageFrom.getFiles()) {
-            if (checkedFile != null && checkedFile.getId() == id)
-                isPresent = true;
-        }
-        return isPresent;
-    }
-
     boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
 
         if (file == null)

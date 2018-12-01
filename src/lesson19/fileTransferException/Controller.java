@@ -20,23 +20,16 @@ public class Controller {
             return null;
     }
 
-    public void transferAll(Storage storageFrom, Storage storageTo) throws IllegalArgumentException {
+    public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
         for (File fileStorageSource : storageFrom.getFiles()) {
-
-            try {
-                put(storageTo, fileStorageSource);
-                delete(storageFrom, fileStorageSource);
-            } catch (Exception e) {
-                System.out.println("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId());
-                throw new RuntimeException("Не все файлы  с хранилища id:  " + storageFrom.getId() + " перемещены в  хранилище id : " + storageTo.getId());
-            }
+                 transferFile(storageFrom,storageTo,fileStorageSource.getId() );
         }
     }
 
     File transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
 
             File founded = validate.getFileByID(id, storageFrom.getFiles());
-            if (validate.fileIsPresentByID(storageFrom, id)) {
+            if (validate.isValidArgumentsDellMethod(storageFrom, founded) && validate.isValidArgumentsPuttMethod(storageTo, founded)) {
                 put(storageTo, founded);
                 delete(storageFrom, founded);
                 return founded;
