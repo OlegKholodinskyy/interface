@@ -6,13 +6,12 @@ import java.util.Set;
 public class Validate {
 
     boolean checkMaxSize(Storage storage, File file) throws Exception {
-        boolean sizeIsGood;
+
         if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
-            sizeIsGood = true;
+            return true;
         } else {
-            throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " превышен размер хранилища");
+            return false;
         }
-        return sizeIsGood;
     }
 
     long getCurrentSizeOfStorage(Storage storage) {
@@ -26,20 +25,21 @@ public class Validate {
     }
 
     boolean checkFormats(Storage storage, File file) throws Exception {
+        boolean flag = false;
         for (String format : storage.getFormatsSupported()) {
             if (format != null && format.equals(file.getFormat())) {
-                return true;
+                flag = true;
             }
         }
-        throw new Exception("Не удалось добавить файл с id : " + file.getId() + " в хранилеще id : " + storage.getId() + " не подходит формат файла");
+        return flag;
     }
 
 
     boolean fileIsPresent(Storage storage, File file) throws Exception {
-        boolean flag= false;
+        boolean flag = false;
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.getId() == checkedFile.getId()) {
-              flag = true;
+                flag = true;
             }
         }
         return flag;
@@ -99,12 +99,12 @@ public class Validate {
     }
 
     boolean equalsFileFound(Storage storage, File file) throws Exception {
-
+        boolean flag = false;
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.equals(checkedFile)) {
-                return true;
+                flag = true;
             }
         }
-        throw new Exception("Не удалось удалить  файл с id : " + file.getId() + " с хранилеще id : " + storage.getId() + " не найдено файла");
+        return flag;
     }
 }
