@@ -20,7 +20,7 @@ public class Controller {
     public File delete(Storage storage, File file) throws Exception {
         if (storage.getFiles()!= null && validate.isValidArgumentsDellMethod(storage, file)) {
             for (int i = 0; i < storage.getFiles().length; i++) {
-                if (storage.getFiles()[i].equals(file)) {
+                if (storage.getFiles()[i].getId()==file.getId()) {
                     storage.getFiles()[i] = null;
                     break;
                 }
