@@ -32,21 +32,20 @@ public class Controller {
 
     public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
         for (File fileStorageSource : storageFrom.getFiles()) {
-            if (fileStorageSource == null){
-                break;
-            }
-            if ( !validate.isValidArgumentsDellMethod(storageFrom, fileStorageSource) || !validate.isValidArgumentsPuttMethod(storageTo, fileStorageSource)) {
-                throw new Exception("All files from storage id : " + storageFrom.getId() + " can not transfer to storage is : " + storageTo.getId());
+            if (fileStorageSource != null) {
+                if (!validate.isValidArgumentsDellMethod(storageFrom, fileStorageSource) || !validate.isValidArgumentsPuttMethod(storageTo, fileStorageSource)) {
+                    throw new Exception("All files from storage id : " + storageFrom.getId() + " can not transfer to storage is : " + storageTo.getId());
+                }
             }
         }
 
         for (File fileStorageSource : storageFrom.getFiles()) {
-        put(storageTo, fileStorageSource);
-        delete(storageFrom, fileStorageSource);
-
+            if (fileStorageSource != null) {
+                put(storageTo, fileStorageSource);
+                delete(storageFrom, fileStorageSource);
+            }
+        }
     }
-
-}
 
     File transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
 
@@ -58,32 +57,7 @@ public class Controller {
         }
         return null;
     }
-
-
-    private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
-
-        File[] newArrayFiles = new File[storage.getFiles().length - 1];
-        int countMatches = 0;
-        for (int i = 0; i < storage.getFiles().length; i++) {
-            if (storage.getFiles()[i].equals(file))
-                countMatches++;
-        }
-
-        if (countMatches != 0) {
-            int tmp = 0;
-            for (int i = 0; i < storage.getFiles().length; i++) {
-                if (!storage.getFiles()[i].equals(file)) {
-                    newArrayFiles[tmp] = storage.getFiles()[i];
-                    tmp++;
-                } else {
-                    continue;
-                }
-            }
-            return newArrayFiles;
-        } else {
-            return storage.getFiles();
-        }
-    }
+    
 }
 
 
