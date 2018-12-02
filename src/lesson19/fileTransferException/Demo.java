@@ -16,7 +16,7 @@ public class Demo {
         }
         File fileJpg3 = null;
         try {
-             fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 10);
+            fileJpg3 = new File(3, "photo3", TypeOfFiles.JPG.name(), 10);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,20 +28,36 @@ public class Demo {
         }
 //        File fileDoc2 = new File(5, "doc2", TypeOfFiles.DOC.name(), 100);
 //        File fileDoc3 = new File(6, "doc3", TypeOfFiles.DOC.name(), 10);
+
+        File fileXls1 = null;
         try {
-            File fileXls1 = new File(7, "xls1", TypeOfFiles.XLS.name(), 40);
+            fileXls1 = new File(7, "xls1", TypeOfFiles.XLS.name(), 40);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        File fileResearch = null;
+        File fileXls2 = null;
+
         try {
-             fileResearch = new File(8, "research", TypeOfFiles.XLS.name(), 40);
+            fileXls2 = new File(18, "xls2", TypeOfFiles.XLS.name(), 40);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        File fileXls3 = null;
+        try {
+            fileXls3 = new File(19, "xls3", TypeOfFiles.XLS.name(), 40);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        File[] files1 = new File[2];
-        File[] files2 = new File[2];
+        File fileResearch = null;
+        try {
+            fileResearch = new File(8, "research", TypeOfFiles.XLS.name(), 40);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        File[] files1 = new File[3];
+        File[] files2 = new File[3];
 
         String[] formatsSupportedStorage1 = new String[]{TypeOfFiles.JPG.name(), TypeOfFiles.XLS.name()};
         String[] formatsSupportedStorage2 = new String[]{TypeOfFiles.DOC.name(), TypeOfFiles.XLS.name()};
@@ -53,36 +69,36 @@ public class Demo {
         Controller controller = new Controller();
 
         try {
-//            controller.put(storagePictures,fileJpg3);
+            controller.put(storagePictures, fileXls1);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
- //           controller.put(storagePictures,fileJpg3);
+           controller.put(storagePictures,fileXls2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
-            controller.put(storagePictures,fileResearch);
+            controller.put(storagePictures, fileXls3);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
-            controller.delete(storagePictures,fileJpg1);
+            controller.delete(storagePictures, fileXls2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            controller.transferAll(storagePictures,storageDocuments);
+            controller.transferAll(storagePictures, storageDocuments);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
 
         for (File f : storageDocuments.getFiles()) {
-            if (f!=null)
-            System.out.println(f.toString());
+            if (f != null)
+                System.out.println(f.toString());
         }
     }
 }

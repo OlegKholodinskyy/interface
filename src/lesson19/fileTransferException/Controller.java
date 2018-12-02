@@ -20,7 +20,7 @@ public class Controller {
     public File delete(Storage storage, File file) throws Exception {
         if (validate.isValidArgumentsDellMethod(storage, file)) {
             for (int i = 0; i < storage.getFiles().length; i++) {
-                if (storage.getFiles()[i].getId() == file.getId()) {
+                if (storage.getFiles()[i] != null && storage.getFiles()[i].getId() == file.getId()) {
                     storage.getFiles()[i] = null;
                     break;
                 }
@@ -40,6 +40,7 @@ public class Controller {
         }
 
         for (File fileStorageSource : storageFrom.getFiles()) {
+       //     long id = fileStorageSource.getId();
             if (fileStorageSource != null) {
                 put(storageTo, fileStorageSource);
                 delete(storageFrom, fileStorageSource);
@@ -57,7 +58,7 @@ public class Controller {
         }
         return null;
     }
-    
+
 }
 
 
