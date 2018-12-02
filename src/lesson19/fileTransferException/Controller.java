@@ -29,13 +29,15 @@ public class Controller {
         return null;
     }
 
-    public void transferAll(Storage storageFrom, Storage storageTo) {
+    public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
         for (File fileStorageSource : storageFrom.getFiles()) {
-            try {
-                transferFile(storageFrom, storageTo, fileStorageSource.getId());
-            } catch (Exception e) {
-                System.out.println("File id : " + fileStorageSource.getId() + " not transfered to Storage id : " + storageTo.getId());
+            if ((validate.isValidArgumentsDellMethod(storageFrom, fileStorageSource) && validate.isValidArgumentsPuttMethod(storageTo, fileStorageSource))){
+                put(storageTo, fileStorageSource);
+                delete(storageFrom, fileStorageSource);
             }
+
+                System.out.println("File id : " + fileStorageSource.getId() + " not transfered to Storage id : " + storageTo.getId());
+
         }
     }
 
