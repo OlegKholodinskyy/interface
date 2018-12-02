@@ -38,7 +38,7 @@ public class Demo {
             e.printStackTrace();
         }
 
-        File[] files = new File[0];
+        File[] files = new File[10];
         String[] formatsSupportedStorage1 = new String[]{TypeOfFiles.JPG.name(), TypeOfFiles.XLS.name()};
         String[] formatsSupportedStorage2 = new String[]{TypeOfFiles.DOC.name(), TypeOfFiles.XLS.name()};
 
@@ -69,13 +69,13 @@ public class Demo {
             System.out.println(e.getMessage());
         }
 
-            controller.transferAll(storagePictures,storageDocuments);
+        //    controller.transferAll(storagePictures,storageDocuments);
 
 
 
-        for (File f : storageDocuments.getFiles()) {
+        for (File f : storagePictures.getFiles()) {
+            if (f!=null)
             System.out.println(f.toString());
         }
-        System.out.println(storageDocuments.getFiles().length);
     }
 }

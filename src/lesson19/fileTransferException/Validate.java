@@ -6,9 +6,9 @@ public class Validate {
 
         if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
             return true;
-        } else {
-            return false;
         }
+        throw new Exception("Size of Storage  id :" + storage.getId() + " is not enough to add file  " + file.getId());
+
     }
 
     long getCurrentSizeOfStorage(Storage storage) {
@@ -22,24 +22,24 @@ public class Validate {
     }
 
     boolean checkFormats(Storage storage, File file) throws Exception {
-        boolean flag = false;
+
         for (String format : storage.getFormatsSupported()) {
             if (format != null && format.equals(file.getFormat())) {
-                flag = true;
+                return true;
             }
         }
-        return flag;
+        throw new Exception("Format file id " + file.getId() + " is not supported by Storage id " + storage.getId());
     }
 
 
     boolean fileIsPresent(Storage storage, File file) throws Exception {
-        boolean flag = false;
+
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.getId() == checkedFile.getId()) {
-                flag = true;
+                throw new Exception("File id " + file.getId() + " is present in Storage id " + storage.getId());
             }
         }
-        return flag;
+        return true;
     }
 
 
@@ -54,22 +54,23 @@ public class Validate {
 
     boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
 
-        if (file == null)
-            throw new Exception("File is null. Not added.");
-
-        if (storage == null)
-            throw new Exception("Storage is null. Not added");
-
-        if (fileIsPresent(storage, file))
-            throw new Exception("File id " + file.getId() + " is present in Storage id " + storage.getId());
-
-        if (!checkFormats(storage, file))
-            throw new Exception("Format file id " + file.getId() + " is not supported by Storage id " + storage.getId());
-
-        if (!checkMaxSize(storage, file))
-            throw new Exception("Size of Storage  id :" + storage.getId() + " is not enough to add file  " + file.getId());
+        checkNotNullFile(file);
+        checkNotNullStorage(storage);
+        fileIsPresent(storage, file);
+        checkFormats(storage, file);
+        checkMaxSize(storage, file);
 
         return true;
+    }
+
+    private void checkNotNullFile(File file) throws Exception {
+        if (file == null)
+            throw new Exception("File is null. Not added.");
+    }
+
+    private void checkNotNullStorage(Storage storage) throws Exception {
+        if (storage == null)
+            throw new Exception("Storage is null. Not added");
     }
 
     boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {

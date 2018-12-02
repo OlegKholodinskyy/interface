@@ -6,7 +6,12 @@ public class Controller {
 
     public File put(Storage storage, File file) throws Exception {
         if (validate.isValidArgumentsPuttMethod(storage, file)) {
-            storage.setFiles(addFileToArray(storage, file));
+            for (int i = 0; i < storage.getFiles().length; i++) {
+                if (storage.getFiles()[i] == null){
+                    storage.getFiles()[i]=file;
+                    break;
+                }
+            }
             return file;
         }
             return null;
@@ -41,16 +46,7 @@ public class Controller {
             return null;
     }
 
-    private File[] addFileToArray(Storage storage, File file) throws IllegalArgumentException {
 
-        File[] newArrayFiles = new File[storage.getFiles().length + 1];
-        for (int i = 0; i < storage.getFiles().length; i++) {
-            newArrayFiles[i] = storage.getFiles()[i];
-        }
-        newArrayFiles[newArrayFiles.length - 1] = file;
-        return newArrayFiles;
-
-    }
 
     private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
 
