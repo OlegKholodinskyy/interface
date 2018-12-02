@@ -49,7 +49,7 @@ public class Demo {
         Controller controller = new Controller();
 
         try {
-            controller.put(storagePictures,fileJpg1);
+            controller.put(storagePictures,fileJpg3);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

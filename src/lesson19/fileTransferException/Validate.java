@@ -17,7 +17,7 @@ public class Validate {
 
         checkNotNullFile(file);
         checkNotNullStorage(storage);
-        equalsFileNotFound(storage, file);
+        equalsFileFound(storage, file);
 
         return true;
     }
@@ -83,10 +83,10 @@ public class Validate {
     }
 
 
-    boolean equalsFileNotFound(Storage storage, File file) throws Exception {
+    boolean equalsFileFound(Storage storage, File file) throws Exception {
 
         for (File checkedFile : storage.getFiles()) {
-            if (checkedFile != null && file.equals(checkedFile)) {
+            if (checkedFile != null && file.getId() == checkedFile.getId()) {
                 return true;
             }
         }
