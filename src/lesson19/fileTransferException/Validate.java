@@ -2,6 +2,26 @@ package lesson19.fileTransferException;
 
 public class Validate {
 
+    boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
+
+        checkNotNullFile(file);
+        checkNotNullStorage(storage);
+        fileIsPresent(storage, file);
+        checkFormats(storage, file);
+        checkMaxSize(storage, file);
+
+        return true;
+    }
+
+    boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
+
+        checkNotNullFile(file);
+        checkNotNullStorage(storage);
+        equalsFileNotFound(storage, file);
+
+        return true;
+    }
+
     boolean checkMaxSize(Storage storage, File file) throws Exception {
 
         if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
@@ -52,17 +72,6 @@ public class Validate {
         return null;
     }
 
-    boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
-
-        checkNotNullFile(file);
-        checkNotNullStorage(storage);
-        fileIsPresent(storage, file);
-        checkFormats(storage, file);
-        checkMaxSize(storage, file);
-
-        return true;
-    }
-
     private void checkNotNullFile(File file) throws Exception {
         if (file == null)
             throw new Exception("File is null. Not added.");
@@ -73,26 +82,14 @@ public class Validate {
             throw new Exception("Storage is null. Not added");
     }
 
-    boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
 
-        if (file == null)
-            throw new Exception("File is null. Not deleted.");
-        if (storage == null)
-            throw new Exception("Storage is null. Not deleted.");
-        if (!equalsFileFound(storage, file))
-            throw new Exception("File not found. File id : " + file.getId() + " file name : " + file.getName());
+    boolean equalsFileNotFound(Storage storage, File file) throws Exception {
 
-        return true;
-    }
-
-
-    boolean equalsFileFound(Storage storage, File file) throws Exception {
-        boolean flag = false;
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.equals(checkedFile)) {
-                flag = true;
+                return true;
             }
         }
-        return flag;
+        throw new Exception("File not found. File id : " + file.getId() + " file name : " + file.getName());
     }
 }

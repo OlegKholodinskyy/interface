@@ -7,45 +7,48 @@ public class Controller {
     public File put(Storage storage, File file) throws Exception {
         if (validate.isValidArgumentsPuttMethod(storage, file)) {
             for (int i = 0; i < storage.getFiles().length; i++) {
-                if (storage.getFiles()[i] == null){
-                    storage.getFiles()[i]=file;
+                if (storage.getFiles()[i] == null) {
+                    storage.getFiles()[i] = file;
                     break;
                 }
             }
             return file;
         }
-            return null;
+        return null;
     }
 
     public File delete(Storage storage, File file) throws Exception {
         if (validate.isValidArgumentsDellMethod(storage, file)) {
-            storage.setFiles(deleteFileFromArray(storage, file));
-            return file;
-        } else
-            return null;
+            for (int i = 0; i < storage.getFiles().length; i++) {
+                if (storage.getFiles()[i].equals(file)) {
+                    storage.getFiles()[i] = null;
+                    break;
+                }
+            } return file;
+        }
+        return null;
     }
 
-    public void transferAll(Storage storageFrom, Storage storageTo)  {
+    public void transferAll(Storage storageFrom, Storage storageTo) {
         for (File fileStorageSource : storageFrom.getFiles()) {
-                try{
-                    transferFile(storageFrom,storageTo,fileStorageSource.getId() );
-                }catch (Exception e){
-                    System.out.println("File id : " + fileStorageSource.getId() + " not transfered to Storage id : " + storageTo.getId());
-                }
+            try {
+                transferFile(storageFrom, storageTo, fileStorageSource.getId());
+            } catch (Exception e) {
+                System.out.println("File id : " + fileStorageSource.getId() + " not transfered to Storage id : " + storageTo.getId());
+            }
         }
     }
 
     File transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
 
-            File founded = validate.getFileByID(id, storageFrom.getFiles());
-            if (validate.isValidArgumentsDellMethod(storageFrom, founded) && validate.isValidArgumentsPuttMethod(storageTo, founded)) {
-                put(storageTo, founded);
-                delete(storageFrom, founded);
-                return founded;
-            }
-            return null;
+        File founded = validate.getFileByID(id, storageFrom.getFiles());
+        if (validate.isValidArgumentsDellMethod(storageFrom, founded) && validate.isValidArgumentsPuttMethod(storageTo, founded)) {
+            put(storageTo, founded);
+            delete(storageFrom, founded);
+            return founded;
+        }
+        return null;
     }
-
 
 
     private File[] deleteFileFromArray(Storage storage, File file) throws Exception {
