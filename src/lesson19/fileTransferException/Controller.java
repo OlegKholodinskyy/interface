@@ -18,28 +18,35 @@ public class Controller {
     }
 
     public File delete(Storage storage, File file) throws Exception {
-        if ( validate.isValidArgumentsDellMethod(storage, file)) {
+        if (validate.isValidArgumentsDellMethod(storage, file)) {
             for (int i = 0; i < storage.getFiles().length; i++) {
-                if (storage.getFiles()[i].getId()==file.getId()) {
+                if (storage.getFiles()[i].getId() == file.getId()) {
                     storage.getFiles()[i] = null;
                     break;
                 }
-            } return file;
+            }
+            return file;
         }
         return null;
     }
 
     public void transferAll(Storage storageFrom, Storage storageTo) throws Exception {
         for (File fileStorageSource : storageFrom.getFiles()) {
-            if ((validate.isValidArgumentsDellMethod(storageFrom, fileStorageSource) && validate.isValidArgumentsPuttMethod(storageTo, fileStorageSource))){
-                put(storageTo, fileStorageSource);
-                delete(storageFrom, fileStorageSource);
+            if (fileStorageSource == null){
+                break;
             }
-
-                System.out.println("File id : " + fileStorageSource.getId() + " not transfered to Storage id : " + storageTo.getId());
-
+            if ( !validate.isValidArgumentsDellMethod(storageFrom, fileStorageSource) || !validate.isValidArgumentsPuttMethod(storageTo, fileStorageSource)) {
+                throw new Exception("All files from storage id : " + storageFrom.getId() + " can not transfer to storage is : " + storageTo.getId());
+            }
         }
+
+        for (File fileStorageSource : storageFrom.getFiles()) {
+        put(storageTo, fileStorageSource);
+        delete(storageFrom, fileStorageSource);
+
     }
+
+}
 
     File transferFile(Storage storageFrom, Storage storageTo, long id) throws Exception {
 
