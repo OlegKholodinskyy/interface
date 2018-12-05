@@ -74,7 +74,7 @@ public class Demo {
             System.out.println(e.getMessage());
         }
         try {
-           controller.put(storagePictures,fileXls2);
+            controller.put(storagePictures, fileXls2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -95,7 +95,11 @@ public class Demo {
             System.out.println(e.getMessage());
         }
 
-
+        try {
+            controller.transferFile(storageDocuments, storagePictures, 7);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         for (File f : storageDocuments.getFiles()) {
             if (f != null)
                 System.out.println(f.toString());

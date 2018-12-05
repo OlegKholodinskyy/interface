@@ -2,33 +2,21 @@ package lesson19.fileTransferException;
 
 public class Validate {
 
-    boolean isValidArgumentsPuttMethod(Storage storage, File file) throws Exception {
-
-        checkNotNullFile(file);
-        checkNotNullStorage(storage);
+    void validateArgumentsPuttMethod(Storage storage, File file) throws Exception {
         fileIsPresent(storage, file);
         checkFormats(storage, file);
         checkMaxSize(storage, file);
-
-        return true;
     }
 
-    boolean isValidArgumentsDellMethod(Storage storage, File file) throws Exception {
-
-        checkNotNullFile(file);
-        checkNotNullStorage(storage);
+    void validateArgumentsDellMethod(Storage storage, File file) throws Exception {
         equalsFileFound(storage, file);
-
-        return true;
-    }
-
-    boolean checkMaxSize(Storage storage, File file) throws Exception {
-
-        if (storage.getStorageSize() > getCurrentSizeOfStorage(storage) + file.getSize()) {
-            return true;
         }
-        throw new Exception("Size of Storage  id :" + storage.getId() + " is not enough to add file  " + file.getId());
 
+    void checkMaxSize(Storage storage, File file) throws Exception {
+
+        if (storage.getStorageSize() <= getCurrentSizeOfStorage(storage) + file.getSize()) {
+            throw new Exception("Size of Storage  id :" + storage.getId() + " is not enough to add file  " + file.getId());
+        }
     }
 
     long getCurrentSizeOfStorage(Storage storage) {
@@ -41,25 +29,24 @@ public class Validate {
         return size;
     }
 
-    boolean checkFormats(Storage storage, File file) throws Exception {
+    void checkFormats(Storage storage, File file) throws Exception {
 
         for (String format : storage.getFormatsSupported()) {
             if (format != null && format.equals(file.getFormat())) {
-                return true;
+                return;
             }
         }
         throw new Exception("Format file id " + file.getId() + " is not supported by Storage id " + storage.getId());
     }
 
 
-    boolean fileIsPresent(Storage storage, File file) throws Exception {
+    void fileIsPresent(Storage storage, File file) throws Exception {
 
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.getId() == checkedFile.getId()) {
                 throw new Exception("File id " + file.getId() + " is present in Storage id " + storage.getId());
             }
         }
-        return true;
     }
 
 
@@ -72,22 +59,11 @@ public class Validate {
         return null;
     }
 
-    private void checkNotNullFile(File file) throws Exception {
-        if (file == null)
-            throw new Exception("File is null. Not added.");
-    }
-
-    private void checkNotNullStorage(Storage storage) throws Exception {
-        if (storage == null)
-            throw new Exception("Storage is null. Not added");
-    }
-
-
-    boolean equalsFileFound(Storage storage, File file) throws Exception {
+    void equalsFileFound(Storage storage, File file) throws Exception {
 
         for (File checkedFile : storage.getFiles()) {
             if (checkedFile != null && file.getId() == checkedFile.getId()) {
-                return true;
+                return;
             }
         }
         throw new Exception("File not found. File id : " + file.getId() + " file name : " + file.getName());
