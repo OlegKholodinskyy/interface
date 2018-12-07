@@ -1,4 +1,4 @@
-package lesson17LongShort;
+package lesson17.lesson17LongShort;
 
 public class Solution {
     /**

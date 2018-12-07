@@ -1,4 +1,4 @@
-package lesson17Validate;
+package lesson17.lesson17Validate;
 
 public class Solution {
     private static boolean validate(String address) {

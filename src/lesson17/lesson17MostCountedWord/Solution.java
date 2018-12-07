@@ -1,4 +1,4 @@
-package lesson17MostCountedWord;
+package lesson17.lesson17MostCountedWord;
 
 public class Solution {
     /**
