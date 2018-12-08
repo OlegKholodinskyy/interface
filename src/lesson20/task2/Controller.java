@@ -8,6 +8,7 @@ public class Controller {
     // приймає запити від користувача і передає на інший рівень
 
     private TransactionDAO transactionDAO = new TransactionDAO();
+
     public Transaction save(Transaction transaction) throws BadRequestException, InternalServerException {
         return transactionDAO.save(transaction);
     }

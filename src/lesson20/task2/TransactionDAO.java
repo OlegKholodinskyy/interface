@@ -40,10 +40,20 @@ public class TransactionDAO {
             count++;
         }
 
-        transactionAlreadyPresentChecker(transaction);
-        limitSimpleTransactionAmountChecker(transaction);
-        limitTransactionAmountPerDayChecker(sum, transaction);
-        limitTransactionCountPerDayChecker(count, transaction);
+        for (Transaction tr : transactions) {
+            if (tr != null && tr.equals(transaction))
+                throw new BadRequestException("Transaction id: " + tr.getId() + "  is already present in list");
+        }
+
+        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
+            throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
+
+        if (sum + transaction.getAmount() > utils.getLimitTransactionsPerDayAmount())
+            throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
+
+        if (count >= utils.getLimitTransactionsPerDayCount())
+            throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
+        
         cityAlowerChecker(transaction.getCity());
         freeSpaceChesker(transaction);
 
@@ -57,30 +67,6 @@ public class TransactionDAO {
             }
         }
         throw new InternalServerException("Not enough free space for transaction id : " + transaction.getId());
-    }
-
-
-    private void limitTransactionCountPerDayChecker(int count, Transaction transaction) throws LimitExceeded {
-        if (count >= utils.getLimitTransactionsPerDayCount())
-            throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
-    }
-
-    private void limitTransactionAmountPerDayChecker(int sum, Transaction transaction) throws LimitExceeded {
-        if (sum + transaction.getAmount() > utils.getLimitTransactionsPerDayAmount())
-            throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
-    }
-
-    private void limitSimpleTransactionAmountChecker(Transaction transaction) throws LimitExceeded {
-        if (transaction.getAmount() >= utils.getLimitSimpleTransactionAmount())
-            throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
-
-    }
-
-    private void transactionAlreadyPresentChecker(Transaction transaction) throws BadRequestException {
-        for (Transaction tr : transactions) {
-            if (tr != null && tr.equals(transaction))
-                throw new BadRequestException("Transaction id: " + tr.getId() + "  is already present in list");
-        }
     }
 
     private void cityAlowerChecker(String city) throws BadRequestException {
