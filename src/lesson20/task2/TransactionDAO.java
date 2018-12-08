@@ -31,7 +31,7 @@ public class TransactionDAO {
     }
 
 
-    private void validate(Transaction transaction) throws BadRequestException {
+    private void validate(Transaction transaction) throws BadRequestException, InternalServerException {
 
         int sum = 0;
         int count = 0;
@@ -50,13 +50,13 @@ public class TransactionDAO {
 
     }
 
-    private void freeSpaceChesker(Transaction transaction) throws BadRequestException {
+    private void freeSpaceChesker(Transaction transaction) throws InternalServerException {
         for (Transaction tr  : transactions) {
             if (tr == null){
                 return;
             }
         }
-        throw new BadRequestException("Not enough free space for transaction id : " + transaction.getId());
+        throw new InternalServerException("Not enough free space for transaction id : " + transaction.getId());
     }
 
 
