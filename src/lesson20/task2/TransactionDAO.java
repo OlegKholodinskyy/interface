@@ -115,7 +115,7 @@ public class TransactionDAO {
     Transaction[] transactionList(String city) {
         int count = 0;
         for (Transaction tr : transactions) {
-            if (tr != null) {
+            if (tr.getCity().equals(city)) {
                 count++;
             }
         }
@@ -133,7 +133,7 @@ public class TransactionDAO {
     Transaction[] transactionList(int amount) {
         int count = 0;
         for (Transaction tr : transactions) {
-            if (tr != null) {
+            if (tr.getAmount()==amount) {
                 count++;
             }
         }
