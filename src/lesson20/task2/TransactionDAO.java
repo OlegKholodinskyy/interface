@@ -16,14 +16,18 @@ public class TransactionDAO {
     public Transaction save(Transaction transaction) throws BadRequestException, InternalServerException {
 
         validate(transaction);
+        int i = findFreeSpaceForTransaction();
+        transactions[i] = transaction;
+        return transactions[i];
+    }
+
+    private int findFreeSpaceForTransaction() throws InternalServerException {
         for (int i = 0; i < transactions.length; i++) {
             if (transactions[i] == null) {
-                transactions[i] = transaction;
-                return transactions[i];
+                return i;
             }
         }
-
-        throw new InternalServerException("Not enough place");
+        throw new InternalServerException("Unexpected error.");
     }
 
 
@@ -71,8 +75,8 @@ public class TransactionDAO {
         Transaction[] result = new Transaction[count];
         int i = 0;
         for (Transaction tr : transactions) {
-            if (tr!=null && tr.getCity() == city) {
-                result[i]=tr;
+            if (tr != null && tr.getCity() == city) {
+                result[i] = tr;
                 i++;
             }
         }
@@ -89,12 +93,13 @@ public class TransactionDAO {
         Transaction[] result = new Transaction[count];
         int i = 0;
         for (Transaction tr : transactions) {
-            if (tr !=null && tr.getAmount() == amount) {
-                result[i]=tr;
+            if (tr != null && tr.getAmount() == amount) {
+                result[i] = tr;
                 i++;
             }
         }
-        return result;    }
+        return result;
+    }
 
     private Transaction[] getTransactionPerDay(Date dateOfCurrentTransaction) {
         Calendar calendar = Calendar.getInstance();
