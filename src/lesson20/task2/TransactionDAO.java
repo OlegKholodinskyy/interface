@@ -16,12 +16,12 @@ public class TransactionDAO {
     public Transaction save(Transaction transaction) throws BadRequestException, InternalServerException {
 
         validate(transaction);
-        int i = findFreeSpaceForTransaction();
+        int i = findIndexOfFreeSpace();
         transactions[i] = transaction;
         return transactions[i];
     }
 
-    private int findFreeSpaceForTransaction() throws InternalServerException {
+    private int findIndexOfFreeSpace() throws InternalServerException {
         for (int i = 0; i < transactions.length; i++) {
             if (transactions[i] == null) {
                 return i;
@@ -43,11 +43,22 @@ public class TransactionDAO {
         transactionAlreadyPresentChecker(transaction);
         limitSimpleTransactionAmountChecker(transaction);
         limitTransactionAmountPerDayChecker(sum, transaction);
-        limitTransactionCountPerDayChecker (count,transaction);
+        limitTransactionCountPerDayChecker(count, transaction);
         cityAlowerChecker(transaction.getCity());
+        freeSpaceChesker(transaction);
 
 
     }
+
+    private void freeSpaceChesker(Transaction transaction) throws BadRequestException {
+        for (Transaction tr  : transactions) {
+            if (tr == null){
+                return;
+            }
+        }
+        throw new BadRequestException("Not enough free space for transaction id : " + transaction.getId());
+    }
+
 
     private void limitTransactionCountPerDayChecker(int count, Transaction transaction) throws LimitExceeded {
         if (count > utils.getLimitTransactionsPerDayCount())
