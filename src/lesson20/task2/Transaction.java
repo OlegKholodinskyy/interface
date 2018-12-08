@@ -8,12 +8,31 @@ public class Transaction {
     private String description;
     private TransactionType type;
     private Date dateCreated;
+    private int amount;
 
-    public Transaction(long id, String city, String description, TransactionType type, Date dateCreated) {
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", dateCreated=" + dateCreated +
+                ", amount=" + amount +
+                '}';
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public Transaction(long id, String city, int amount, String description, TransactionType type, Date dateCreated) {
         this.id = id;
         this.city = city;
+        this.amount = amount;
         this.description = description;
         this.type = type;
+
         this.dateCreated = dateCreated;
     }
 
