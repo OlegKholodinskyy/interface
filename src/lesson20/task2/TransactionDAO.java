@@ -32,6 +32,9 @@ public class TransactionDAO {
 
 
     private void validate(Transaction transaction) throws BadRequestException {
+
+        transactionAlreadyPresentChecker(transaction);
+
         if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
             throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
 
@@ -47,12 +50,19 @@ public class TransactionDAO {
         if (count > utils.getLimitTransactionsPerDayCount())
             throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
 
-        isCityAlowed(transaction.getCity());
+        cityAlowerChecker(transaction.getCity());
 
 
     }
 
-    private void isCityAlowed(String city) throws BadRequestException {
+    private void transactionAlreadyPresentChecker(Transaction transaction) throws BadRequestException {
+        for (Transaction tr : transactions) {
+            if (tr!=null && tr.equals(transaction))
+                throw new BadRequestException("Transaction id: " + tr.getId() + "  is already present in list");
+        }
+    }
+
+    private void cityAlowerChecker(String city) throws BadRequestException {
         for (String cityName : utils.getCities()) {
             if (city == cityName) {
                 return;
