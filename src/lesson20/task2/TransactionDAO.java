@@ -51,8 +51,8 @@ public class TransactionDAO {
     }
 
     private void freeSpaceChesker(Transaction transaction) throws InternalServerException {
-        for (Transaction tr  : transactions) {
-            if (tr == null){
+        for (Transaction tr : transactions) {
+            if (tr == null) {
                 return;
             }
         }
@@ -93,9 +93,9 @@ public class TransactionDAO {
     }
 
     Transaction[] transactionList() {
-        int count=0;
-        for (Transaction tr : transactions){
-            if (tr!=null){
+        int count = 0;
+        for (Transaction tr : transactions) {
+            if (tr != null) {
                 count++;
             }
         }
@@ -115,7 +115,7 @@ public class TransactionDAO {
     Transaction[] transactionList(String city) {
         int count = 0;
         for (Transaction tr : transactions) {
-            if (tr.getCity().equals(city)) {
+            if (tr != null && tr.getCity().equals(city)) {
                 count++;
             }
         }
@@ -133,7 +133,7 @@ public class TransactionDAO {
     Transaction[] transactionList(int amount) {
         int count = 0;
         for (Transaction tr : transactions) {
-            if (tr.getAmount()==amount) {
+            if (tr != null && tr.getAmount() == amount) {
                 count++;
             }
         }
