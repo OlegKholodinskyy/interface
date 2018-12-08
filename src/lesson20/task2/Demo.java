@@ -38,6 +38,15 @@ public class Demo {
         }
 
         try {
+            controller.save(new Transaction(2, "Odessa", 20, "some description", TransactionType.INCOME, format.parse("01.12.2018")));
+        } catch (BadRequestException e) {
+            System.out.println(e.getMessage());
+        } catch (InternalServerException e) {
+            System.out.println(e.getMessage());
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
             controller.save(new Transaction(3, "Ternopil", 20, "some description", TransactionType.INCOME, format.parse("01.12.2018")));
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
