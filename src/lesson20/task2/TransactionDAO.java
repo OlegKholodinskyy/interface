@@ -33,11 +33,6 @@ public class TransactionDAO {
 
     private void validate(Transaction transaction) throws BadRequestException {
 
-        transactionAlreadyPresentChecker(transaction);
-
-        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
-            throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
-
         int sum = 0;
         int count = 0;
         for (Transaction tr : getTransactionPerDay(transaction.getDateCreated())) {
@@ -45,19 +40,34 @@ public class TransactionDAO {
             count++;
         }
 
-        if (sum > utils.getLimitTransactionsPerDayAmount())
-            throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
-        if (count > utils.getLimitTransactionsPerDayCount())
-            throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
-
+        transactionAlreadyPresentChecker(transaction);
+        limitSimpleTransactionAmountChecker(transaction);
+        limitTransactionAmountPerDayChecker(sum, transaction);
+        limitTransactionCountPerDayChecker (count,transaction);
         cityAlowerChecker(transaction.getCity());
 
 
     }
 
+    private void limitTransactionCountPerDayChecker(int count, Transaction transaction) throws LimitExceeded {
+        if (count > utils.getLimitTransactionsPerDayCount())
+            throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
+    }
+
+    private void limitTransactionAmountPerDayChecker(int sum, Transaction transaction) throws LimitExceeded {
+        if (sum > utils.getLimitTransactionsPerDayAmount())
+            throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
+    }
+
+    private void limitSimpleTransactionAmountChecker(Transaction transaction) throws LimitExceeded {
+        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
+            throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
+
+    }
+
     private void transactionAlreadyPresentChecker(Transaction transaction) throws BadRequestException {
         for (Transaction tr : transactions) {
-            if (tr!=null && tr.equals(transaction))
+            if (tr != null && tr.equals(transaction))
                 throw new BadRequestException("Transaction id: " + tr.getId() + "  is already present in list");
         }
     }
