@@ -28,7 +28,7 @@ public class TransactionDAO {
 
 
     private void validate(Transaction transaction) throws BadRequestException {
-        if (transaction.getAmount() > utils.getLimitSimplrTransactionAmount())
+        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
             throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
 
         int sum = 0;
