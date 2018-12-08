@@ -71,7 +71,7 @@ public class TransactionDAO {
     }
 
     private void limitSimpleTransactionAmountChecker(Transaction transaction) throws LimitExceeded {
-        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
+        if (transaction.getAmount() >= utils.getLimitSimpleTransactionAmount())
             throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
 
     }
