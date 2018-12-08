@@ -66,7 +66,7 @@ public class TransactionDAO {
     }
 
     private void limitTransactionAmountPerDayChecker(int sum, Transaction transaction) throws LimitExceeded {
-        if (sum > utils.getLimitTransactionsPerDayAmount())
+        if (sum + transaction.getAmount() > utils.getLimitTransactionsPerDayAmount())
             throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
     }
 
