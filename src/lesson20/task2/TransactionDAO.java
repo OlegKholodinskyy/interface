@@ -53,14 +53,16 @@ public class TransactionDAO {
 
         if (count >= utils.getLimitTransactionsPerDayCount())
             throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
-        
+
         cityAlowerChecker(transaction.getCity());
         freeSpaceChesker(transaction);
 
 
     }
 
-    private void freeSpaceChesker(Transaction transaction) throws InternalServerException {
+    private void freeSpaceChesker(Transaction transaction) throws InternalServerException, BadRequestException {
+        if (transaction == null)
+            throw new BadRequestException("Transaction is null .Cannot be saved:" + transaction.getId());
         for (Transaction tr : transactions) {
             if (tr == null) {
                 return;
