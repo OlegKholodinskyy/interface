@@ -40,22 +40,26 @@ public class TransactionDAO {
             count++;
         }
 
+        freeSpaceChesker(transaction);
+        cityAlowerChecker(transaction.getCity());
         for (Transaction tr : transactions) {
-            if (tr != null && tr.equals(transaction))
+            if (tr != null && tr.equals(transaction)) {
                 throw new BadRequestException("Transaction id: " + tr.getId() + "  is already present in list");
+            }
         }
 
-        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
+        if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount()) {
             throw new LimitExceeded("Limit transaction is exceeded. id transaction " + transaction.getId() + ".");
+        }
 
-        if (sum + transaction.getAmount() > utils.getLimitTransactionsPerDayAmount())
+        if (sum + transaction.getAmount() > utils.getLimitTransactionsPerDayAmount()) {
             throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
+        }
 
-        if (count >= utils.getLimitTransactionsPerDayCount())
+        if (count >= utils.getLimitTransactionsPerDayCount()) {
             throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
+        }
 
-        cityAlowerChecker(transaction.getCity());
-        freeSpaceChesker(transaction);
 
 
     }
