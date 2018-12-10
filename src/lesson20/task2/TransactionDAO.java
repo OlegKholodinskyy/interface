@@ -40,7 +40,7 @@ public class TransactionDAO {
         }
 
         freeSpaceChesker(transaction);
-        cityAlowerChecker(transaction.getCity());
+        cityAlowerChecker(transaction);
         for (Transaction tr : transactions) {
             if (tr != null && tr.equals(transaction)) {
                 throw new BadRequestException("Transaction id: " + tr.getId() + "  is already present in list");
@@ -73,13 +73,13 @@ public class TransactionDAO {
         throw new InternalServerException("Not enough free space for transaction id : " + transaction.getId());
     }
 
-    private void cityAlowerChecker(String city) throws BadRequestException {
+    private void cityAlowerChecker(Transaction transaction) throws BadRequestException {
         for (String cityName : utils.getCities()) {
-            if (city.equals(cityName)) {
+            if (transaction.getCity().equals(cityName)) {
                 return;
             }
         }
-        throw new BadRequestException("Transaction is not allowed in this city :  " + city);
+        throw new BadRequestException("Transaction is not allowed in city. " + transaction.getId());
     }
 
     Transaction[] transactionList() {

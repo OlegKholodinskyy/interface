@@ -56,7 +56,7 @@ public class Transaction {
                 type.equals(that.type);
     }
 
-  
+
 
 
     @Override
