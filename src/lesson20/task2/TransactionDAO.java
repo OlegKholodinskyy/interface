@@ -14,11 +14,17 @@ public class TransactionDAO {
 
 
     public Transaction save(Transaction transaction) throws BadRequestException, InternalServerException {
-
+        int index = 0;
         validate(transaction);
-        int i = findIndexOfFreeSpace();
-        transactions[i] = transaction;
-        return transactions[i];
+
+        for (int i = 0; i <= transactions.length; i++) {
+            if (transactions[i] == null) {
+                index = i;
+                transactions[i] = transaction;
+                break;
+            }
+        }
+        return transactions[index];
     }
 
     private int findIndexOfFreeSpace() throws InternalServerException {
@@ -56,10 +62,9 @@ public class TransactionDAO {
             throw new LimitExceeded("Limit amount of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
         }
 
-        if (count +1 > utils.getLimitTransactionsPerDayCount()) {
+        if (count + 1 > utils.getLimitTransactionsPerDayCount()) {
             throw new LimitExceeded("Count of transaction per day is exceeded. id transaction " + transaction.getId() + ".");
         }
-
 
 
     }
@@ -81,7 +86,7 @@ public class TransactionDAO {
                 return;
             }
         }
-        throw new BadRequestException("Transaction is not allowed in this city " + city);
+        throw new BadRequestException("Transaction is not allowed in this city :  " + city);
     }
 
     Transaction[] transactionList() {
