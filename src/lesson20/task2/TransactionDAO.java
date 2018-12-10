@@ -21,11 +21,10 @@ public class TransactionDAO {
             if (transactions[i] == null) {
                 index = i;
                 transactions[i] = transaction;
-                break;
+                return transactions[i];
             }
-            else throw new InternalServerException("Unexpected error.");
         }
-        return transactions[index];
+        throw new InternalServerException("Unexpected error.");
     }
 
 
