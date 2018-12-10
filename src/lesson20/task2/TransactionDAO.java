@@ -23,18 +23,12 @@ public class TransactionDAO {
                 transactions[i] = transaction;
                 break;
             }
+            else throw new InternalServerException("Unexpected error.");
         }
         return transactions[index];
     }
 
-    private int findIndexOfFreeSpace() throws InternalServerException {
-        for (int i = 0; i < transactions.length; i++) {
-            if (transactions[i] == null) {
-                return i;
-            }
-        }
-        throw new InternalServerException("Unexpected error.");
-    }
+ 
 
 
     private void validate(Transaction transaction) throws BadRequestException, InternalServerException {
