@@ -81,7 +81,7 @@ public class TransactionDAO {
                 return;
             }
         }
-        throw new BadRequestException("City not alowed " + city);
+        throw new BadRequestException("Transaction is not allowed in this city " + city);
     }
 
     Transaction[] transactionList() {
