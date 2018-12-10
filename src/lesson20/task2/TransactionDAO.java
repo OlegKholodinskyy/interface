@@ -77,7 +77,7 @@ public class TransactionDAO {
 
     private void cityAlowerChecker(String city) throws BadRequestException {
         for (String cityName : utils.getCities()) {
-            if (city == cityName) {
+            if (city.equals(cityName)) {
                 return;
             }
         }
