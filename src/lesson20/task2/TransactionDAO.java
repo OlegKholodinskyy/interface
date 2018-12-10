@@ -17,7 +17,7 @@ public class TransactionDAO {
         int index = 0;
         validate(transaction);
 
-        for (int i = 0; i <= transactions.length; i++) {
+        for (int i = 0; i < transactions.length; i++) {
             if (transactions[i] == null) {
                 index = i;
                 transactions[i] = transaction;
@@ -28,7 +28,7 @@ public class TransactionDAO {
         return transactions[index];
     }
 
- 
+
 
 
     private void validate(Transaction transaction) throws BadRequestException, InternalServerException {
