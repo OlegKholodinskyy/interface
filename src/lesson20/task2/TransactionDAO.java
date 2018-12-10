@@ -13,7 +13,7 @@ public class TransactionDAO {
     private Utils utils = new Utils();
 
 
-    public void save(Transaction transaction) throws BadRequestException, InternalServerException {
+    public Transaction save(Transaction transaction) throws BadRequestException, InternalServerException {
         int index = 0;
         validate(transaction);
 
@@ -21,7 +21,7 @@ public class TransactionDAO {
             if (transactions[i] == null) {
                 index = i;
                 transactions[i] = transaction;
-                return ;
+                return transactions[i];
             }
         }
         throw new InternalServerException("Unexpected error.");

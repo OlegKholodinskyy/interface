@@ -33,7 +33,6 @@ public class Transaction {
         this.amount = amount;
         this.description = description;
         this.type = type;
-
         this.dateCreated = dateCreated;
     }
 
@@ -52,10 +51,13 @@ public class Transaction {
         Transaction that = (Transaction) o;
         return id == that.id &&
                 amount == that.amount &&
-                Objects.equals(city, that.city) &&
-                Objects.equals(description, that.description) &&
-                type == that.type;
+                city.equals(that.city) &&
+                description.equals(that.description) &&
+                type.equals(that.type);
     }
+
+  
+
 
     @Override
     public int hashCode() {
