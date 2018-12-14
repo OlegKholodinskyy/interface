@@ -1,13 +1,13 @@
 package lesson25;
 
 import lesson25.exception.BadRequestException;
+import lesson25.exception.InternalServerException;
 import lesson25.exception.LimitExceeded;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 
 public class GeneralDAO<T extends HelperId> {
-    int j = 0;
     T[] arrayT;
 
     public GeneralDAO(Class<T> tclass) {
@@ -18,10 +18,15 @@ public class GeneralDAO<T extends HelperId> {
         return new GeneralDAO<T>(tclass);
     }
 
-    public T save(T t) throws BadRequestException {
+    public T save(T t) throws BadRequestException, InternalServerException {
         validate(t);
-        arrayT[j] = t;
-        return arrayT[j];
+        for (int j =0; j<arrayT.length; j++){
+            if(arrayT[j]==null){
+                arrayT[j] = t;
+                return arrayT[j];
+            }
+        }
+        throw new InternalServerException("Can not save element id: " + t.getId() + " Server error");
     }
 
     private void validate(T t) throws BadRequestException {
