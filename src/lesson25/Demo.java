@@ -4,28 +4,25 @@ import lesson25.exception.BadRequestException;
 
 public class Demo {
     public static void main(String[] args) {
-        GeneralDAO<Car> carDAO = new GeneralDAO<>();
+        GeneralDAO<Car> carDAO = GeneralDAO.create(Car.class);
         try {
             System.out.println(carDAO.save(new Car()).toString());
         } catch (BadRequestException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
-        GeneralDAO<Book> bookDAO = new GeneralDAO<>();
+        GeneralDAO<Book> bookDAO = new GeneralDAO<>(Book.class);
         try {
             System.out.println(bookDAO.save(new Book()).toString());
         } catch (BadRequestException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
-        GeneralDAO<Book> bookDAO2 = new GeneralDAO<>();
+        GeneralDAO<Book> bookDAO2 = new GeneralDAO<>(Book.class);
         try {
             System.out.println(bookDAO2.save(new Book()).toString());
         } catch (BadRequestException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
-
     }
-
-
 }

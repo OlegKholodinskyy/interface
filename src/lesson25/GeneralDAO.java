@@ -8,8 +8,15 @@ import java.lang.reflect.Type;
 
 public class GeneralDAO<T extends HelperId> {
     int j = 0;
+    T[] arrayT;
 
-    T[] arrayT = (T[]) new Object[10];
+    public GeneralDAO(Class<T> tclass) {
+        arrayT = (T[]) Array.newInstance(tclass, 10);
+    }
+
+    public static <T extends HelperId> GeneralDAO<T> create(Class<T> tclass) {
+        return new GeneralDAO<T>(tclass);
+    }
 
     public T save(T t) throws BadRequestException {
         validate(t);
@@ -21,7 +28,7 @@ public class GeneralDAO<T extends HelperId> {
         if (t == null)
             throw new BadRequestException("Can not save null object");
         for (T element : arrayT) {
-            if (element.equals(t)) {
+            if (element!=null && element.equals(t)) {
                 throw new BadRequestException("Can not save. Object is already present. id: " + t.getId());
             }
         }
@@ -33,10 +40,10 @@ public class GeneralDAO<T extends HelperId> {
             if (arrayT[i] == null) {
                 break;
             }
-        }
-        throw new LimitExceeded("Can not save . id: " + t.getId() + " Not enough free space");
-    }
 
+            throw new LimitExceeded("Can not save . id: " + t.getId() + " Not enough free space");
+        }
+    }
     public T[] getAll() {
         return arrayT;
     }
