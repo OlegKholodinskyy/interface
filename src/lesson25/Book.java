@@ -1,6 +1,6 @@
 package lesson25;
 
-public class Book extends HelperId {
+public class Book {
 
     long id;
     static int i = 0;
@@ -10,7 +10,6 @@ public class Book extends HelperId {
         i++;
     }
 
-    @Override
     public long getId() {
         return id;
     }
