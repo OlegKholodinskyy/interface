@@ -1,8 +1,7 @@
-package lesson25;
+package lesson25.homework;
 
-import lesson25.exception.BadRequestException;
-import lesson25.exception.InternalServerException;
-import lesson25.exception.LimitExceeded;
+import lesson25.homework.exception.BadRequestException;
+import lesson25.homework.exception.InternalServerException;
 
 public class GeneralDAO<T> {
     private T[] arrayT = (T[]) new Object[5];

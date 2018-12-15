@@ -1,7 +1,7 @@
-package lesson25;
+package lesson25.homework;
 
-import lesson25.exception.BadRequestException;
-import lesson25.exception.InternalServerException;
+import lesson25.homework.exception.BadRequestException;
+import lesson25.homework.exception.InternalServerException;
 
 public class Demo {
     public static void main(String[] args) {
@@ -30,6 +30,6 @@ public class Demo {
         } catch (InternalServerException e) {
             e.printStackTrace();
         }
-        
+
     }
 }

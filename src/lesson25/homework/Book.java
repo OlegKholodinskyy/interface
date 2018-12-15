@@ -1,11 +1,11 @@
-package lesson25;
+package lesson25.homework;
 
-public class Car {
+public class Book {
 
     long id;
     static int i = 0;
 
-    Car() {
+    Book() {
         this.id = i;
         i++;
     }
@@ -16,10 +16,10 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Book{" +
                 "id=" + id +
                 '}';
     }
+
+
 }
-
-

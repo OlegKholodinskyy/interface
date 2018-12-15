@@ -1,4 +1,4 @@
-package lesson25.exception;
+package lesson25.homework.exception;
 
 public class InternalServerException extends Exception {
     public InternalServerException(String message) {
