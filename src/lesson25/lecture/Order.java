@@ -10,4 +10,11 @@ public class Order extends IdEntity {
     public Order(long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                '}';
+    }
 }
