@@ -87,7 +87,7 @@ boolean contains(Object o)
         ArrayList<Order> testArrayList = useList();
 
         if (testArrayList == null || testArrayList.isEmpty())
-            throw new IllegalArgumentException("Collearion is empty");
+            throw new IllegalArgumentException("Colleсtion is empty");
 
         for (Order order : testArrayList) {
             if (order == null) {
