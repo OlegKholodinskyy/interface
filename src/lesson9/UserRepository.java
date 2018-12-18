@@ -7,6 +7,10 @@ public class UserRepository {
         return users;
     }
 
+    public UserRepository(User[] users) {
+        this.users = users;
+    }
+
     public String[] getUserNames() {
         int count = 0;
         for (User user : users) {
