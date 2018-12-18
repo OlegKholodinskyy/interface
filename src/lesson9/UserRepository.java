@@ -53,7 +53,7 @@ public class UserRepository {
                 return user.getName();
             }
         }
-        System.out.println("User with id: " + id + " not found");
+       // System.out.println("User with id: " + id + " not found");
         return null;
     }
 
@@ -74,6 +74,8 @@ public class UserRepository {
         }
         return null;
     }
+
+
 
     public User getUserBySessionId(String sessionId) {
 
