@@ -74,7 +74,14 @@ public class UserRepository {
         }
         return null;
     }
+    public User getUserById(long id) {
 
+        for (User user : users) {
+            if (user != null && id == user.getId())
+                return user;
+        }
+        return null;
+    }
 
 
     public User getUserBySessionId(String sessionId) {
