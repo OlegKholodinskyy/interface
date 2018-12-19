@@ -15,35 +15,35 @@ public class Controller {
         return UserRepository.update(user);
     }
 
-    public static User save(User user) {
+    public static User save(User user) throws IllegalArgumentException{
         return UserRepository.save(user);
     }
 
-    public static User getUserById(Long id) {
+    public static User getUserById(Long id)throws IllegalArgumentException {
         return UserRepository.getUserById(id);
     }
 
-    public static User getUserByName(String name) {
+    public static User getUserByName(String name) throws IllegalArgumentException{
         return UserRepository.getUserByName(name);
     }
 
-    public static User getUserBySessionId(String sessionId) {
+    public static User getUserBySessionId(String sessionId) throws IllegalArgumentException{
         return UserRepository.getUserBySessionId(sessionId);
     }
 
-    public static String getUserNameById(Long id) {
+    public static String getUserNameById(Long id) throws IllegalArgumentException {
         return UserRepository.getUserNameById(id);
     }
 
-    public static ArrayList<String> getUserNames() {
+    public static ArrayList<String> getUserNames() throws IllegalArgumentException{
         return UserRepository.getUserNames();
     }
 
-    public static ArrayList<Long> getUserIds() {
+    public static ArrayList<Long> getUserIds() throws IllegalArgumentException{
         return UserRepository.getUserIds();
     }
 
-    public static ArrayList<User> getUsers(){
+    public static ArrayList<User> getUsers()throws IllegalArgumentException{
         return UserRepository.getUsers();
     }
 }
