@@ -11,7 +11,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "\n + Order{" +
+        return "    Order{" +
                 "id=" + id +
                 ", price=" + price +
                 ", currency='" + currency + '\'' +
