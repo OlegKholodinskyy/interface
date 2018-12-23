@@ -12,7 +12,7 @@ public class HashSetTest {
     }
 
 
-    public static void useHashSet() {
+    public static void useHashSet() throws IllegalArgumentException {
         HashSet<Order> orderHashSet = new HashSet();
         Order order1 = new Order(111, 1000, "usd", "name111", "ATB");
         Order order2 = new Order(112, 1000, "usd", "name112", "ATB1");
@@ -74,8 +74,13 @@ remove(Element e )
         System.out.println("Some fields");
         Object[] array = orderHashSet.toArray();
         for (Object o : array) {
-            Order ord = (Order) o;
-            System.out.println("       Id: " + ord.getId() + "itemName : " + ord.getItemName());
+            if(o instanceof Order) {
+                Order ord = (Order) o;
+                System.out.println("       Id: " + ord.getId() + "itemName : " + ord.getItemName());
+            }
+            else{
+                throw new IllegalArgumentException("Object is not Order");
+            }
         }
         System.out.println("Other");
         for (Object o : array) {
