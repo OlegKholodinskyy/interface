@@ -2,7 +2,7 @@ package lesson29;
 
 import java.util.Objects;
 
-public class File {
+public class File implements Comparable<File>{
     private String fileName;
     private long sizeInButes;
 
@@ -40,5 +40,19 @@ public class File {
     public int hashCode() {
 
         return Objects.hash(fileName, sizeInButes);
+    }
+
+    public void setSizeInButes(long sizeInButes) {
+        this.sizeInButes = sizeInButes;
+    }
+
+    @Override
+    public int compareTo(File o) {
+        int res = 0;
+        if (o.getSizeInButes() > this.getSizeInButes())
+            res = 1;
+        else if (o.getSizeInButes() < this.getSizeInButes())
+            res = -1;
+        return res;
     }
 }
