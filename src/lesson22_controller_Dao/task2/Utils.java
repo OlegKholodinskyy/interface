@@ -1,4 +1,4 @@
-package lesson22.task2;
+package lesson22_controller_Dao.task2;
 
 public class Utils {
     private static int limitTransactionsPerDayCount=10;

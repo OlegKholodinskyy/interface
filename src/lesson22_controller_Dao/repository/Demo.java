@@ -1,6 +1,5 @@
-package lesson22.repository;
+package lesson22_controller_Dao.repository;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Demo {

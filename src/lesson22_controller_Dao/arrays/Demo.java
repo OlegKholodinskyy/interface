@@ -1,6 +1,4 @@
-package lesson22.arrays;
-
-import lesson22.arrays.ArrayUtils;
+package lesson22_controller_Dao.arrays;
 
 public class Demo {
     public static void main(String[] args) {

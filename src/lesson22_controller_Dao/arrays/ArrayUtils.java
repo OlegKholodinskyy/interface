@@ -1,4 +1,4 @@
-package lesson22.arrays;
+package lesson22_controller_Dao.arrays;
 
 public class ArrayUtils {
 

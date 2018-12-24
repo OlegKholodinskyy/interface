@@ -1,4 +1,4 @@
-package lesson22.task2.exception;
+package lesson22_controller_Dao.task2.exception;
 
 public class LimitExceeded extends BadRequestException {
     public LimitExceeded(String message) {

@@ -1,7 +1,7 @@
-package lesson22.task2;
+package lesson22_controller_Dao.task2;
 
-import lesson22.task2.exception.BadRequestException;
-import lesson22.task2.exception.InternalServerException;
+import lesson22_controller_Dao.task2.exception.BadRequestException;
+import lesson22_controller_Dao.task2.exception.InternalServerException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

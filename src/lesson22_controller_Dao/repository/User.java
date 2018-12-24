@@ -1,4 +1,4 @@
-package lesson22.repository;
+package lesson22_controller_Dao.repository;
 
 public class User {
     private long id;

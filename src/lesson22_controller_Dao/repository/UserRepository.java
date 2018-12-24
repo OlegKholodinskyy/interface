@@ -1,4 +1,4 @@
-package lesson22.repository;
+package lesson22_controller_Dao.repository;
 
 public class UserRepository {
     private static User[] users = new User[10];
