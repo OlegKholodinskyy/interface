@@ -1,9 +1,6 @@
 package lesson30.hw2;
 
-import javafx.print.Collation;
-
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Department {
 

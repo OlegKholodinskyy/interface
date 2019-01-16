@@ -1,7 +1,6 @@
 package lesson30.hw2;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 
 public class Firm {
