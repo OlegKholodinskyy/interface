@@ -1,28 +1,41 @@
 package lesson30.hw2;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 public class Firm {
     private Date dateFounded;
-    private Collection departments;
-    private Collection customers;
+    private static ArrayList<Department> departments;
+    private static ArrayList<Customer> customers;
 
-    public Firm(Date dateFounded, Collection departments, Collection customers) {
+    public Firm(Date dateFounded) {
         this.dateFounded = dateFounded;
-        this.departments = departments;
-        this.customers = customers;
     }
+
+    public void addCustomerToFirm (Customer customer){
+        if (customers==null)
+            customers = new ArrayList<>();
+
+        customers.add(customer);
+    }
+    public void addDepartmentToFirm(Department department){
+        if (departments == null)
+            departments = new ArrayList<>();
+
+        departments.add(department);
+    }
+
 
     public Date getDateFounded() {
         return dateFounded;
     }
 
-    public Collection getDepartments() {
+    public static ArrayList<Department> getDepartments() {
         return departments;
     }
 
-    public Collection getCustomers() {
+    public static ArrayList<Customer> getCustomers() {
         return customers;
     }
 }
