@@ -33,8 +33,8 @@ public class Solution {
 
             String[] arrayWords = text.trim().split(" ");
             for (String oneWord : arrayWords) {
-                if (oneWord.length() >=2 && checkContainsNonLeter(oneWord))
-                map.put(oneWord, map.containsKey(oneWord) ? map.get(oneWord) + 1 : 1);
+                if (oneWord.length() >= 2 && checkContainsNonLeter(oneWord))
+                    map.put(oneWord, map.containsKey(oneWord) ? map.get(oneWord) + 1 : 1);
             }
 
         } else {
@@ -46,8 +46,8 @@ public class Solution {
     private static boolean checkContainsNonLeter(String oneWord) {
         char[] arrayCharsInOneWord = oneWord.toCharArray();
 
-        for(char ch : arrayCharsInOneWord){
-            if (!Character.isLetter(ch)){
+        for (char ch : arrayCharsInOneWord) {
+            if (!Character.isLetter(ch)) {
                 return false;
             }
         }
