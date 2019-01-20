@@ -29,7 +29,6 @@ public class DemoComparator {
         System.out.println(capabilities);
 
         System.out.println();
-        */
         System.out.println("FullComparator");
         capabilities.sort(new FullComparator());
         System.out.println(capabilities);
