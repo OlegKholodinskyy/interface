@@ -2,7 +2,7 @@ package lesson18.digitInWords;
 
 public class Solution {
     public static void main(String[] args) {
-        String text = "Get got 55 got5 0 null";
+        String text = "Get got 55 got5 0  null";
         String text2 = null;
         findNumbers(text);
 
