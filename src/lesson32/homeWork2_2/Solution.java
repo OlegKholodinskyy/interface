@@ -57,7 +57,7 @@ public class Solution {
             try {
                 Integer.parseInt(str);
             } catch (Exception e) {
-                throw new BadInputException("Your numbers are wrong. You have " + lesson32.homeWork2.Solution.countExceptions + " attempts to try again.");
+                return false;
             }
         }
         return true;
