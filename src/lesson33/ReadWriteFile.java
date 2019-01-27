@@ -42,7 +42,7 @@ public class ReadWriteFile {
         try {
             writer = new FileWriter(path, true);
             bufferedWriter = new BufferedWriter(writer);
-    
+
             bufferedWriter.append("\n" + " " + content);
             bufferedWriter.flush();
         } catch (IOException e) {
