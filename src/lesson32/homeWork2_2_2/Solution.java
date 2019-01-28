@@ -36,7 +36,7 @@ public class Solution {
         throw new BadInputException("Your numbers are wrong. Number of attempts exeeded.");
     }
 
-    private static boolean checkDigit(String[] arrWords) {
+    private static boolean checkDigit (String[] arrWords) {
         for (String str : arrWords) {
             if (str == null || str.isEmpty())
                 return false;
