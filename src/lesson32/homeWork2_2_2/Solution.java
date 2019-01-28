@@ -1,7 +1,5 @@
 package lesson32.homeWork2_2_2;
 
-import lesson24.example.Sys;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
