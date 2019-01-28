@@ -33,7 +33,7 @@ public class Demo {
             System.out.println(e.getMessage());
         }
 
-
+        System.out.println("WORDS");
         try {
             System.out.println(Solution.words(" get put get           "));
         } catch (BadRequestException e) {
