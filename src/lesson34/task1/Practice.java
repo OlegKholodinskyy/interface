@@ -12,9 +12,12 @@ public class Practice {
          */
         validate(fileFromPath, fileToPath);
 
+        writeToFile(fileToPath, readFromFile(fileFromPath));
+    }
 
+    private StringBuffer readFromFile(String path) {
         StringBuffer res = new StringBuffer();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileFromPath))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 res.append(line);
@@ -25,6 +28,17 @@ public class Practice {
             System.err.println("reading fail");
         }
 
+        return res;
+    }
+
+    private static void writeToFile(String path, StringBuffer contentToWrite) {
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, false))) {
+            bufferedWriter.append(contentToWrite);
+            // bufferedWriter.flush();
+        } catch (IOException e) {
+            System.err.println("Can not write to file");
+        }
     }
 
     private void validate(String fileFromPath, String fileToPath) throws Exception {

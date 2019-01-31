@@ -8,11 +8,11 @@ public class Solution {
     public static int readNumbers() throws IOException, BadInputException {
 
         System.out.println("Input 10 digit separated space :");
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
         int count = 3;
         while (count > 0) {
-            InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String input = bufferedReader.readLine();
             String[] arrWords = input.split(" ");
 
