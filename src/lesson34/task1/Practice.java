@@ -3,7 +3,10 @@ package lesson34.task1;
 import java.io.*;
 
 public class Practice {
-    public void copyFileContent(String fileFromPath, String fileToPath) throws Exception {
+    /*
+    copy file content
+     */
+    public static void copyFileContent(String fileFromPath, String fileToPath) throws Exception {
         /*
         1- перевірити чи файл існує
         2 - перевірити права
@@ -11,16 +14,20 @@ public class Practice {
         4 - записати в fileToPath
          */
         validate(fileFromPath, fileToPath);
-
         writeToFile(fileToPath, readFromFile(fileFromPath));
     }
 
-    private StringBuffer readFromFile(String path) {
+    public static void main(String[] args) throws Exception {
+        copyFileContent("C:\\java\\test2.txt" , "C:\\java\\test3.txt");
+    }
+
+
+    private static StringBuffer readFromFile(String path) {
         StringBuffer res = new StringBuffer();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                res.append(line);
+                res.append(line + "\n");
             }
         } catch (FileNotFoundException e) {
             System.err.println("File does not exist");
@@ -33,7 +40,7 @@ public class Practice {
 
     private static void writeToFile(String path, StringBuffer contentToWrite) {
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, false))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, true))) {
             bufferedWriter.append(contentToWrite);
             // bufferedWriter.flush();
         } catch (IOException e) {
@@ -41,7 +48,7 @@ public class Practice {
         }
     }
 
-    private void validate(String fileFromPath, String fileToPath) throws Exception {
+    private static void validate(String fileFromPath, String fileToPath) throws Exception {
         File fileFrom = new File(fileFromPath);
         File fileTo = new File(fileToPath);
         if (!fileFrom.exists()) {
