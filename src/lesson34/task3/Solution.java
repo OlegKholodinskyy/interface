@@ -52,7 +52,7 @@ public class Solution {
             if (curentSentence == null)
                 throw new Exception("Something  wrong with input text");
 
-            if (curentSentence.contains(word) && curentSentence.length()>=10) {
+            if (curentSentence.contains(word)   &&   curentSentence.length()>=10) {
                 stringBufferTo.append(curentSentence);
             } else {
                 stringBufferFrom.append(curentSentence);
