@@ -7,6 +7,7 @@ import lesson35.model.User;
 import lesson35.repository.OrderRepository;
 import lesson35.repository.ReservedMapRepository;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,29 +19,34 @@ public class OrderService {
     OrderRepository orderRepository = new OrderRepository();
     ReservedMapRepository reservedMapRepository = new ReservedMapRepository();
 
-    public Order addOrder(Order order) throws BadInputException, BadRequestException, ParseException {
+    public Order addOrder(Order order) throws BadInputException, BadRequestException, ParseException, IOException {
+       ArrayList<Date> arrayListDates = buildArrayListDates(order.getDateFrom(), order.getDateTo());
+
         validateBeforeRegisterOrder(order);
         checkIfOrderIsExist(order);
-        checkIfRoomIsFree(order.getDateFrom(), order.getDateTo(), order.getRoom().getId());
-        return orderRepository.saveToRepository(order);
+        checkIfRoomIsFree(arrayListDates, order.getRoom().getId());
+
+        return orderRepository.saveToRepository(order, arrayListDates);
+
     }
 
-    private void checkIfRoomIsFree(Date dateFrom, Date dateTo, Long id) throws ParseException, BadRequestException {
-        HashSet<Date> dateOrder = buildSetDates(dateFrom,dateTo);
-        HashMap<Long,HashSet<Date>> map = reservedMapRepository.getReservedMapFromFile();
+    private void checkIfRoomIsFree(ArrayList<Date> arrayListDates , Long id) throws ParseException, BadRequestException {
 
-        for(Date d :dateOrder){
-            if(map==null){
+        HashMap<Long,ArrayList<Date>> map = reservedMapRepository.getReservedMapFromFile();
+
+        for(Date d :arrayListDates){
+            if(map==null || map.get(id) == null ){
                 return;
             }
-            if(map.get(id).contains(d)){
-                throw new BadRequestException("Room with id : " + id + "is reserved on "+ d);
+
+            if( map.get(id).contains(d)){
+                throw new BadRequestException("Room with id : " + id + " is reserved on " + d);
             }
         }
     }
 
-    private HashSet<Date> buildSetDates (Date dateFrom, Date dateTo) {
-        HashSet<Date> dateOrder = new HashSet<>();
+    public ArrayList<Date> buildArrayListDates (Date dateFrom, Date dateTo) {
+        ArrayList<Date> dateOrder = new ArrayList<>();
         long interval = 1000*60*60*24;
         long start = dateFrom.getTime();
         long end = dateTo.getTime();
@@ -56,12 +62,12 @@ public class OrderService {
         return order;
     }
 
-    private void checkIfOrderIsExist(Order order) throws BadRequestException {
+    private void checkIfOrderIsExist(Order order) throws BadRequestException, IOException {
 
-        ArrayList<Order> allOrders = OrderRepository.buildArrayListOfOrders();
+        ArrayList<Order> allOrders = orderRepository.buildArrayListOfOrders();
         for (Order ord : allOrders) {
             if (order.equals(ord)) {
-                throw new BadRequestException("Order with id: " + order.getId() + " is present in base");
+                throw new BadRequestException("Order room id : " + order.getRoom().getId() + " from  "+ order.getDateFrom() + " to " + order.getDateTo() + " is present in base");
             }
         }
     }

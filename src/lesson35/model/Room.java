@@ -5,6 +5,7 @@ import lesson35.repository.PropertyRepository;
 import lesson35.service.Loaders;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Room {
     private long id;
@@ -56,5 +57,23 @@ public class Room {
 
     public Hotel getHotel() {
         return hotel;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return numberOfGuests == room.numberOfGuests &&
+                Double.compare(room.price, price) == 0 &&
+                breakfastIncluded == room.breakfastIncluded &&
+                petsAllowed == room.petsAllowed &&
+                Objects.equals(hotel, room.hotel);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(numberOfGuests, price, breakfastIncluded, petsAllowed, hotel);
     }
 }

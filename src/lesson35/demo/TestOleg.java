@@ -1,24 +1,70 @@
 package lesson35.demo;
+import java.util.*;
+import java.text.*;
 
-import lesson22_controller_Dao.task2.Demo;
-import lesson35.repository.ReservedMapRepository;
+        public class TestOleg {
+            public static void main(String args[]) {
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
+                // Instantiate a Date object
+                Date date = new Date();
 
-public class TestOleg {
-    public static void main(String[] args) throws ParseException {
-        ReservedMapRepository b = new ReservedMapRepository();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("DD-MM-yyyy");
+                // Get current date and time
 
-        Date d1 = simpleDateFormat.parse("21-11-2011");
-        Date d2 = simpleDateFormat.parse("02-12-2080");
-        HashSet<Date> hsd = new HashSet<>();
-        hsd.add(d1);
-        hsd.add(d2);
+                // 1st way: current time and date using toString()
+                System.out.println("Today's date is: "+date.toString());
 
-        b.saveToFileDateReserves(100L,hsd);
+                // 2nd way: current time and date using SimpleDateFormat
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                System.out.println("Today's date is: "+dateFormat.format(date));
+
+                // Convert string to date
+                SimpleDateFormat dateformat2 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                String strdate2 = "02-04-2013 11:35:42";
+                try {
+                    Date newdate = dateformat2.parse(strdate2);
+                    System.out.println(newdate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+                // Date Comparison
+
+                // 1st way: using before(), after(), equals()
+                SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date date1 = dateformat3.parse("17/07/1989");
+                    Date date2 = dateformat3.parse("15/10/2007");
+
+                    System.out.println("Date1 is: "+dateformat3.format(date1));
+                    System.out.println("Date2 is: "+dateformat3.format(date2));
+
+                    if (date1.after(date2)) {
+                        System.out.println("Date1 is later than Date2");
+                    }else if (date1.before(date2)) {
+                        System.out.println("Date1 is earlier than Date2");
+                    }else if (date1.equals(date2)) {
+                        System.out.println("Date1 is the same with Date2");
+                    }
+
+                    // 2nd way: using compareTo()
+                    date1 = dateformat3.parse("27/09/2012");
+                    date2 = dateformat3.parse("27/09/2009");
+
+                    System.out.println("Date1 is: "+dateformat3.format(date1));
+                    System.out.println("Date2 is: "+dateformat3.format(date2));
+
+                    if (date1.compareTo(date2) > 0) {
+                        System.out.println("Date1 is later than Date2");
+                    } else if (date1.compareTo(date2) < 0) {
+                        System.out.println("Date1 is earlier than Date2");
+                    } else if (date1.compareTo(date2) == 0) {
+                        System.out.println("Date1 is the same with Date2");
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
-}

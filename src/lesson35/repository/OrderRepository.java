@@ -1,12 +1,10 @@
 package lesson35.repository;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-import lesson30.hw2.CustomerDAO;
-import lesson35.exception.BadInputException;
 import lesson35.exception.BadRequestException;
 import lesson35.model.Order;
 import lesson35.model.Room;
 import lesson35.model.User;
+import lesson35.service.OrderService;
 
 import java.io.*;
 import java.text.ParseException;
@@ -17,43 +15,45 @@ import java.util.Date;
 public class OrderRepository {
 
     private static ArrayList<Order> orderArrayList = new ArrayList<>();
-    static File file = new File("C:\\java\\order.txt");
+    File fileOrder = new File("C:\\java\\order.txt");
+    ReservedMapRepository reservedMapRepository = new ReservedMapRepository();
+    UserRepository userRepository = new UserRepository();
 
-    public static Order saveToRepository(Order order) {
+    public  Order saveToRepository(Order order, ArrayList<Date> arrayListDates) {
+        String pattern = "dd-MM-yyyy";
+        SimpleDateFormat simpleDate = new SimpleDateFormat(pattern);
+
         String orderToString = order.getId() + ", " + order.getUser().getId() + ", " + order.getRoom().getId() + ", " +
-                new SimpleDateFormat("DD-MM-YYYY").format(order.getDateFrom()) + ", " +
-                new SimpleDateFormat("DD-MM-YYYY").format(order.getDateTo()) + ", " +
+                simpleDate.format(order.getDateFrom()) + ", " +
+                simpleDate.format(order.getDateTo()) + ", " +
                 order.getMoneyPaid();
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
-            bufferedWriter.append(orderToString + "\n");
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileOrder, true))) {
+             bufferedWriter.append(orderToString + "\n");
+             reservedMapRepository.saveToFileDateReserves(order.getRoom().getId(),arrayListDates);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         return order;
     }
 
-    public static ArrayList<Order> buildArrayListOfOrders() throws BadRequestException {
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+    public  ArrayList<Order> buildArrayListOfOrders() throws BadRequestException, IOException {
+        BufferedReader bfr = new BufferedReader(new FileReader(fileOrder));
             String orderInStringPresentation;
-            while ((orderInStringPresentation = br.readLine()) != null) {
+            orderArrayList.clear();
+            while ((orderInStringPresentation = bfr.readLine()) != null) {
                 orderArrayList.add(buildOrder(orderInStringPresentation));
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return orderArrayList;
     }
 
-    public static Order buildOrder(String orderInStringPresentation) throws BadRequestException {
+    public  Order buildOrder(String orderInStringPresentation) throws BadRequestException {
         Order order;
         String[] orderInStringPresentationArray = orderInStringPresentation.trim().split(", ");
 
         try  {
             long id = Long.parseLong(orderInStringPresentationArray[0]);
-            User user = UserRepository.getUserFromFileById(Long.parseLong(orderInStringPresentationArray[1]));
+            User user = userRepository.getUserFromFileById(Long.parseLong(orderInStringPresentationArray[1]));
             Room room = RoomRepository.getRoomFromFileById(Long.parseLong(orderInStringPresentationArray[2]));
             Date dateFrom = new SimpleDateFormat("dd-MM-yyyy").parse(orderInStringPresentationArray[3]);
             Date dateTo =new SimpleDateFormat("dd-MM-yyyy").parse(orderInStringPresentationArray[4]);
@@ -68,7 +68,7 @@ public class OrderRepository {
         return null;
     }
 
-    public static Order getOrderById(long id) throws BadRequestException {
+    public  Order getOrderById(long id) throws BadRequestException {
 
         for (Order o : orderArrayList){
             if (o.getId()==id){

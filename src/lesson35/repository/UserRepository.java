@@ -24,13 +24,12 @@ public class UserRepository {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
             bufferedWriter.append(userToString + "\n");
             bufferedWriter.flush();
-            Loaders.loadUserArrayList();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static User getUserFromFileById(long id) throws BadRequestException {
+    public  User getUserFromFileById(long id) throws BadRequestException {
         ArrayList<User> userArrayList = buildArrayListOfUsers();
         for (User user : userArrayList) {
             if (user.getId() == id) {
@@ -57,7 +56,7 @@ public class UserRepository {
 
     }
 
-    public static ArrayList<User> buildArrayListOfUsers() {
+    public  ArrayList<User> buildArrayListOfUsers() {
         ArrayList<User> userArrayList = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\java\\user.txt"))) {
             String userInStringPresentation;
@@ -73,4 +72,23 @@ public class UserRepository {
     }
 
 
+    public User getUserByName(String userName) throws BadRequestException {
+        ArrayList<User> userArrayList = buildArrayListOfUsers();
+        for (User user : userArrayList) {
+            if (user.getUserName().equals(userName)) {
+                return user;
+            }
+        }
+        throw new BadRequestException("User wiht name: " + userName + "not found in base");
+    }
+
+    public User getUserById(long userId) throws BadRequestException {
+        ArrayList<User> userArrayList = buildArrayListOfUsers();
+        for (User user : userArrayList) {
+            if (user.getId()==userId) {
+                return user;
+            }
+        }
+        throw new BadRequestException("User wiht name: " + userId + "not found in base");
+    }
 }

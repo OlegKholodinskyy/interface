@@ -13,7 +13,6 @@ public class Solution {
         validation(fileFromPath, fileToPath);
         fillStringBuffers(readFromFile(fileFromPath), word);
         writeFiles(fileFromPath, fileToPath);
-
     }
 
     private static void writeFiles(String fileFromPath, String fileToPath) {

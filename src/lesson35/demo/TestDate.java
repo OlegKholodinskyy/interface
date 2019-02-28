@@ -9,7 +9,7 @@ public class TestDate {
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDate = new SimpleDateFormat(pattern);
         Date dateFrom = simpleDate.parse("2018-09-09");
-        System.out.println(dateFrom);
+        System.out.println(simpleDate.format(dateFrom));
 
     }
 }

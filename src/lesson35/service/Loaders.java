@@ -26,40 +26,47 @@ public class Loaders {
     private static ArrayList<Hotel> hotelsArrayList;
     private static Map<String, Long> mapObjectIds;
 
+public static void loadAllParameters() throws Exception {
+  //  loadMapObjectId();
+ //   loadUserArrayList();
+ //   loadOrderArrayList();
+}
 
 
-    public static void loadUserArrayList() {
-        if (usersArrayList == null) {
-            usersArrayList = new ArrayList<User>();
-        } else {
-            usersArrayList.clear();
-        }
-        usersArrayList = UserRepository.buildArrayListOfUsers();
-    }
 
-    public static ArrayList<User> getUsersArrayList() {
-        return usersArrayList;
-    }
 
-    public static ArrayList<Room> getRoomsArrayList() {
-        return roomsArrayList;
-    }
+//    public static void loadUserArrayList() {
+//        if (usersArrayList == null) {
+//            usersArrayList = new ArrayList<User>();
+//        } else {
+//            usersArrayList.clear();
+//        }
+//        usersArrayList = UserRepository.buildArrayListOfUsers();
+//    }
+//
+//    public static ArrayList<User> getUsersArrayList() {
+//        return usersArrayList;
+//    }
+//
+//    public static ArrayList<Room> getRoomsArrayList() {
+//        return roomsArrayList;
+//    }
+//
+//    public static ArrayList<Hotel> getHotelsArrayList(){
+//        return hotelsArrayList;
+//    }
+//    public static void loadOrderArrayList() throws BadRequestException, IOException {
+//        if (ordersArrayList == null) {
+//            ordersArrayList = new ArrayList<Order>();
+//        } else {
+//            ordersArrayList.clear();
+//        }
+//        ordersArrayList = orderRepository.buildArrayListOfOrders();
+//    }
 
-    public static ArrayList<Hotel> getHotelsArrayList(){
-        return hotelsArrayList;
-    }
-    public static void loadOrderArrayList() throws BadRequestException {
-        if (ordersArrayList == null) {
-            ordersArrayList = new ArrayList<Order>();
-        } else {
-            ordersArrayList.clear();
-        }
-        ordersArrayList = OrderRepository.buildArrayListOfOrders();
-    }
-
-    public static ArrayList<Order> getOrdersArrayList() {
-        return ordersArrayList;
-    }
+  //  public static ArrayList<Order> getOrdersArrayList() {
+//        return ordersArrayList;
+//    }
 
     public static void loadMapObjectId() {
 
@@ -104,23 +111,5 @@ public class Loaders {
         return mapObjectIds;
     }
 
-    public static ArrayList<Room> loadRoomsArrayList() throws BadRequestException {
-        if (roomsArrayList == null) {
-            roomsArrayList = new ArrayList<Room>();
-        } else {
-            roomsArrayList.clear();
-        }
-        roomsArrayList = RoomRepository.buildArrayListOfRooms();
-        return roomsArrayList;
-    }
 
-    public static ArrayList<Hotel> loadHotelsArrayList() throws Exception {
-        if (hotelsArrayList == null) {
-            hotelsArrayList = new ArrayList<Hotel>();
-        } else {
-            hotelsArrayList.clear();
-        }
-        hotelsArrayList = HotelRepository.buildArrayListOfHotels();
-        return hotelsArrayList;
-    }
 }

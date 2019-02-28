@@ -12,4 +12,8 @@ public class RoomController {
     public  Room addRoom(Room room) throws BadRequestException, BadInputException {
         return roomService.addRoom(room);
     }
+
+    public long deleteRoom(long roomId) throws BadRequestException {
+        return roomService.deleteRoomdRoom(roomId);
+    }
 }
