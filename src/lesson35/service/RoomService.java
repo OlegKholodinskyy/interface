@@ -5,6 +5,7 @@ import lesson35.exception.BadRequestException;
 import lesson35.model.Order;
 import lesson35.model.Room;
 import lesson35.model.User;
+import lesson35.repository.ReservedMapRepository;
 import lesson35.repository.RoomRepository;
 import lesson35.repository.UserRepository;
 
@@ -18,6 +19,7 @@ public class RoomService {
     RoomRepository roomRepository = new RoomRepository();
     OrderService orderService = new OrderService();
     UserRepository userRepository = new UserRepository();
+    // ReservedMapRepository reservedMapRepository = new ReservedMapRepository();
 
     public Room addRoom(Room room) throws BadRequestException, BadInputException {
         checkIfRoomIsExist(room);
@@ -65,6 +67,13 @@ public class RoomService {
 
         Order order = new Order(userRepository.getUserById(userId), roomRepository.getRoomById(roomId), dateFrom, dateTo, moneyPaid);
         orderService.addOrder(order);
+
+    }
+
+    public void cancelReservation(long roomId, long userId) throws ParseException, BadRequestException, IOException {
+
+        orderService.dellOrder(roomId,userId);
+
 
     }
 }

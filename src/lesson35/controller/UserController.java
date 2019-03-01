@@ -58,4 +58,10 @@ public class UserController {
     public void bookRoom(long roomId, long userId, long hotelId, Date dateFrom, Date dateTo, double moneyPaid) throws BadRequestException, BadInputException, ParseException, IOException {
         roomService.bookRoom(roomId, userId, hotelId, dateFrom,dateTo,moneyPaid);
     }
+
+
+    public void cancelReservation(long roomId, long userId) throws ParseException, BadRequestException, IOException {
+        roomService.cancelReservation (roomId,userId);
+    }
+
 }

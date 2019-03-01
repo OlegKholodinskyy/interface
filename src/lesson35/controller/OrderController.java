@@ -16,7 +16,4 @@ public class OrderController {
         return orderService.addOrder(order);
     }
 
-    public  Order removeOrder(Order order){
-        return orderService.removeOrder(order);
-    }
 }

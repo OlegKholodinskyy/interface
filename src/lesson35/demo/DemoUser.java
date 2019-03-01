@@ -163,9 +163,10 @@ public class DemoUser {
         }
 
         try {
-        Date dateFrom = simpleDate.parse("10-06-2016");
-        Date dateTo = simpleDate.parse("16-06-2016");
+        Date dateFrom = simpleDate.parse("01-03-2019");
+        Date dateTo = simpleDate.parse("03-03-2019");
         userController.bookRoom(1058, 240, 201, dateFrom,dateTo,50);
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } catch (BadRequestException e) {
@@ -177,10 +178,9 @@ public class DemoUser {
         }
 
 
-
         try {
-            Date dateFrom = simpleDate.parse("15-06-2017");
-            Date dateTo = simpleDate.parse("17-06-2017");
+            Date dateFrom = simpleDate.parse("04-03-2019");
+            Date dateTo = simpleDate.parse("05-03-2019");
             userController.bookRoom(1058, 289, 201, dateFrom,dateTo,150);
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -193,8 +193,22 @@ public class DemoUser {
         }
 
         try {
-            Date dateFrom = simpleDate.parse("17-06-2017");
-            Date dateTo = simpleDate.parse("17-06-2017");
+            Date dateFrom = simpleDate.parse("06-03-2019");
+            Date dateTo = simpleDate.parse("09-03-2019");
+            userController.bookRoom(1079, 1034, 201, dateFrom,dateTo,150);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (BadRequestException e) {
+            System.out.println(e.getMessage());
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+        } catch (BadInputException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            Date dateFrom = simpleDate.parse("24-06-2017");
+            Date dateTo = simpleDate.parse("26-06-2017");
             userController.bookRoom(1058, 240, 201, dateFrom,dateTo,10);
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -205,9 +219,19 @@ public class DemoUser {
         } catch (BadInputException e) {
             System.out.println(e.getMessage());
         }
+
+
+        try {
+            userController.cancelReservation(1058,289);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (BadRequestException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
-
-
-
-
 }

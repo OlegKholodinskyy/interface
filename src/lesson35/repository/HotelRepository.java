@@ -65,7 +65,8 @@ public class HotelRepository {
         return hotelId;
     }
 
-    private void writeHotelstoFile(StringBuffer buffer) {
+    private void writeHotelstoFile(StringBuffer buffer) throws BadRequestException {
+        validation(file);
         try (BufferedWriter br = new BufferedWriter(new FileWriter(file))) {
             br.append(buffer);
         } catch (IOException e) {
