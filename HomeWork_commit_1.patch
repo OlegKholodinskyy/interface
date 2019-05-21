@@ -1,0 +1,53 @@
+Index: src/lesson11HomeWork/Room.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/lesson11HomeWork/Room.java	(revision fd418fe183cad3d25f3c61472c99de9b0a05e627)
++++ src/lesson11HomeWork/Room.java	(date 1542500966467)
+@@ -7,15 +7,15 @@
+     private long id;
+     private int price;
+     private int persons;
+-    private Date dateAviableFrom;
++    private Date dateAvailableFrom;
+     private String hotelName;
+     private String cityName;
+ 
+-    public Room(long id, int price, int persons, Date dateAviableFrom, String hotelName, String cityName) {
++    public Room(long id, int price, int persons, Date dateAvailableFrom, String hotelName, String cityName) {
+         this.id = id;
+         this.price = price;
+         this.persons = persons;
+-        this.dateAviableFrom = dateAviableFrom;
++        this.dateAvailableFrom = dateAvailableFrom;
+         this.hotelName = hotelName;
+         this.cityName = cityName;
+     }
+@@ -33,7 +33,7 @@
+     }
+ 
+     public Date getDateAvailableFrom() {
+-        return dateAviableFrom;
++        return dateAvailableFrom;
+     }
+ 
+     public String getHotelName() {
+@@ -49,7 +49,7 @@
+     }
+ 
+     public void setDateAvailableFrom(Date dateAviableFrom) {
+-        this.dateAviableFrom = dateAviableFrom;
++        this.dateAvailableFrom = dateAviableFrom;
+     }
+ 
+     @Override
+@@ -75,7 +75,7 @@
+                 "id=" + id +
+                 ", price=" + price +
+                 ", persons=" + persons +
+-                ", dateAviableFrom=" + dateAviableFrom +
++                ", dateAvailableFrom=" + dateAvailableFrom +
+                 ", hotelName='" + hotelName + '\'' +
+                 ", cityName='" + cityName + '\'' +
+                 '}';

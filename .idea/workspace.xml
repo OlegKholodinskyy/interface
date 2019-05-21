@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/lesson11/interfaceexample/OracleDbProvider.java" description="@Override" line="13" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6bfe93c9-d112-4419-b264-2db2e6d42469" name="Default" comment="after updating 21-05-2019" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/GromoCode$TestCutDates.ic" NAME="TestCutDates Coverage Results" MODIFIED="1551446637554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lesson35.demo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/GromoCode$Solution.ic" NAME="Solution Coverage Results" MODIFIED="1542668920540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lesson17.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/GromoCode$Demo.ic" NAME="Demo Coverage Results" MODIFIED="1543139410064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lesson19.fileTransferException.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/GromoCode$Solution__2_.ic" NAME="Solution (2) Coverage Results" MODIFIED="1547989581635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lesson18.digitInWords.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/GromoCode$DemoOrder.ic" NAME="DemoOrder Coverage Results" MODIFIED="1550700071895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lesson35.demo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/GromoCode$DemoUser.ic" NAME="DemoUser Coverage Results" MODIFIED="1550752154726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lesson35.demo.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="GromoCode" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DemoUser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lesson35/demo/DemoUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lesson35/repository/OrderRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lesson35/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservedMapRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lesson35/repository/ReservedMapRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lesson35/service/OrderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="yet_unknown" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>dateAvailableFrom</find>
+      <find>BookingComAPI</find>
+      <find>\}\n</find>
+      <find />
+      <find>null</find>
+      <find>getCurrentSizeOfStorage</find>
+      <find>checkMaxSize</find>
+      <find>F</find>
+      <find>File is null. Not added.</find>
+      <find>Arr</find>
+      <find>arr</find>
+      <find>eq</find>
+      <find>fund</find>
+      <find>rom</find>
+      <find>R</find>
+      <find>userService</find>
+      <find>buildOrder</find>
+      <find>logo</find>
+      <find>24</find>
+      <find>Hotel</find>
+      <find>RepositoryHelper</find>
+      <find>getHotelById</find>
+      <find>writeRoomsToFile</find>
+      <find>validation</find>
+      <find>roomRepository</find>
+      <find>OrderService</find>
+      <find>orderService</find>
+      <find>getDatesFromFile</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/lesson32/homeWork2_2_2/Solution.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task1/Practice.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task2/Demo.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task2/Solution.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task3/Demo.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task4/Demo.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/Hotel.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/User.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/Room.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/Order.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/model/Filter.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/model/UserType.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/exception/BadInputException.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/test/testUserRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/Settings.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/UserFactory.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/SettingsProject.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/OrderDemo.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/InitializeProjectSettings.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/model/Order.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/exception/BadRequestException.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/PropertyRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/exception/BadParseException.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/ReservedMap.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/TestOleg.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/TestDate.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/model/User.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task4/Solution.java" />
+        <option value="$PROJECT_DIR$/src/lesson34/task3/Solution.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/controller/HotelController.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/model/Hotel.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/Loaders.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/TestCutDates.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/RepositoryOperations.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/DemoOrder.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/HotelService.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/RepositoryHelper.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/RoomRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/controller/RoomController.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/HotelRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/DemoRoom.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/model/Room.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/demo/DemoUser.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/RoomService.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/ReservedMapRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/repository/OrderRepository.java" />
+        <option value="$PROJECT_DIR$/src/lesson35/service/OrderService.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="309" />
+    <option name="y" value="286" />
+    <option name="width" value="1313" />
+    <option name="height" value="647" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lesson35" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lesson35" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lesson35" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lesson35" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lesson35" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GromoCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GromoCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lesson35" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/oleg/IdeaProjects/GromoCode/src/lesson35/demo/DemoUser.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../relational-db" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="lesson30" />
+      <recent name="lesson22" />
+      <recent name="lesson20" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oleg\IdeaProjects\GromoCode\src" />
+      <recent name="C:\Users\oleg\IdeaProjects\GromoCode\src\lesson30\task1" />
+      <recent name="C:\Users\oleg\IdeaProjects\GromoCode\src\lesson27\hw2" />
+      <recent name="C:\Users\oleg\IdeaProjects\GromoCode\src\lesson27\hw" />
+      <recent name="C:\Users\oleg\IdeaProjects\GromoCode\src\lesson25" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lesson34" />
+      <recent name="lesson33.hw" />
+      <recent name="lesson32.homeWork2_2_2" />
+      <recent name="lesson33.hw2" />
+      <recent name="lesson33" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="lesson35.model" />
+      <recent name="lesson32.homeWork2" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.DemoUser">
+    <configuration name="DemoOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lesson35.demo.DemoOrder" />
+      <module name="GromoCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lesson35.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="DemoRoom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lesson35.demo.DemoRoom" />
+      <module name="GromoCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lesson35.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="DemoUser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lesson35.demo.DemoUser" />
+      <module name="GromoCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lesson35.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TestCutDates" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lesson35.demo.TestCutDates" />
+      <module name="GromoCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lesson35.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TestDate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lesson35.demo.TestDate" />
+      <module name="GromoCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lesson35.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Application.DemoUser" />
+      <item itemvalue="Application.DemoOrder" />
+      <item itemvalue="Application.TestDate" />
+      <item itemvalue="Application.DemoRoom" />
+      <item itemvalue="Application.TestCutDates" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DemoUser" />
+        <item itemvalue="Application.TestCutDates" />
+        <item itemvalue="Application.DemoOrder" />
+        <item itemvalue="Application.DemoRoom" />
+        <item itemvalue="Application.TestDate" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6bfe93c9-d112-4419-b264-2db2e6d42469" name="Default" comment="" />
+      <created>1542471564333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1542471564333</updated>
+    </task>
+    <task id="LOCAL-00160" summary="HomeWork_commit_1">
+      <created>1544958977656</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1544958977657</updated>
+    </task>
+    <task id="LOCAL-00161" summary="HomeWork_commit_1">
+      <created>1544959237514</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1544959237515</updated>
+    </task>
+    <task id="LOCAL-00162" summary="HomeWork_commit_1">
+      <created>1544995791912</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1544995791915</updated>
+    </task>
+    <task id="LOCAL-00163" summary="HomeWork_commit_1">
+      <created>1544996401088</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1544996401088</updated>
+    </task>
+    <task id="LOCAL-00164" summary="HomeWork_commit_1">
+      <created>1544996458493</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1544996458493</updated>
+    </task>
+    <task id="LOCAL-00165" summary="HomeWork_commit_1">
+      <created>1545165697898</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1545165697900</updated>
+    </task>
+    <task id="LOCAL-00166" summary="HomeWork_commit_1">
+      <created>1545165830135</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1545165830135</updated>
+    </task>
+    <task id="LOCAL-00167" summary="HomeWork_commit_1">
+      <created>1545165998345</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1545165998345</updated>
+    </task>
+    <task id="LOCAL-00168" summary="HomeWork_commit_1">
+      <created>1545166076415</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1545166076418</updated>
+    </task>
+    <task id="LOCAL-00169" summary="HomeWork_commit_1">
+      <created>1545166137574</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1545166137574</updated>
+    </task>
+    <task id="LOCAL-00170" summary="HomeWork_commit_1">
+      <created>1545166258411</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1545166258411</updated>
+    </task>
+    <task id="LOCAL-00171" summary="HomeWork_commit_1">
+      <created>1545233802176</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1545233802179</updated>
+    </task>
+    <task id="LOCAL-00172" summary="HomeWork_commit_1">
+      <created>1545512616027</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1545512616027</updated>
+    </task>
+    <task id="LOCAL-00173" summary="HomeWork_commit_1">
+      <created>1545577236695</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1545577236697</updated>
+    </task>
+    <task id="LOCAL-00174" summary="HomeWork_commit_1">
+      <created>1545577537805</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1545577537805</updated>
+    </task>
+    <task id="LOCAL-00175" summary="HomeWork_commit_1">
+      <created>1545578363694</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1545578363694</updated>
+    </task>
+    <task id="LOCAL-00176" summary="HomeWork_commit_1">
+      <created>1545584273750</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1545584273750</updated>
+    </task>
+    <task id="LOCAL-00177" summary="HomeWork_commit_1">
+      <created>1545584759687</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1545584759687</updated>
+    </task>
+    <task id="LOCAL-00178" summary="HomeWork_commit_1">
+      <created>1545608981574</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1545608981574</updated>
+    </task>
+    <task id="LOCAL-00179" summary="HomeWork_commit_1">
+      <created>1545695235539</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1545695235540</updated>
+    </task>
+    <task id="LOCAL-00180" summary="HomeWork_commit_1">
+      <created>1547643100018</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1547643100020</updated>
+    </task>
+    <task id="LOCAL-00181" summary="HomeWork_commit_1">
+      <created>1547643323064</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1547643323064</updated>
+    </task>
+    <task id="LOCAL-00182" summary="HomeWork_commit_1">
+      <created>1547647075483</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1547647075484</updated>
+    </task>
+    <task id="LOCAL-00183" summary="HomeWork_commit_1">
+      <created>1547976402752</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1547976402753</updated>
+    </task>
+    <task id="LOCAL-00184" summary="HomeWork_commit_1">
+      <created>1547976475552</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1547976475552</updated>
+    </task>
+    <task id="LOCAL-00185" summary="HomeWork_commit_1">
+      <created>1547976583513</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1547976583514</updated>
+    </task>
+    <task id="LOCAL-00186" summary="HomeWork_commit_1">
+      <created>1547987159331</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1547987159331</updated>
+    </task>
+    <task id="LOCAL-00187" summary="HomeWork_commit_1">
+      <created>1548066702033</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1548066702034</updated>
+    </task>
+    <task id="LOCAL-00188" summary="HomeWork_commit_1">
+      <created>1548067676553</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1548067676553</updated>
+    </task>
+    <task id="LOCAL-00189" summary="HomeWork_commit_1">
+      <created>1548144139390</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1548144139392</updated>
+    </task>
+    <task id="LOCAL-00190" summary="HomeWork_commit_1">
+      <created>1548144347615</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1548144347615</updated>
+    </task>
+    <task id="LOCAL-00191" summary="HomeWork_commit_1">
+      <created>1548577209498</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1548577209499</updated>
+    </task>
+    <task id="LOCAL-00192" summary="HomeWork_commit_1">
+      <created>1548584744912</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1548584744912</updated>
+    </task>
+    <task id="LOCAL-00193" summary="HomeWork_commit_1">
+      <created>1548586020524</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1548586020528</updated>
+    </task>
+    <task id="LOCAL-00194" summary="HomeWork_commit_1">
+      <created>1548586313625</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1548586313626</updated>
+    </task>
+    <task id="LOCAL-00195" summary="HomeWork_commit_1">
+      <created>1548705798115</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1548705798118</updated>
+    </task>
+    <task id="LOCAL-00196" summary="HomeWork_commit_1">
+      <created>1548709231734</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1548709231734</updated>
+    </task>
+    <task id="LOCAL-00197" summary="HomeWork_commit_1">
+      <created>1548709460025</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1548709460025</updated>
+    </task>
+    <task id="LOCAL-00198" summary="HomeWork_commit_1">
+      <created>1548709676451</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1548709676451</updated>
+    </task>
+    <task id="LOCAL-00199" summary="HomeWork_commit_1">
+      <created>1548714939564</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1548714939564</updated>
+    </task>
+    <task id="LOCAL-00200" summary="HomeWork_commit_1">
+      <created>1548927867489</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1548927867491</updated>
+    </task>
+    <task id="LOCAL-00201" summary="HomeWork_commit_1">
+      <created>1549129929530</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1549129929532</updated>
+    </task>
+    <task id="LOCAL-00202" summary="HomeWork_commit_1">
+      <created>1549143416475</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1549143416476</updated>
+    </task>
+    <task id="LOCAL-00203" summary="HomeWork_commit_1">
+      <created>1549283186918</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1549283186920</updated>
+    </task>
+    <task id="LOCAL-00204" summary="HomeWork_commit_1">
+      <created>1549283224844</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1549283224844</updated>
+    </task>
+    <task id="LOCAL-00205" summary="HomeWork_commit_1">
+      <created>1550395577542</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1550395577544</updated>
+    </task>
+    <task id="LOCAL-00206" summary="HomeWork_commit_1">
+      <created>1551369038869</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1551369038873</updated>
+    </task>
+    <task id="LOCAL-00207" summary="HomeWork_commit_1">
+      <created>1551476552963</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1551476552966</updated>
+    </task>
+    <task id="LOCAL-00208" summary="after updating 21-05-2019">
+      <created>1558429264188</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1558429264189</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.3297546" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49926794" weight="0.32649842" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5014641" side_tool="true" weight="0.3288889" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.32980332" />
+      <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49853587" weight="0.28374234" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.2665615" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3297546" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="0" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.25236592" visible="true" weight="0.1633888" />
+      <window_info id="Structure" order="6" sideWeight="0.74763405" side_tool="true" visible="true" weight="0.1633888" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.11422088" />
+      <window_info id="UI Designer" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.18003026" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.28864354" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.24962178" />
+      <window_info anchor="right" id="Coverage" order="1" side_tool="true" weight="0.15506808" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" auto_hide="true" x="0" y="0" width="295" height="584" id="Documentation" order="0" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32668713" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.24962178" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.26498422" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49926794" weight="0.32649842" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49684542" visible="true" weight="0.20347957" />
+      <window_info active="true" id="Structure" order="6" sideWeight="0.5031546" side_tool="true" visible="true" weight="0.20347957" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="9" weight="0.11422088" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.3297546" />
+      <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49853587" weight="0.28374234" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32668713" />
+      <window_info anchor="right" auto_hide="true" x="0" y="0" width="295" height="584" id="Documentation" order="0" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.23006135" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Coverage" order="1" side_tool="true" weight="0.15506808" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5014641" side_tool="true" weight="0.3288889" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3297546" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32980332" />
+      <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.18003026" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="biginterfaceexample" />
+    <MESSAGE value="HomeWork_commit_5" />
+    <MESSAGE value="HomeWork_commit_7" />
+    <MESSAGE value="HomeWork12_commit_1" />
+    <MESSAGE value="HomeWork_commit_2" />
+    <MESSAGE value="HomeWork_commit_3" />
+    <MESSAGE value="HomeWork_commit_4" />
+    <MESSAGE value="HomeWork_commit_6" />
+    <MESSAGE value="HomeWork_commit_8" />
+    <MESSAGE value="HomeWork_commit_10" />
+    <MESSAGE value="HomeWork_17_1" />
+    <MESSAGE value="HomeWork17_commit2" />
+    <MESSAGE value="HomeWork_tmp" />
+    <MESSAGE value="HomeWork_last" />
+    <MESSAGE value="HomeWork_commit_long and short" />
+    <MESSAGE value="HomeWork_commit_1" />
+    <MESSAGE value="after updating 21-05-2019" />
+    <option name="LAST_COMMIT_MESSAGE" value="after updating 21-05-2019" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson17/lesson17HomeWorkCountWords/Solution.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson17/lesson17LongShort/Solution.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson17/lesson17LongShort/Solution.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson17/lesson17MostCountedWord/Solution.java</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson22_controller_Dao/task2/Controller.java</url>
+          <line>9</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson30/task1/Demo.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson20/task2/Controller.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson20/task2/Controller.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson30/hw2/Customer.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson30/hw2/Controller.java</url>
+          <line>227</line>
+          <properties />
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson32/ReadFromKeyboard.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/lesson35/demo/TestOleg.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/lesson20/task2/Transaction.java</url>
+          <line>47</line>
+          <properties class="lesson20.task2.Transaction" method="equals">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/lesson30/task1/Transaction.java</url>
+          <line>28</line>
+          <properties class="lesson30.task1.Transaction" method="toString">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/lesson18/digitInWords/Solution.java</url>
+          <line>11</line>
+          <properties class="lesson18.digitInWords.Solution" method="findNumbers">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/lesson32/homeWork2_2/Solution.java</url>
+          <line>13</line>
+          <properties class="lesson32.homeWork2_2.Solution" method="readNumbers">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/lesson35/service/UserService.java</url>
+          <line>23</line>
+          <properties field="usersArrayList" class="lesson35.service.UserService" />
+          <option name="timeStamp" value="382" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="386" />
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>s</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/io/FileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/InitializeProjectSettings.java" />
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/GenerarorIds.java" />
+    <entry file="file://$PROJECT_DIR$/src/lesson35/test/testUserRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/lesson35/exception/BadInputException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/exception/BadRequestException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/exception/BadParseException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2760">
+          <caret line="176" column="7" selection-start-line="176" selection-start-column="7" selection-end-line="176" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/demo/TestDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="68" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="9" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/io/PrintStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="323" selection-start-line="323" selection-end-line="323" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/Throwable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="376" selection-start-line="376" selection-end-line="376" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/model/UserType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson31/MapIntro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson31/Building.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/demo/TestCutDates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="37" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson34/task3/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson34/task4/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/model/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1280">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson22_controller_Dao/task2/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson22_controller_Dao/task2/TransactionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson19/ThrowExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson20/task1/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson20/task1/exception/BadRequestException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson19/fileTransferException/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1420">
+          <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson19/fileTransferException/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson17/lesson17Validate/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/demo/TestOleg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/model/Hotel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/controller/HotelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/demo/DemoOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#973#974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/RepositoryHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/RoomRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/controller/RoomController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/HotelRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/demo/DemoRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/model/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+          <folding>
+            <element signature="e#1231#1232#0" expanded="true" />
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1661#1662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/model/Filter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/HotelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="121" column="27" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/RoomService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/PropertyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-217">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/Loaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/ReservedMapRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/repository/OrderRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson35/demo/DemoUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>GromoCode</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>commons-io-2.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
