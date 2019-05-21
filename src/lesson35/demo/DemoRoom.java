@@ -8,11 +8,12 @@ import lesson35.model.Room;
 import lesson35.service.RoomService;
 
 import java.beans.SimpleBeanInfo;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class DemoRoom {
-    public static void main(String[] args) throws ParseException, BadRequestException, BadInputException {
+    public static void main(String[] args) throws ParseException, BadRequestException, BadInputException, IOException {
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDate = new SimpleDateFormat(pattern);
 Hotel hotel= new Hotel("AAA","ukr","tern","fevevee");

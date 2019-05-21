@@ -51,6 +51,10 @@ public class Room {
         return petsAllowed;
     }
 
+    public void setDateAviableFrom(Date dateAviableFrom) {
+        this.dateAviableFrom = dateAviableFrom;
+    }
+
     public Date getDateAviableFrom() {
         return dateAviableFrom;
     }

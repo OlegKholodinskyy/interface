@@ -10,6 +10,7 @@ import lesson35.model.User;
 import lesson35.model.UserType;
 import lesson35.repository.UserRepository;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -20,10 +21,21 @@ public class UserService {
     private HotelController hotelController = new HotelController();
     private RoomController roomController = new RoomController();
 
-    ArrayList<User> usersArrayList = userRepository.buildArrayListOfUsers();
+    ArrayList<User> usersArrayList;
+
+    {
+        try {
+            usersArrayList = userRepository.buildArrayListOfUsers();
+        } catch (BadRequestException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     private User registredUser;
 
-    public User registerUser(User user) throws BadInputException, BadRequestException {
+    public User registerUser(User user) throws BadInputException, BadRequestException, IOException {
 
         validateBeforeRegisterUser(user);
         checkIfUserIsExist(user);
@@ -45,7 +57,7 @@ public class UserService {
         }
     }
 
-    public User login(String userName, String pass) throws BadRequestException, BadInputException {
+    public User login(String userName, String pass) throws BadRequestException, BadInputException, FileNotFoundException {
         User u = userRepository.getUserByName(userName);
         if (u.getUserName().equals(userName) && u.getPassword().equals(pass)) {
             registredUser = u;
@@ -55,7 +67,7 @@ public class UserService {
         throw new BadInputException("User " + userName + " is not logined by reason - wrong  userName or password");
     }
 
-    public User logout(String userName) throws BadInputException, BadRequestException {
+    public User logout(String userName) throws BadInputException, BadRequestException, FileNotFoundException {
         User u = userRepository.getUserByName(userName);
         if (registredUser.equals(u)) {
             registredUser = null;
@@ -86,7 +98,7 @@ public class UserService {
         throw new BadRequestException("Current user " + registredUser.getUserName() + " don`t have permission to delete hotel");
     }
 
-    public Room addRoom(Room room) throws BadRequestException, BadInputException {
+    public Room addRoom(Room room) throws BadRequestException, BadInputException, IOException {
         if (registredUser == null) {
             throw new BadRequestException("User is not logined. Room is not added");
         }
@@ -96,7 +108,7 @@ public class UserService {
         throw new BadRequestException("Current user " + registredUser.getUserName() + " don`t have permission to add room");
     }
 
-    public long deleteRoom(long roomId) throws BadRequestException {
+    public long deleteRoom(long roomId) throws BadRequestException, IOException {
         if (registredUser == null) {
             throw new BadRequestException("User is not logined. Room is not deletet");
         }
@@ -107,7 +119,29 @@ public class UserService {
 
     }
 
-    public User gerUserById(long userId) throws BadRequestException {
-        return userRepository.getUserById(userId);
+    public User getUserById(long id) throws IOException, BadRequestException {
+        return userRepository.getUserById(id);
     }
+
+    public long deleteUser(long userId) throws BadRequestException, IOException {
+        if (registredUser == null) {
+            throw new BadRequestException("User is not logined. User is not deletet");
+        }
+        if (registredUser.getUserType().equals(UserType.ADMIN)) {
+            checkIfUserIsPresent(userId);
+            return userRepository.deleteUser(userId);
+        }
+        throw new BadRequestException("Current user " + registredUser.getUserName() + " don`t have permission to delete user");
+    }
+
+    private void checkIfUserIsPresent(long userId) throws IOException, BadRequestException {
+        ArrayList<User> users = userRepository.buildArrayListOfUsers();
+        for (User user : users) {
+            if (user.getId() == userId) {
+                return;
+            }
+        }
+        throw new BadRequestException("User with id " + userId + " not found in the file");
+    }
+
 }

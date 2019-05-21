@@ -12,53 +12,39 @@ public class UserRepository {
 
     File file = new File("C:\\java\\user.txt");
 
-    public User registerUser(User user) throws BadRequestException {
+    public User registerUser(User user) throws BadRequestException, IOException {
         saveUserToFile(user);
         return user;
     }
 
-    private void saveUserToFile(User user) {
-        String userToString = user.getId() + ", " + user.getUserName() + ", " + user.getPassword() + ", " +
+    private User saveUserToFile(User user) throws BadRequestException, IOException {
+        validation(file);
+        String userInString = user.getId() + ", " + user.getUserName() + ", " + user.getPassword() + ", " +
                 user.getCountry() + ", " + user.getUserType();
-
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
-            bufferedWriter.append(userToString + "\n");
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        RepositoryHelper.append(userInString, file);
+        return user;
     }
 
-    public  User getUserFromFileById(long id) throws BadRequestException {
-        ArrayList<User> userArrayList = buildArrayListOfUsers();
-        for (User user : userArrayList) {
-            if (user.getId() == id) {
-                return user;
-            }
-        }
-        throw new BadRequestException("User wiht id: " + id + "not found in base");
-    }
-
-
-    public static User buildUser(String userInStringPresentation) {
+    public static User buildUser(String userInString) {
 
         User user;
 
-        String[] userInStringPresentationArray = userInStringPresentation.trim().split(", ");
+        String[] userArrInString = userInString.trim().split(", ");
 
-        long id = Long.parseLong(userInStringPresentationArray[0]);
-        String username = userInStringPresentationArray[1];
-        String pass = userInStringPresentationArray[2];
-        String country = userInStringPresentationArray[3];
-        UserType userType = UserType.valueOf(userInStringPresentationArray[4]);
+        long id = Long.parseLong(userArrInString[0]);
+        String username = userArrInString[1];
+        String pass = userArrInString[2];
+        String country = userArrInString[3];
+        UserType userType = UserType.valueOf(userArrInString[4]);
 
         return user = new User(id, username, pass, country, userType);
 
     }
 
-    public  ArrayList<User> buildArrayListOfUsers() {
+    public ArrayList<User> buildArrayListOfUsers() throws BadRequestException, FileNotFoundException {
+        validation(file);
         ArrayList<User> userArrayList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\java\\user.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String userInStringPresentation;
             while ((userInStringPresentation = br.readLine()) != null) {
                 userArrayList.add(buildUser(userInStringPresentation));
@@ -72,7 +58,7 @@ public class UserRepository {
     }
 
 
-    public User getUserByName(String userName) throws BadRequestException {
+    public User getUserByName(String userName) throws BadRequestException, FileNotFoundException {
         ArrayList<User> userArrayList = buildArrayListOfUsers();
         for (User user : userArrayList) {
             if (user.getUserName().equals(userName)) {
@@ -82,13 +68,33 @@ public class UserRepository {
         throw new BadRequestException("User wiht name: " + userName + "not found in base");
     }
 
-    public User getUserById(long userId) throws BadRequestException {
-        ArrayList<User> userArrayList = buildArrayListOfUsers();
-        for (User user : userArrayList) {
-            if (user.getId()==userId) {
-                return user;
-            }
+    public User getUserById(long userId) throws BadRequestException, IOException {
+        String userInString = RepositoryHelper.getStringById(userId, file);
+        if (userInString != null) {
+            return buildUser(userInString);
         }
         throw new BadRequestException("User wiht name: " + userId + "not found in base");
     }
+
+    public long deleteUser(long userId) throws BadRequestException, IOException {
+        validation(file);
+        StringBuffer buffer = RepositoryHelper.excludeRequired(userId, file);
+        RepositoryHelper.writeToFile(buffer, file);
+        System.out.println("User with id " + userId + " is deleted");
+        return userId;
+    }
+
+    private static void validation(File file) throws BadRequestException, FileNotFoundException {
+
+        if (!file.exists()) {
+            throw new FileNotFoundException("File " + file.toString() + " does not exist");
+        }
+        if (!file.canRead()) {
+            throw new BadRequestException("File " + file.toString() + " does not have permission to read");
+        }
+        if (!file.canWrite()) {
+            throw new BadRequestException("File " + file.canRead() + " does not have permission to write");
+        }
+    }
+
 }

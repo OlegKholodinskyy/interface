@@ -17,11 +17,11 @@ import java.util.Date;
 public class RoomService {
 
     RoomRepository roomRepository = new RoomRepository();
-    OrderService orderService = new OrderService();
-    UserRepository userRepository = new UserRepository();
-    // ReservedMapRepository reservedMapRepository = new ReservedMapRepository();
+  //  OrderService orderService = new OrderService();
+  //  UserRepository userRepository = new UserRepository();
+  // ReservedMapRepository reservedMapRepository = new ReservedMapRepository();
 
-    public Room addRoom(Room room) throws BadRequestException, BadInputException {
+    public Room addRoom(Room room) throws BadRequestException, BadInputException, IOException {
         checkIfRoomIsExist(room);
         validateBeforeAddingRoom(room);
         return roomRepository.addRoomToFile(room);
@@ -47,7 +47,7 @@ public class RoomService {
         }
     }
 
-    public long deleteRoomdRoom(long roomId) throws BadRequestException {
+    public long deleteRoomdRoom(long roomId) throws BadRequestException, IOException {
         checkIfRoomWithNecessaryIdIsPresent(roomId);
         return roomRepository.deleteRoom(roomId);
 
@@ -63,17 +63,16 @@ public class RoomService {
         throw new BadRequestException("Room with id " + roomId + " not found in the file");
     }
 
-    public void bookRoom(long roomId, long userId, long hotelId, Date dateFrom, Date dateTo, double moneyPaid) throws BadRequestException, ParseException, BadInputException, IOException {
 
-        Order order = new Order(userRepository.getUserById(userId), roomRepository.getRoomById(roomId), dateFrom, dateTo, moneyPaid);
-        orderService.addOrder(order);
-
+    public void updateRoom(long id, Date dateTo) throws BadRequestException, IOException {
+        Room room = getRoomById(id);
+        roomRepository.deleteRoom(id);
+        room.setDateAviableFrom(dateTo);
+        roomRepository.addRoomToFile(room);
     }
 
-    public void cancelReservation(long roomId, long userId) throws ParseException, BadRequestException, IOException {
 
-        orderService.dellOrder(roomId,userId);
-
-
+    public Room getRoomById(long id) throws IOException, BadRequestException {
+        return roomRepository.getRoomById(id);
     }
 }

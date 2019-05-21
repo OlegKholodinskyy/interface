@@ -54,7 +54,7 @@ public class ReservedMapRepository {
         return hashMap;
     }
 
-
+// date - список дат на які ми добавляємо резерв
     public void saveToFileDateReserves(Long idRoom, ArrayList<Date> dates) throws IOException {
 
         StringBuffer resultListOfOrderedDates = new StringBuffer();

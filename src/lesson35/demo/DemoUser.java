@@ -11,6 +11,7 @@ import lesson35.model.UserType;
 import lesson35.repository.UserRepository;
 import lesson35.service.Loaders;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,15 +23,36 @@ public class DemoUser {
         String pattern = "dd-MM-yyyy";
         SimpleDateFormat simpleDate = new SimpleDateFormat(pattern);
         HotelController hotelController = new HotelController();
+        UserController userController = new UserController();
 
-        User userFirst = new User("Oleg", "1234", "Ukraine", UserType.ADMIN);
-        User userSecond = new User("Stepan", "1234", "Ukraine", UserType.USER);
-        User userThird = new User("Oleguner", "1234", "Ukraine", UserType.ADMIN);
+        try {
+            userController.login("Oleg","1234");
+        } catch (BadRequestException e) {
+            e.printStackTrace();
+        } catch (BadInputException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            userController.deleteUser(1808);
+        } catch (BadRequestException e) {
+            System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+/*
+        User userFirst = new User("Ol111eg", "1234", "Ukraine", UserType.ADMIN);
+        User userSecond = new User("St222epan", "1234", "Ukraine", UserType.USER);
+        User userThird = new User("333322", "1234", "Ukraine", UserType.ADMIN);
         User userFourth = new User("Irina", "1234", "Germany", UserType.USER);
         User userFifth = new User("Olga", "1234", "USA", UserType.USER);
 
 
-        UserController userController = new UserController();
+
 
         try {
             userController.registerUser(userFirst);
@@ -38,6 +60,8 @@ public class DemoUser {
             System.out.println(e.getMessage());
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         try {
             userController.registerUser(userSecond);
@@ -45,6 +69,8 @@ public class DemoUser {
             System.out.println(e.getMessage());
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         try {
             userController.registerUser(userThird);
@@ -52,6 +78,8 @@ public class DemoUser {
             System.out.println(e.getMessage());
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         try {
@@ -60,6 +88,8 @@ public class DemoUser {
             System.out.println(e.getMessage());
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         try {
@@ -68,6 +98,8 @@ public class DemoUser {
             System.out.println(e.getMessage());
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         try {
@@ -76,12 +108,14 @@ public class DemoUser {
             System.out.println(e.getMessage());
         } catch (BadInputException e) {
             System.out.println(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
 
-        Hotel hotel = new Hotel("RockHotel", "USA", "Vashington", "Rusveld str.");
-        Hotel hotel2 = new Hotel("Toronto", "CANADA", "torinto", "Lvovska str.");
-        Hotel hotel3 = new Hotel("VarshavaMainHotel", "Poland", "Varshava", "Main str.");
+        Hotel hotel = new Hotel("34523", "USA", "Vashington", "Rusveld str.");
+        Hotel hotel2 = new Hotel("Toront54oTest", "CANADA", "torinto", "Lvovska str.");
+        Hotel hotel3 = new Hotel("534534534", "Poland", "Varshava", "Main str.");
         try {
             userController.addHotel(hotel);
         } catch (BadRequestException e) {
@@ -111,14 +145,21 @@ public class DemoUser {
             System.out.println(e.getMessage());
         }
         try {
-            userController.deleteHotel(81);
+            userController.deleteHotel(54);
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
-/*
+        try {
+            System.out.println( hotelController.getHotelById(3473));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (BadRequestException e) {
+            System.out.println(e.getMessage());
+        }
+
         try {
             userController.logout("Oleg");
         } catch (BadInputException e) {
@@ -126,7 +167,7 @@ public class DemoUser {
         } catch (BadRequestException e) {
             e.printStackTrace();
         }
-*/
+
         try {
             Date dateAviableFrom = null;
             dateAviableFrom = simpleDate.parse("02-05-2019");
@@ -161,10 +202,10 @@ public class DemoUser {
         } catch (BadRequestException e) {
             System.out.println(e.getMessage());
         }
-
+*/
         try {
-        Date dateFrom = simpleDate.parse("01-03-2019");
-        Date dateTo = simpleDate.parse("03-03-2019");
+        Date dateFrom = simpleDate.parse("01-03-2022");
+        Date dateTo = simpleDate.parse("03-03-2022");
         userController.bookRoom(1058, 240, 201, dateFrom,dateTo,50);
 
         } catch (IOException e) {
@@ -176,7 +217,7 @@ public class DemoUser {
         } catch (BadInputException e) {
             System.out.println(e.getMessage());
         }
-
+/*
 
         try {
             Date dateFrom = simpleDate.parse("04-03-2019");
@@ -230,7 +271,7 @@ public class DemoUser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+*/
 
 
     }

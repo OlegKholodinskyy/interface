@@ -24,16 +24,16 @@ public class DemoOrder {
         RoomController roomController = new RoomController();
         OrderController orderController = new OrderController();
         UserRepository userRepository = new UserRepository();
-
+        RoomRepository roomRepository = new RoomRepository();
         Loaders.loadAllParameters();
 
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDate = new SimpleDateFormat(pattern);
 
-        User user = userRepository.getUserFromFileById(240);
-        User user1 = userRepository.getUserFromFileById(1013);
-      //  Hotel hotel = HotelRepository.getHotelById(1000);
-       Room room = RoomRepository.getRoomFromFileById(1056);
+        User user = userRepository.getUserById(240);
+        User user1 = userRepository.getUserById(1013);
+        //  Hotel hotel = HotelRepository.getHotelById(1000);
+        Room room = roomRepository.getRoomById(1056);
 
         roomController.addRoom(room);
         Order order1 = new Order(user1, room, simpleDate.parse("2018-09-09"), simpleDate.parse("2018-09-09"), 20);
